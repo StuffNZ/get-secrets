@@ -7,13 +7,13 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/aws"
-    "github.com/aws/aws-sdk-go/aws/session"
-    "github.com/aws/aws-sdk-go/service/s3"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3"
 )
 
 type Source struct {
-	Url string
-	url *url.URL
+	Url    string
+	url    *url.URL
 	bucket string
 	prefix string
 	//session *session.Session
@@ -29,12 +29,10 @@ func (s *Source) Init() *Source {
 	}
 
 	s.bucket = s.url.Host
-	s.prefix = strings.TrimPrefix(s.url.Path, "/")    // an initial `/` won't work with S3
+	s.prefix = strings.TrimPrefix(s.url.Path, "/") // an initial `/` won't work with S3
 
 	return s
 }
-
-func (s *Source) Validate()
 
 func (s *Source) initUrl() error {
 	var err error

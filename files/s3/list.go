@@ -6,7 +6,7 @@ import (
 	// "net/url"
 
 	log "github.com/Sirupsen/logrus"
-    "github.com/aws/aws-sdk-go/service/s3"
+	"github.com/aws/aws-sdk-go/service/s3"
 )
 
 func (s Source) List() ([]string, error) {
