@@ -15,8 +15,8 @@
 package main
 
 import (
-	log "github.com/sirupsen/logrus"
 	"bitbucket.org/mexisme/build-dotenv/cmd"
+	log "github.com/sirupsen/logrus"
 )
 
 /*

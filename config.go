@@ -1,10 +1,10 @@
 package main
 
 import (
-	"os"
 	log "github.com/Sirupsen/logrus"
 	"github.com/evalphobia/logrus_sentry"
 	"github.com/spf13/viper"
+	"os"
 )
 
 func init() {
@@ -52,7 +52,7 @@ func configLogging() {
 		if hook, err := logrus_sentry.NewWithTagsSentryHook(sentry_dsn, tags, levels); err == nil {
 			// Set the Sentry "release" version, dep on the setting in the config:
 			for _, release_key := range []string{"sentry.release", "version"} {
-				if sentry_release := viper.GetString(release_key);  sentry_release != "" {
+				if sentry_release := viper.GetString(release_key); sentry_release != "" {
 					log.WithFields(log.Fields{release_key: sentry_release}).Debug()
 					hook.SetRelease(sentry_release)
 					break
