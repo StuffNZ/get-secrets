@@ -20,19 +20,21 @@ type Source struct {
 	s3session *s3.S3
 }
 
-func (s *Source) Init() (*Source, error) {
+func (s *Source) Init() *Source {
 	if err := s.initUrl(); err != nil {
-		return nil, err
+		log.Panic(err)
 	}
 	if err := s.initSession(); err != nil {
-		return nil, err
+		log.Panic(err)
 	}
 
 	s.bucket = s.url.Host
 	s.prefix = strings.TrimPrefix(s.url.Path, "/")    // an initial `/` won't work with S3
 
-	return s, nil
+	return s
 }
+
+func (s *Source) Validate()
 
 func (s *Source) initUrl() error {
 	var err error
