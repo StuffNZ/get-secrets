@@ -1,7 +1,7 @@
 package main_test
 
 import (
-	// . "bitbucket.org/mexisme/build-dotenv"
+	// . "build-dotenv"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

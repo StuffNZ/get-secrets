@@ -1,4 +1,4 @@
-package: bitbucket.org/mexisme/build-dotenv
+package: build-dotenv
 import:
 - package: github.com/Sirupsen/logrus
   version: ^0.11.5
