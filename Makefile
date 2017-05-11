@@ -15,25 +15,25 @@ GLIDE   = glide
 TIMEOUT = 15
 V = 0
 Q = $(if $(filter 1,$V),,@)
-M = $(shell printf "\033[34;1m▶\033[0m")
+M = $(shell printf "\033[34;1m>>\033[0m")
 
 .PHONY: all
-all: fmt lint vendor | $(BASE) ; $(info $(M) building executable…) @ ## Build program binary
+all: vendor | $(BASE) ; $(info $(M) building executable...) @ ## Build program binary
 	$Q cd $(BASE) && $(GO) build \
 		-tags release \
 		-ldflags '-X $(PACKAGE)/cmd.Version=$(VERSION) -X $(PACKAGE)/cmd.BuildDate=$(DATE)' \
 		-o bin/$(PACKAGE) main.go
 
-$(BASE): ; $(info $(M) setting GOPATH…)
+$(BASE): ; $(info $(M) setting GOPATH...)
 	@mkdir -p $(dir $@)
 	@ln -sf $(CURDIR) $@
 
 # Dependency management
 
-glide.lock: glide.yaml | $(BASE) ; $(info $(M) updating dependencies…)
+glide.lock: glide.yaml | $(BASE) ; $(info $(M) updating dependencies...)
 	$Q cd $(BASE) && $(GLIDE) update
 	@touch $@
-vendor: glide.lock | $(BASE) ; $(info $(M) retrieving dependencies…)
+vendor: glide.lock | $(BASE) ; $(info $(M) retrieving dependencies...)
 	$Q cd $(BASE) && $(GLIDE) --quiet install
 	@ln -sf . vendor/src
 	@touch $@
@@ -41,7 +41,7 @@ vendor: glide.lock | $(BASE) ; $(info $(M) retrieving dependencies…)
 # Misc
 
 .PHONY: clean
-clean: ; $(info $(M) cleaning…)	@ ## Cleanup everything
+clean: ; $(info $(M) cleaning...)	@ ## Cleanup everything
 	@rm -rf $(GOPATH)
 	@rm -rf bin
 	@rm -rf test/tests.* test/coverage.*
