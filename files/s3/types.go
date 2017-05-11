@@ -61,6 +61,7 @@ func (s *Source) initSession() error {
 		return err
 
 	} else {
+		// TODO: This should be in a config file (or ~/.aws/config):
 		s.s3session = s3.New(session, &aws.Config{Region: aws.String("ap-southeast-2")})
 		return nil
 	}
