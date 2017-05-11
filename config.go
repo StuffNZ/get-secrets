@@ -40,7 +40,7 @@ func configLogging() {
 		log.Debug("Debug mode enabled")
 	}
 
-	if sentry_dsn := viper.GetString("sentry.dsn"); sentry_dsn != "" {
+	if sentryDsn := viper.GetString("sentry.dsn"); sentryDsn != "" {
 		tags := map[string]string{
 			"app": viper.GetString("app"),
 		}
@@ -49,19 +49,19 @@ func configLogging() {
 			log.FatalLevel,
 			log.ErrorLevel,
 		}
-		if hook, err := logrus_sentry.NewWithTagsSentryHook(sentry_dsn, tags, levels); err == nil {
+		if hook, err := logrus_sentry.NewWithTagsSentryHook(sentryDsn, tags, levels); err == nil {
 			// Set the Sentry "release" version, dep on the setting in the config:
-			for _, release_key := range []string{"sentry.release", "version"} {
-				if sentry_release := viper.GetString(release_key); sentry_release != "" {
-					log.WithFields(log.Fields{release_key: sentry_release}).Debug()
-					hook.SetRelease(sentry_release)
+			for _, releaseKey := range []string{"sentry.release", "version"} {
+				if sentryRelease := viper.GetString(releaseKey); sentryRelease != "" {
+					log.WithFields(log.Fields{releaseKey: sentryRelease}).Debug()
+					hook.SetRelease(sentryRelease)
 					break
 				}
 			}
 			hook.StacktraceConfiguration.Enable = true
 			log.AddHook(hook)
 
-			log.WithFields(log.Fields{"sentry.dsn": sentry_dsn}).Debug("Sentry enabled")
+			log.WithFields(log.Fields{"sentry.dsn": sentryDsn}).Debug("Sentry enabled")
 
 		} else {
 			log.Warn(err)

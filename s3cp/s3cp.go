@@ -1,4 +1,4 @@
-// From https://github.com/kr/s3/tree/master/s3cp
+// Package s3cp from https://github.com/kr/s3/tree/master/s3cp
 // Added public read for uploaded files
 // Command s3cp copies a file to or from Amazon S3.
 //
@@ -32,7 +32,7 @@ import (
 	"github.com/kr/s3/s3util"
 )
 
-func main_NOT() {
+func mainNOT() {
 	s3util.DefaultConfig.AccessKey = os.Getenv("S3_ACCESS_KEY")
 	s3util.DefaultConfig.SecretKey = os.Getenv("S3_SECRET_KEY")
 	args := os.Args[1:]
