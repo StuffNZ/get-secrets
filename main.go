@@ -2,7 +2,7 @@ package main
 
 import (
 	log "github.com/Sirupsen/logrus"
-	s3ish "build-dotenv/files/s3"
+	s3ish "bitbucket.org/mexisme/build-dotenv/files/s3"
 	// "build-dotenv/cmd"
 )
 
