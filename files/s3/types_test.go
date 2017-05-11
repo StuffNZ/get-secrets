@@ -8,9 +8,9 @@ import (
 )
 
 var _ = Describe("Types", func() {
-	It("Bad URL Panics", func() {
+	It("Bad Base URL Panics", func() {
 		Expect(func() {
-			(&Source{Url: "no-way"}).Init()
+			(&Source{Base: "no-way"}).Init()
 		}).To(Panic())
 	})
 })

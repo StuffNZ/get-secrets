@@ -11,8 +11,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 
+// Source Dir for Secret files
 type Source struct {
-	Url    string
+	Base   string
 	url    *url.URL
 	bucket string
 	prefix string
@@ -20,8 +21,9 @@ type Source struct {
 	s3session *s3.S3
 }
 
+// Init Source struct
 func (s *Source) Init() *Source {
-	if err := s.initUrl(); err != nil {
+	if err := s.initBase(); err != nil {
 		log.Panic(err)
 	}
 	if err := s.initSession(); err != nil {
@@ -34,21 +36,22 @@ func (s *Source) Init() *Source {
 	return s
 }
 
-func (s *Source) initUrl() error {
+func (s *Source) initBase() error {
 	var err error
 
-	if s.Url == "" {
+	if s.Base == "" {
+		// FIXME: I really want to combine both of these!
 		log.Error("No URL provided.")
-		return fmt.Errorf("No URL provided.")
+		return fmt.Errorf("No Base URL provided")
 	}
-	if s.url, err = url.Parse(s.Url); err != nil {
-		log.WithFields(log.Fields{"url": s.Url}).Error(err)
+	if s.url, err = url.Parse(s.Base); err != nil {
+		log.WithFields(log.Fields{"base-url": s.Base}).Error(err)
 		return err
 	}
 
 	if s.url.Scheme != "s3" {
-		log.WithFields(log.Fields{"url": s.url}).Error("URL Scheme is not supported.")
-		return fmt.Errorf("URL Scheme is not supported: %q", s.url.Scheme)
+		log.WithFields(log.Fields{"url": s.url}).Error("Base URL Scheme is not supported.")
+		return fmt.Errorf("Base URL Scheme is not supported: %q", s.url.Scheme)
 	}
 
 	return nil
@@ -56,13 +59,14 @@ func (s *Source) initUrl() error {
 
 func (s *Source) initSession() error {
 	// TODO: Enable AWS_SDK_LOAD_CONFIG env-var, somehow!
-	if session, err := session.NewSession(); err != nil {
+	session, err := session.NewSession()
+	if err != nil {
 		log.Error(err)
 		return err
 
-	} else {
-		// TODO: This should be in a config file (or ~/.aws/config):
-		s.s3session = s3.New(session, &aws.Config{Region: aws.String("ap-southeast-2")})
-		return nil
 	}
+
+	// TODO: This should be in a config file (or ~/.aws/config):
+	s.s3session = s3.New(session, &aws.Config{Region: aws.String("ap-southeast-2")})
+	return nil
 }
