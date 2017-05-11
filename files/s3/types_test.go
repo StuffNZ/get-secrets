@@ -1,7 +1,7 @@
 package s3_test
 
 import (
-	. "bitbucket.org/mexisme/build-dotenv/files/s3"
+	. "build-dotenv/files/s3"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
