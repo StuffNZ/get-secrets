@@ -9,6 +9,9 @@ import (
 )
 
 var _ = Describe("List", func() {
+	It("Returns the correct Dir List for a faked list", func() {
+	})
+
 	It("", func() {
 		Skip("Placeholder")
 		Expect(true).To(BeTrue())

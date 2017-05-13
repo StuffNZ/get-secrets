@@ -1,8 +1,8 @@
-package url_test
+package s3url_test
 
 import (
 	// "net/url"
-	. "build-dotenv/files/s3/url"
+	. "build-dotenv/files/s3/s3url"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -11,38 +11,50 @@ import (
 var _ = Describe("The S3 URL type", func() {
 	It("panics with an empty URL", func() {
 		Expect(func() {
-			New(Config{})
+			New().WithURL("")
 		}).To(Panic())
 	})
 
 	It("panics with an invalid URL", func() {
 		Expect(func() {
-			New(Config{URL: "..why::"})
+			New().WithURL("..why::")
 		}).To(Panic())
 	})
 
 	It("returns correct Bucket and Prefix from a good Base URL", func() {
-		s3ish := New(Config{URL: "s3://a/b"})
+		s3ish := New().WithURL("s3://a/b")
 
 		Expect(s3ish.Bucket()).To(Equal("a"))
 		Expect(s3ish.Prefix()).To(Equal("b"))
 	})
 
 	It("returns the correct Bucket when given a Bucket", func() {
-		Expect(New(Config{Bucket: "Yerp"}).Bucket()).To(Equal("Yerp"))
+		Expect(New().WithBucket("Yerp").Bucket()).To(Equal("Yerp"))
+	})
+
+	It("panics with an empty Bucket", func() {
+		Expect(func() {
+			New().WithBucket("")
+		}).To(Panic())
 	})
 
 	It("returns the correct Prefix when given a Prefix", func() {
-		Expect(New(Config{Bucket: "Yerp", Prefix: "Derp"}).Prefix()).To(Equal("Derp"))
+		s3ish := New().WithBucketPrefix("Yerp", "Derp")
+		Expect(s3ish.Bucket()).To(Equal("Yerp"))
+		Expect(s3ish.Prefix()).To(Equal("Derp"))
+	})
+
+	It("returns a '/' Prefix when not given a Prefix", func() {
+		Expect(New().WithBucket("Yerp").Prefix()).To(Equal("/"))
 	})
 
 	It("returns a '/' Prefix when given an empty Prefix", func() {
-		Expect(New(Config{Bucket: "Yerp"}).Prefix()).To(Equal("/"))
+		Expect(New().WithBucketPrefix("Yerp", "").Prefix()).To(Equal("/"))
 	})
 
 	It("panics with an empty Bucket and 'full' Prefix", func() {
 		Expect(func() {
-			New(Config{Prefix: "Derp"})
+			New().WithBucketPrefix("", "Derp")
 		}).To(Panic())
 	})
 })

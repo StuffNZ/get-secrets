@@ -8,7 +8,7 @@ import (
 )
 
 // List all the objects beneath the S3 path
-func (s Source) List() ([]string, error) {
+func (s Details) List() ([]string, error) {
 	resp, err := s.s3ListObjectsOutput()
 	if err != nil {
 		return nil, err
@@ -17,13 +17,14 @@ func (s Source) List() ([]string, error) {
 	return s.s3MungeListObjectsOutput(s.s3PrefixDir(), resp), nil
 }
 
-func (s Source) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
+func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
+	bucket, prefix := (*s.source).Bucket(), (*s.source).Prefix()
 	params := &s3.ListObjectsInput{
-		Bucket: &s.Bucket,
-		Prefix: &s.Prefix,
+		Bucket: &bucket,
+		Prefix: &prefix,
 	}
 
-	resp, err := s.S3Session.ListObjects(params)
+	resp, err := s.s3Session.ListObjects(params)
 	if err != nil {
 		log.Error(err)
 		return nil, err
@@ -34,14 +35,14 @@ func (s Source) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
 	return resp, nil
 }
 
-func (s Source) s3PrefixDir() string {
-	prefixDir := fmt.Sprintf("%s/", s.Prefix)
+func (s Details) s3PrefixDir() string {
+	prefixDir := fmt.Sprintf("%s/", (*s.source).Prefix())
 	log.WithFields(log.Fields{"s3PrefixDir": prefixDir}).Debug()
 
 	return prefixDir
 }
 
-func (s Source) s3MungeListObjectsOutput(prefixDir string, resp *s3.ListObjectsOutput) []string {
+func (s Details) s3MungeListObjectsOutput(prefixDir string, resp *s3.ListObjectsOutput) []string {
 	var paths []string
 
 	for _, key := range resp.Contents {

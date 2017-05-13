@@ -1,4 +1,4 @@
-package url_test
+package s3url_test
 
 import (
 	. "github.com/onsi/ginkgo"
