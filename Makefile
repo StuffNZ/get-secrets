@@ -9,6 +9,8 @@ PKGS     = $(or $(PKG),$(shell cd $(BASE) && env GOPATH=$(GOPATH) $(GO) list ./.
 TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if .TestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
 
 GO      = go
+# GO_TEST = go test
+GO_TEST = ginkgo
 GODOC   = godoc
 GOFMT   = gofmt
 GLIDE   = glide
@@ -62,7 +64,8 @@ $(TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
 $(TEST_TARGETS): test
 check test tests: fmt lint quick-test
 quick-check quick-test: vendor | $(BASE) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
-	$Q cd $(BASE) && $(GO) test -timeout $(TIMEOUT)s $(ARGS) $(TESTPKGS)
+	$Q cd $(BASE) && $(GO_TEST) -r -v $(ARGS) $(TESTPKGS)
+#	$Q cd $(BASE) && $(GO) test -timeout $(TIMEOUT)s $(ARGS) $(TESTPKGS)
 
 test-xml: fmt lint quick-text-xml
 quick-test-xml: fmt lint vendor | $(BASE) $(GO2XUNIT) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests with xUnit output
@@ -80,7 +83,7 @@ quick-test-coverage: COVERAGE_DIR := $(CURDIR)/test/coverage.$(shell date -u +"%
 quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running coverage tests...) @ ## Run coverage tests
 	$Q mkdir -p $(COVERAGE_DIR)/coverage
 	$Q cd $(BASE) && for pkg in $(TESTPKGS); do \
-		$(GO) test \
+		$(GO_TEST) -v \
 			-coverpkg=$$($(GO) list -f '{{ join .Deps "\n" }}' $$pkg | \
 					grep '^$(PACKAGE)/' | grep -v '^$(PACKAGE)/vendor/' | \
 					tr '\n' ',')$$pkg \
@@ -90,6 +93,19 @@ quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running 
 	$Q $(GOCOVMERGE) $(COVERAGE_DIR)/coverage/*.cover > $(COVERAGE_PROFILE)
 	$Q $(GO) tool cover -html=$(COVERAGE_PROFILE) -o $(COVERAGE_HTML)
 	$Q $(GOCOV) convert $(COVERAGE_PROFILE) | $(GOCOVXML) > $(COVERAGE_XML)
+# quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running coverage tests...) @ ## Run coverage tests
+# 	$Q mkdir -p $(COVERAGE_DIR)/coverage
+# 	$Q cd $(BASE) && for pkg in $(TESTPKGS); do \
+# 		$(GO) test \
+# 			-coverpkg=$$($(GO) list -f '{{ join .Deps "\n" }}' $$pkg | \
+# 					grep '^$(PACKAGE)/' | grep -v '^$(PACKAGE)/vendor/' | \
+# 					tr '\n' ',')$$pkg \
+# 			-covermode=$(COVERAGE_MODE) \
+# 			-coverprofile="$(COVERAGE_DIR)/coverage/`echo $$pkg | tr "/" "-"`.cover" $$pkg ;\
+# 	 done
+# 	$Q $(GOCOVMERGE) $(COVERAGE_DIR)/coverage/*.cover > $(COVERAGE_PROFILE)
+# 	$Q $(GO) tool cover -html=$(COVERAGE_PROFILE) -o $(COVERAGE_HTML)
+# 	$Q $(GOCOV) convert $(COVERAGE_PROFILE) | $(GOCOVXML) > $(COVERAGE_XML)
 
 .PHONY: lint
 lint: vendor | $(BASE) $(GOLINT) ; $(info $(M) running golint...) @ ## Run golint
