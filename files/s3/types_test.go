@@ -2,7 +2,7 @@ package s3_test
 
 import (
 	// "net/url"
-	// . "build-dotenv/files/s3"
+	. "build-dotenv/files/s3"
 	// urlish "build-dotenv/files/s3/s3url"
 
 	. "github.com/onsi/ginkgo"
@@ -20,7 +20,11 @@ var _ = Describe("The S3 type", func() {
 	// 	s3 := New(Config{Source: url}).
 	// })
 
-	It("Bad Session Panics", func() {
+	It("panics with a bad Session", func() {
 		Skip("Have to mock / fake the AWS SDK?")
 	})
+
+	// It("s with empty AWS Region", func() {
+	// 	Expect
+	// })
 })

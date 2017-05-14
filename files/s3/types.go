@@ -1,10 +1,6 @@
 package s3
 
 import (
-	// "net/url"
-
-	//"build-dotenv/files/s3/s3url"
-
 	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -39,10 +35,10 @@ func New() *Details {
 }
 
 // WithSource creates new struct with `source` updated
-func (s *Details) WithSource(source *BucketPrefix) *Details {
+func (s *Details) WithSource(source BucketPrefix) *Details {
 	clone := *s // This does a shallow clone
 
-	clone.source = source
+	clone.source = &source
 
 	var err error
 	if clone.s3Session, err = s.newS3Session(); err != nil {
