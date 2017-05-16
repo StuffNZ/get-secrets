@@ -15,15 +15,15 @@ var (
 	AwsConfig = &aws.Config{Region: aws.String(AwsRegion)}
 )
 
-// BucketPrefix is the required interface for "Source" attr
-type BucketPrefix interface {
+// bucketPrefix is the required interface for "Source" attr
+type bucketPrefix interface {
 	Bucket() string
 	Prefix() string
 }
 
 // Details for getting Secret files
 type Details struct {
-	source    *BucketPrefix
+	source    bucketPrefix
 	awsConfig *aws.Config
 	s3Session *s3.S3
 	//session *session.Session
@@ -35,10 +35,10 @@ func New() *Details {
 }
 
 // WithSource creates new struct with `source` updated
-func (s *Details) WithSource(source BucketPrefix) *Details {
+func (s *Details) WithSource(source bucketPrefix) *Details {
 	clone := *s // This does a shallow clone
 
-	clone.source = &source
+	clone.source = source
 
 	var err error
 	if clone.s3Session, err = s.newS3Session(); err != nil {

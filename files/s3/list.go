@@ -18,7 +18,7 @@ func (s Details) List() ([]string, error) {
 }
 
 func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
-	bucket, prefix := (*s.source).Bucket(), (*s.source).Prefix()
+	bucket, prefix := s.source.Bucket(), s.source.Prefix()
 	params := &s3.ListObjectsInput{
 		Bucket: &bucket,
 		Prefix: &prefix,
@@ -36,7 +36,7 @@ func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
 }
 
 func (s Details) s3PrefixDir() string {
-	prefixDir := fmt.Sprintf("%s/", (*s.source).Prefix())
+	prefixDir := fmt.Sprintf("%s/", s.source.Prefix())
 	log.WithFields(log.Fields{"s3PrefixDir": prefixDir}).Debug()
 
 	return prefixDir
