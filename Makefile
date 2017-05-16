@@ -10,7 +10,7 @@ TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if .TestGoFiles }}{{ .
 
 GO      = go
 # GO_TEST = go test
-GO_TEST = ginkgo
+GO_TEST = ginkgo -r -p -v
 GODOC   = godoc
 GOFMT   = gofmt
 GLIDE   = glide
@@ -64,7 +64,7 @@ $(TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
 $(TEST_TARGETS): test
 check test tests: fmt lint quick-test
 quick-check quick-test: vendor | $(BASE) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
-	$Q cd $(BASE) && $(GO_TEST) -r -v $(ARGS) $(TESTPKGS)
+	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(TESTPKGS)
 #	$Q cd $(BASE) && $(GO) test -timeout $(TIMEOUT)s $(ARGS) $(TESTPKGS)
 
 test-xml: fmt lint quick-text-xml
@@ -83,10 +83,7 @@ quick-test-coverage: COVERAGE_DIR := $(CURDIR)/test/coverage.$(shell date -u +"%
 quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running coverage tests...) @ ## Run coverage tests
 	$Q mkdir -p $(COVERAGE_DIR)/coverage
 	$Q cd $(BASE) && for pkg in $(TESTPKGS); do \
-		$(GO_TEST) -v \
-			-coverpkg=$$($(GO) list -f '{{ join .Deps "\n" }}' $$pkg | \
-					grep '^$(PACKAGE)/' | grep -v '^$(PACKAGE)/vendor/' | \
-					tr '\n' ',')$$pkg \
+		$(GO_TEST) \
 			-covermode=$(COVERAGE_MODE) \
 			-coverprofile="$(COVERAGE_DIR)/coverage/`echo $$pkg | tr "/" "-"`.cover" $$pkg ;\
 	 done
