@@ -54,7 +54,7 @@ func (s *Details) WithS3Session(s3Session *s3.S3) *Details {
 
 	clone.s3Session = s3Session
 
-	return s
+	return &clone
 }
 
 // S3 returns the
