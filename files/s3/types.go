@@ -31,7 +31,9 @@ type Details struct {
 
 // New object
 func New() *Details {
-	return &Details{}
+	return &Details{
+		awsConfig: AwsConfig,
+	}
 }
 
 // WithSource creates new struct with `source` updated
