@@ -40,9 +40,11 @@ func (s *Details) WithSource(source bucketPrefix) *Details {
 
 	clone.source = source
 
-	var err error
-	if clone.s3Session, err = s.newS3Session(); err != nil {
-		log.Panic(err)
+	if clone.s3Session == nil {
+		var err error
+		if clone.s3Session, err = s.newS3Session(); err != nil {
+			log.Panic(err)
+		}
 	}
 
 	return &clone
