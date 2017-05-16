@@ -8,12 +8,9 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-var _ = Describe("List", func() {
-	It("Returns the correct Dir List for a faked list", func() {
-	})
-
+var _ = Describe("The S3 List functions", func() {
 	It("", func() {
-		Skip("Placeholder")
+		Skip("Because the AWS SDK is bloody terrible to unit test.")
 		Expect(true).To(BeTrue())
 	})
 })
