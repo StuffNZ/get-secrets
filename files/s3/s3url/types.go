@@ -14,7 +14,6 @@ type Path struct {
 	url       *url.URL
 	bucket    string
 	prefix    string
-	test      string
 }
 
 // New object
