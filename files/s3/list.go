@@ -1,12 +1,14 @@
 package s3
 
 import (
-	"fmt"
 	"strings"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/service/s3"
 )
+
+// Paths is the list of entries found
+type Paths []string
 
 // List all the objects beneath the S3 path
 func (s Details) List() ([]string, error) {
@@ -37,7 +39,7 @@ func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
 }
 
 func (s Details) s3MungeListObjectsOutput(prefixDir string, resp *s3.ListObjectsOutput) []string {
-	var paths []string
+	var paths Paths
 
 	for _, key := range resp.Contents {
 		log.WithFields(log.Fields{"key": *key.Key}).Debug("Found item.")
