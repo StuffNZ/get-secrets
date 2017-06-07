@@ -52,6 +52,18 @@ var _ = Describe("The S3 URL type", func() {
 		Expect(New().WithBucketPrefix("Yerp", "").Prefix()).To(Equal("/"))
 	})
 
+	It("trims left-most '/' from Prefix", func() {
+		Expect(New().WithBucketPrefix("Yerp", "//hello").Prefix()).To(Equal("hello"))
+	})
+
+	It("trims right-most '/' from Prefix", func() {
+		Expect(New().WithBucketPrefix("Yerp", "hello//").Prefix()).To(Equal("hello"))
+	})
+
+	It("trims both left-most and right-most '/' from Prefix", func() {
+		Expect(New().WithBucketPrefix("Yerp", "//hello/there/you//").Prefix()).To(Equal("hello/there/you"))
+	})
+
 	It("panics with an empty Bucket and 'full' Prefix", func() {
 		Expect(func() {
 			New().WithBucketPrefix("", "Derp")

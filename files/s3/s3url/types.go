@@ -27,6 +27,8 @@ func New() *Path {
 
 // WithURL creates new struct updated according to the provided URL
 func (s *Path) WithURL(url string) *Path {
+	var err error
+
 	clone := *s // This does a shallow clone
 
 	if url == "" {
@@ -35,7 +37,11 @@ func (s *Path) WithURL(url string) *Path {
 
 	clone.urlString = url
 	clone.url = clone.urlFromURLString(clone.urlString)
-	clone.bucket, clone.prefix = s.bucketPrefixFromURL(clone.url)
+	bucket, prefix := s.bucketPrefixFromURL(clone.url)
+	clone.bucket, clone.prefix, err = s.tidyBucketPrefix(bucket, prefix)
+	if err != nil {
+		log.Panic(err)
+	}
 
 	return &clone
 }
@@ -47,18 +53,16 @@ func (s *Path) WithBucket(bucket string) *Path {
 
 // WithBucketPrefix creates new struct with `Bucket` and `Prefix` updated
 func (s *Path) WithBucketPrefix(bucket, prefix string) *Path {
+	var err error
+
 	clone := *s // This does a shallow clone
 
-	if bucket == "" {
-		log.Panic("Empty Bucket provided")
+	clone.bucket, clone.prefix, err = s.tidyBucketPrefix(bucket, prefix)
+	if err != nil {
+		log.Panic(err)
 	}
 
-	if prefix == "" {
-		prefix = "/"
-	}
-
-	clone.bucket, clone.prefix = bucket, prefix
-	clone.urlString = fmt.Sprintf("s3://%s/%s", bucket, prefix)
+	clone.urlString = fmt.Sprintf("s3://%s/%s", clone.bucket, clone.prefix)
 	clone.url = clone.urlFromURLString(clone.urlString)
 
 	return &clone
@@ -93,9 +97,24 @@ func (s *Path) bucketPrefixFromURL(url *url.URL) (string, string) {
 		log.WithFields(log.Fields{"url": url}).Panic("Base URL Scheme is not supported.")
 	}
 
-	bucket := url.Host
-	// an initial `/` won't work with S3
-	prefix := strings.TrimPrefix(url.Path, "/")
+	return url.Host, url.Path
+}
 
-	return bucket, prefix
+func (s *Path) tidyBucketPrefix(bucket, prefix string) (string, string, error) {
+	if bucket == "" {
+		return "", "", fmt.Errorf("Empty Bucket provided")
+	}
+
+	// Remove leading and trailing `/` (an initial `/` won't work with S3):
+	prefix = strings.TrimRight(prefix, "/")
+	prefix = strings.TrimLeft(prefix, "/")
+
+	// Add/restore a single trailing `/`:
+	if prefix == "" {
+		prefix = "/"
+	}
+
+	log.WithFields(log.Fields{"bucket": bucket, "prefix": prefix}).Debug("Tidied Bucket and Prefix")
+
+	return bucket, prefix, nil
 }
