@@ -1,8 +1,8 @@
-hash: 2ee3cad85111c5fe498f4ab5a40fc881e8f91ee7d710857dbce4b3fb590ed20d
-updated: 2017-05-11T15:28:19.632498186+12:00
+hash: d413121aa3f90072268ca2b80ec3d185948954f7377c322a067231ae4e88a76c
+updated: 2017-06-07T13:38:40.583939607+12:00
 imports:
 - name: github.com/aws/aws-sdk-go
-  version: 49c7a5e645b5eca5aabd1fd6a676dbddaf7b2a1a
+  version: 512bdaf8bec30abd545b440447cebb57b53d3af9
   subpackages:
   - aws
   - aws/awserr
@@ -20,6 +20,7 @@ imports:
   - aws/request
   - aws/session
   - aws/signer/v4
+  - internal/shareddefaults
   - private/protocol
   - private/protocol/query
   - private/protocol/query/queryutil
@@ -35,9 +36,9 @@ imports:
 - name: github.com/fsnotify/fsnotify
   version: 4da3e2cfbabc9f751898f250b49f2439785783a1
 - name: github.com/getsentry/raven-go
-  version: 5c07ee42021d8df0718f06bc7ea6b17123a44f9c
+  version: b9f2aa2550bb0e89ab351d6fd59decd608b84ac1
 - name: github.com/go-ini/ini
-  version: e7fea39b01aea8d5671f6858f0532f56e8bff3a5
+  version: d3de07a94d22b4a0972deb4b96d790c2c0ce8333
 - name: github.com/hashicorp/hcl
   version: 392dba7d905ed5d04a5794ba89f558b27e2ba1ca
   subpackages:
@@ -58,11 +59,11 @@ imports:
 - name: github.com/magiconair/properties
   version: 51463bfca2576e06c62a8504b5c0f06d61312647
 - name: github.com/mitchellh/mapstructure
-  version: cc8532a8e9a55ea36402aa21efdf403a60d34096
+  version: d0303fe809921458f417bcf828397a65db30a7e4
 - name: github.com/pelletier/go-buffruneio
   version: c37440a7cf42ac63b919c752ca73a85067e05992
 - name: github.com/pelletier/go-toml
-  version: 23f644976aa7c724adf4aec911dadf4af17840ab
+  version: fe7536c3dee2596cdd23ee9976a17c22bdaae286
 - name: github.com/pkg/errors
   version: c605e284fe17294bda444b34710735b29d1a9d90
 - name: github.com/Sirupsen/logrus
@@ -74,17 +75,19 @@ imports:
 - name: github.com/spf13/cast
   version: acbeb36b902d72a7a4c18e8f3241075e7ab763e4
 - name: github.com/spf13/jwalterweatherman
-  version: 8f07c835e5cc1450c082fe3a439cf87b0cbb2d99
+  version: 0efa5202c04663c757d84f90f5219c1250baf94f
 - name: github.com/spf13/pflag
   version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
 - name: github.com/spf13/viper
   version: 0967fc9aceab2ce9da34061253ac10fb99bba5b2
+- name: github.com/subosito/gotenv
+  version: 009e1f9581dc712aba5682a279dee155ca3eeded
 - name: golang.org/x/sys
-  version: 9ccfe848b9db8435a24c424abbc07a921adf1df5
+  version: b90f89a1e7a9c1f6b918820b3daa7f08488c8594
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: 470f45bf29f4147d6fbd7dfd0a02a848e49f5bf4
+  version: ab6d1c143672de99b9dfde433b7f6affb278cc74
   subpackages:
   - transform
   - unicode/norm
