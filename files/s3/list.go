@@ -2,6 +2,7 @@ package s3
 
 import (
 	"fmt"
+	"strings"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/service/s3"
@@ -47,8 +48,10 @@ func (s Details) s3MungeListObjectsOutput(prefixDir string, resp *s3.ListObjects
 
 	for _, key := range resp.Contents {
 		log.WithFields(log.Fields{"key": *key.Key}).Debug("Found item.")
-		if prefixDir != *key.Key {
-			paths = append(paths, *key.Key)
+
+		trimmedPath := strings.TrimPrefix(*key.Key, prefixDir)
+		if trimmedPath != "" {
+			paths = append(paths, trimmedPath)
 		}
 	}
 
