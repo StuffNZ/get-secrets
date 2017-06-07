@@ -74,6 +74,11 @@ func (s *Path) Prefix() string {
 	return s.prefix
 }
 
+// PrefixDir returns the S3 path prefix in a directory-explicit format
+func (s *Path) PrefixDir() string {
+	return fmt.Sprintf("%s/", s.prefix)
+}
+
 func (s *Path) urlFromURLString(urlString string) *url.URL {
 	url, err := url.Parse(urlString)
 	if err != nil {

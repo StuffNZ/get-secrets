@@ -19,6 +19,7 @@ var (
 type bucketPrefix interface {
 	Bucket() string
 	Prefix() string
+	PrefixDir() string
 }
 
 // Details for getting Secret files

@@ -15,7 +15,7 @@ func (s Details) List() ([]string, error) {
 		return nil, err
 	}
 
-	return s.s3MungeListObjectsOutput(s.s3PrefixDir(), resp), nil
+	return s.s3MungeListObjectsOutput(s.source.PrefixDir(), resp), nil
 }
 
 func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
@@ -34,13 +34,6 @@ func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
 	log.WithFields(log.Fields{"s3.params": params, "s3.resp": resp}).Debug()
 
 	return resp, nil
-}
-
-func (s Details) s3PrefixDir() string {
-	prefixDir := fmt.Sprintf("%s/", s.source.Prefix())
-	log.WithFields(log.Fields{"s3PrefixDir": prefixDir}).Debug()
-
-	return prefixDir
 }
 
 func (s Details) s3MungeListObjectsOutput(prefixDir string, resp *s3.ListObjectsOutput) []string {
