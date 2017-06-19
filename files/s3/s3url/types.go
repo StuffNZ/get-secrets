@@ -83,6 +83,11 @@ func (s *Path) PrefixDir() string {
 	return fmt.Sprintf("%s/", s.prefix)
 }
 
+// JoinPath returns the provided path appended to the PrefixDir
+func (s *Path) JoinPath(path string) string {
+	return strings.Join([]string{s.PrefixDir(), path}, "")
+}
+
 func (s *Path) urlFromURLString(urlString string) *url.URL {
 	url, err := url.Parse(urlString)
 	if err != nil {

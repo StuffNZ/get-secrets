@@ -20,6 +20,7 @@ type bucketPrefix interface {
 	Bucket() string
 	Prefix() string
 	PrefixDir() string
+	JoinPath(string) string
 }
 
 // Details for getting Secret files
