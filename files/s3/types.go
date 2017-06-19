@@ -62,7 +62,7 @@ func (s *Details) WithS3Session(s3Session *s3.S3) *Details {
 	return &clone
 }
 
-// S3 returns the
+// S3 returns the S3 Session property
 func (s *Details) S3() *s3.S3 {
 	return s.s3Session
 }
