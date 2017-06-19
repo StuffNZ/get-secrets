@@ -18,4 +18,13 @@ func main() {
 	}
 	// s3lists, _ := (&s3ish.Source{URLString: "s3://kiwiops-ecs-staging-env/stuff-brightcove-video-service"}).Init().List()
 	log.WithFields(log.Fields{"list": s3lists}).Info()
+
+	for _, s3item := range s3lists {
+		body, err := s3.Read(s3item)
+		if err != nil {
+			log.Panic(err)
+		}
+		// s3lists, _ := (&s3ish.Source{URLString: "s3://kiwiops-ecs-staging-env/stuff-brightcove-video-service"}).Init().List()
+		log.WithFields(log.Fields{"path": s3item, "body": body}).Info()
+	}
 }
