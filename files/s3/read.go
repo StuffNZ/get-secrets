@@ -1,11 +1,12 @@
 package s3
 
 import (
+	"fmt"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/hashicorp/go-multierror"
 	log "github.com/sirupsen/logrus"
-	//"github.com/aws/aws-sdk-go/service/s3"
 )
 
 /*
@@ -19,7 +20,32 @@ const (
 	BufferSize = 1024 * 1024 // 1MB Buffer
 )
 
-func (s *Details) Read(subPath string) (string, error) {
+// ReadCallback does
+type ReadCallback func(string, string) error
+
+// ReadList does
+func (s *Details) ReadList(subPaths []string, f ReadCallback) error {
+	var errs *multierror.Error
+
+	for _, subPath := range subPaths {
+		// TODO: Should we fail-fast, as soon as an error happens, or aggregate?
+		if body, err := s.ReadToString(subPath); err != nil {
+			errs = multierror.Append(errs, err)
+		} else {
+			if errCallback := f(subPath, body); errCallback != nil {
+				errs = multierror.Append(errs, errCallback)
+			}
+		}
+	}
+
+	return errs.ErrorOrNil()
+}
+
+// ReadToString does
+func (s *Details) ReadToString(subPath string) (string, error) {
+	if subPath == "" {
+		return "", fmt.Errorf("Path %#v is not valid", subPath)
+	}
 	fqPath := s.source.JoinPath(subPath)
 	buf, err := s.readWithFqPath(fqPath)
 	if err != nil {
