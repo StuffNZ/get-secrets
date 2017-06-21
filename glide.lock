@@ -1,8 +1,8 @@
-hash: d413121aa3f90072268ca2b80ec3d185948954f7377c322a067231ae4e88a76c
-updated: 2017-06-07T13:38:40.583939607+12:00
+hash: 1d7e270d869b40f4e36fb8f8546476d1bb98a7474f43b70465f7ccc0e73f578a
+updated: 2017-06-21T15:03:49.075526762+12:00
 imports:
 - name: github.com/aws/aws-sdk-go
-  version: 512bdaf8bec30abd545b440447cebb57b53d3af9
+  version: a9609d199df31ef4b1f347b007d63bb7c48e5619
   subpackages:
   - aws
   - aws/awserr
@@ -28,17 +28,21 @@ imports:
   - private/protocol/restxml
   - private/protocol/xml/xmlutil
   - service/s3
+  - service/s3/s3iface
+  - service/s3/s3manager
   - service/sts
 - name: github.com/certifi/gocertifi
   version: a9c833d2837d3b16888d55d5aafa9ffe9afb22b0
 - name: github.com/evalphobia/logrus_sentry
-  version: 7c1b7faba7ed5772effc03db8e1faa8c90624660
+  version: 9f8f2d05a621e616d9341ac75374eb8402ae0630
 - name: github.com/fsnotify/fsnotify
   version: 4da3e2cfbabc9f751898f250b49f2439785783a1
 - name: github.com/getsentry/raven-go
-  version: b9f2aa2550bb0e89ab351d6fd59decd608b84ac1
+  version: d175f85701dfbf44cb0510114c9943e665e60907
 - name: github.com/go-ini/ini
   version: d3de07a94d22b4a0972deb4b96d790c2c0ce8333
+- name: github.com/hashicorp/go-multierror
+  version: ed905158d87462226a13fe39ddf685ea65f1c11f
 - name: github.com/hashicorp/hcl
   version: 392dba7d905ed5d04a5794ba89f558b27e2ba1ca
   subpackages:
@@ -66,7 +70,7 @@ imports:
   version: fe7536c3dee2596cdd23ee9976a17c22bdaae286
 - name: github.com/pkg/errors
   version: c605e284fe17294bda444b34710735b29d1a9d90
-- name: github.com/Sirupsen/logrus
+- name: github.com/sirupsen/logrus
   version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/spf13/afero
   version: 9be650865eab0c12963d8753212f4f9c66cdcf12
@@ -79,15 +83,15 @@ imports:
 - name: github.com/spf13/pflag
   version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
 - name: github.com/spf13/viper
-  version: 0967fc9aceab2ce9da34061253ac10fb99bba5b2
+  version: c1de95864d73a5465492829d7cb2dd422b19ac96
 - name: github.com/subosito/gotenv
   version: 009e1f9581dc712aba5682a279dee155ca3eeded
 - name: golang.org/x/sys
-  version: b90f89a1e7a9c1f6b918820b3daa7f08488c8594
+  version: fb4cac33e3196ff7f507ab9b2d2a44b0142f5b5a
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: ab6d1c143672de99b9dfde433b7f6affb278cc74
+  version: 4e9ab9ee170f2a39bd66c92b3e0a47ff47a4bc77
   subpackages:
   - transform
   - unicode/norm
