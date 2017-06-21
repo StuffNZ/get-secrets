@@ -3,8 +3,8 @@ package s3
 import (
 	"strings"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/service/s3"
+	log "github.com/sirupsen/logrus"
 )
 
 // Paths is the list of entries found

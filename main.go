@@ -3,7 +3,7 @@ package main
 import (
 	s3ish "build-dotenv/files/s3"
 	urlish "build-dotenv/files/s3/s3url"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	// "build-dotenv/cmd"
 )
 

@@ -1,10 +1,10 @@
 package s3
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	log "github.com/sirupsen/logrus"
 	//"github.com/aws/aws-sdk-go/service/s3"
 )
 
