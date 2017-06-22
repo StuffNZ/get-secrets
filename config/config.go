@@ -23,7 +23,7 @@ func init() {
 func ImportMe() {
 }
 
-// AddConfigItems does
+// AddConfigItems TODO
 func AddConfigItems(configItems []string) {
 	readConfig()
 	for _, item := range configItems {
