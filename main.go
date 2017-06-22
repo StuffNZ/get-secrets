@@ -5,10 +5,11 @@ import (
 	s3ish "build-dotenv/files/s3"
 	urlish "build-dotenv/files/s3/s3url"
 	"fmt"
+	"strings"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"github.com/subosito/gotenv"
-	"strings"
 	// "build-dotenv/cmd"
 )
 

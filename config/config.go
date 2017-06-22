@@ -1,11 +1,12 @@
 package config
 
 import (
+	"os"
+	"time"
+
 	"github.com/evalphobia/logrus_sentry"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"os"
-	"time"
 )
 
 var (

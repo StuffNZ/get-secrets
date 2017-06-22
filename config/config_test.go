@@ -1,8 +1,8 @@
-package main_test
+package config_test
 
 import (
 	// TODO: Add this back when some tests are written:
-	// . "build-dotenv"
+	// . "build-dotenv/config"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -10,7 +10,7 @@ import (
 
 var _ = Describe("Config", func() {
 	It("", func() {
-		Skip("Placeholder")
+		Skip("Because the AWS SDK is bloody terrible to unit test.")
 		Expect(true).To(BeTrue())
 	})
 })
