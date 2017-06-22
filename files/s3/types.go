@@ -1,19 +1,22 @@
 package s3
 
 import (
+	"build-dotenv/config"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	log "github.com/sirupsen/logrus"
 )
 
+func init() {
+	config.AddConfigItems([]string{"s3.path"})
+}
+
 // AwsRegion is the default AWS Region
 const AwsRegion = "ap-southeast-2"
 
-var (
-	// AwsConfig is the default AWS Config
-	AwsConfig = &aws.Config{Region: aws.String(AwsRegion)}
-)
+// AwsConfig is the default AWS Config
+var AwsConfig = &aws.Config{Region: aws.String(AwsRegion)}
 
 // bucketPrefix is the required interface for "Source" attr
 type bucketPrefix interface {
