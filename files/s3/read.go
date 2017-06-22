@@ -15,15 +15,13 @@ Pass the buffer to a user-provided function
 ~Convert the buffer into a gotenv object~
 */
 
-const (
-	// BufferSize is the size of Buffer for AWS Download manager to write into
-	BufferSize = 1024 * 1024 // 1MB Buffer
-)
+// BufferSize is the size of Buffer for AWS Download manager to write into
+const BufferSize = 1024 * 1024 // 1MB Buffer
 
-// ReadCallback does
+// ReadCallback TODO
 type ReadCallback func(string, string) error
 
-// ReadList does
+// ReadList TODO
 func (s *Details) ReadList(subPaths []string, f ReadCallback) error {
 	var errs *multierror.Error
 
@@ -41,7 +39,7 @@ func (s *Details) ReadList(subPaths []string, f ReadCallback) error {
 	return errs.ErrorOrNil()
 }
 
-// ReadToString does
+// ReadToString reads the object at 'subPath' within the
 func (s *Details) ReadToString(subPath string) (string, error) {
 	if subPath == "" {
 		return "", fmt.Errorf("Path %#v is not valid", subPath)
@@ -49,7 +47,6 @@ func (s *Details) ReadToString(subPath string) (string, error) {
 	fqPath := s.source.JoinPath(subPath)
 	buf, err := s.readWithFqPath(fqPath)
 	if err != nil {
-		log.WithFields(log.Fields{"full-path": fqPath}).Error(err)
 		return "", err
 	}
 	bufBytes := buf.Bytes()
