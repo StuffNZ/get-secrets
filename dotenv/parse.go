@@ -26,8 +26,8 @@ func (s *DotEnvs) AddFromString(path string, body string) error {
 	return nil
 }
 
-// Join TODO
-func (s *DotEnvs) Join() map[string]string {
+// Combine TODO
+func (s *DotEnvs) Combine() map[string]string {
 	joinedEnv := make(gotenv.Env)
 
 	for _, path := range s.sortedPaths() {

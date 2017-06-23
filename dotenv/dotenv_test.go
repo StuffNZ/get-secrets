@@ -11,7 +11,7 @@ var _ = Describe("The Dotenv type", func() {
 	It("initialises an empty map", func() {
 		env := New()
 
-		Expect(env.Join()).To(BeEmpty())
+		Expect(env.Combine()).To(BeEmpty())
 	})
 
 	It("initialises a simple map", func() {
@@ -20,7 +20,7 @@ var _ = Describe("The Dotenv type", func() {
 B=2
 C=3`)
 
-		Expect(env.Join()).To(Equal(map[string]string{
+		Expect(env.Combine()).To(Equal(map[string]string{
 			"A": "1",
 			"B": "2",
 			"C": "3",
@@ -35,7 +35,7 @@ C=3`)
 		env.AddFromString("lol", `D=4
 E=5`)
 
-		Expect(env.Join()).To(Equal(map[string]string{
+		Expect(env.Combine()).To(Equal(map[string]string{
 			"A": "1",
 			"B": "2",
 			"C": "3",
@@ -52,7 +52,7 @@ C=3`)
 		env.AddFromString("lol", `A=1
 D=4`)
 
-		Expect(env.Join()).To(Equal(map[string]string{
+		Expect(env.Combine()).To(Equal(map[string]string{
 			"A": "11",
 			"B": "2",
 			"C": "3",
