@@ -26,4 +26,37 @@ C=3`)
 			"C": "3",
 		}))
 	})
+
+	It("combines multiple envs", func() {
+		env := New()
+		env.AddFromString("lol2", `A=1
+B=2
+C=3`)
+		env.AddFromString("lol", `D=4
+E=5`)
+
+		Expect(env.Join()).To(Equal(map[string]string{
+			"A": "1",
+			"B": "2",
+			"C": "3",
+			"D": "4",
+			"E": "5",
+		}))
+	})
+
+	It("combines multiple envs based on lexical-order of the path", func() {
+		env := New()
+		env.AddFromString("lol2", `A=11
+B=2
+C=3`)
+		env.AddFromString("lol", `A=1
+D=4`)
+
+		Expect(env.Join()).To(Equal(map[string]string{
+			"A": "11",
+			"B": "2",
+			"C": "3",
+			"D": "4",
+		}))
+	})
 })
