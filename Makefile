@@ -55,16 +55,21 @@ $(BIN)/go2xunit: | $(BASE) ; $(info $(M) building go2xunit...)
 # Tests
 
 TEST_TARGETS := test-default test-bench test-short test-verbose test-race
-.PHONY: $(TEST_TARGETS) test-xml check test tests
+INTEGRATION_TEST_TARGETS := test-integration
+
+.PHONY: $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS) \
+	test-xml check test tests
 test-bench:   ARGS=-run=__absolutelynothing__ -bench=. ## Run benchmarks
 test-short:   ARGS=-short        ## Run only short tests
 test-verbose: ARGS=-v            ## Run tests in verbose mode with coverage reporting
 test-race:    ARGS=-race         ## Run tests with race detector
-$(TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
-$(TEST_TARGETS): test
+$(TEST_TARGETS): SKIP_ARGS=-skip=Integration
+$(INTEGRATION_TEST_TARGETS): SKIP_ARGS=-focus=Integration
+$(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
+$(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): test
 check test tests: fmt lint quick-test
 quick-check quick-test: vendor | $(BASE) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
-	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(TESTPKGS)
+	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
 #	$Q cd $(BASE) && $(GO) test -timeout $(TIMEOUT)s $(ARGS) $(TESTPKGS)
 
 test-xml: fmt lint quick-text-xml
