@@ -2,6 +2,7 @@ package dotenv
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
@@ -24,10 +25,6 @@ func (s *DotEnvs) AddFromString(path string, body string) error {
 
 	return nil
 }
-
-// Join TODO
-// func (s *DotEnvs) Join() map[string]string {
-// }
 
 func (s *DotEnvs) parseEnv(body string) gotenv.Env {
 	env := gotenv.Parse(strings.NewReader(body))
