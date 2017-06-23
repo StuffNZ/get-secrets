@@ -17,16 +17,21 @@ type BodyEnv struct {
 	env  gotenv.Env
 }
 
+// BodyEnvMap TODO
+type BodyEnvMap map[string]BodyEnv
+
 // DotEnvs TODO
-type DotEnvs map[string]BodyEnv
+type DotEnvs struct {
+	env BodyEnvMap
+}
 
 // New TODO
-func New() DotEnvs {
-	return make(DotEnvs)
+func New() *DotEnvs {
+	return &DotEnvs{env: make(BodyEnvMap)}
 }
 
 // AddFromString TODO
-func (s DotEnvs) AddFromString(path string, body string) error {
+func (s *DotEnvs) AddFromString(path string, body string) error {
 	if path == "" {
 		log.Error("Empty path!")
 		return fmt.Errorf("Empty path provided")
@@ -38,7 +43,7 @@ func (s DotEnvs) AddFromString(path string, body string) error {
 
 	log.WithFields(log.Fields{"path": path, "body": body}).Debug("Parsing dotenv file...")
 
-	s[path] = BodyEnv{path: path, body: body, env: s.parseEnv(body)}
+	s.env[path] = BodyEnv{path: path, body: body, env: s.parseEnv(body)}
 
 	return nil
 }
@@ -48,5 +53,6 @@ func (s DotEnvs) AddFromString(path string, body string) error {
 // }
 
 func (s *DotEnvs) parseEnv(body string) gotenv.Env {
-	return gotenv.Parse(strings.NewReader(body))
+	env := gotenv.Parse(strings.NewReader(body))
+	return env
 }
