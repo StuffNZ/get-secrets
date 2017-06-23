@@ -7,6 +7,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
+	"build-dotenv/dotenv"
 	s3ish "build-dotenv/files/s3"
 	urlish "build-dotenv/files/s3/s3url"
 	"fmt"
@@ -69,19 +70,35 @@ var _ = Describe("The main Integration Tests", func() {
 			Expect(err).To(BeNil())
 		})
 
-		It("reads the env files from S3", func() {
-			errs := s3.ReadList(s3lists, env.readCallback)
+		Describe("(including object contents)", func() {
+			It("reads the env files from S3", func() {
+				errs := s3.ReadList(s3lists, env.readCallback)
 
-			Expect(env.envs).To(Not(BeEmpty()))
-			Expect(errs).To(BeNil())
+				Expect(env.envs).To(Not(BeEmpty()))
+				Expect(errs).To(BeNil())
+			})
+
+			It("fails to read the env files from S3", func() {
+				s3lists = append(s3lists, "")
+				s3lists = append(s3lists, "lol")
+				errs := s3.ReadList(s3lists, env.readCallback)
+
+				Expect(errs).To(Not(BeNil()))
+			})
 		})
 
-		It("fails to read the env files from S3", func() {
-			s3lists = append(s3lists, "")
-			s3lists = append(s3lists, "lol")
-			errs := s3.ReadList(s3lists, env.readCallback)
+		Describe("(including parsing the object contents)", func() {
+			var envs *dotenv.DotEnvs
 
-			Expect(errs).To(Not(BeNil()))
+			BeforeEach(func() {
+				envs = dotenv.New()
+			})
+
+			It("reads the env files from S3", func() {
+				errs := s3.ReadList(s3lists, envs.AddFromString)
+
+				Expect(errs).To(BeNil())
+			})
 		})
 	})
 })
