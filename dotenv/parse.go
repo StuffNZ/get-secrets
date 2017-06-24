@@ -31,13 +31,17 @@ func (s *DotEnvs) Combine() map[string]string {
 	joinedEnv := make(gotenv.Env)
 
 	for _, path := range s.sortedPaths() {
-		for name, val := range s.env[path].env {
-			log.WithFields(log.Fields{"name": name, "val": val}).Debug()
-			joinedEnv[name] = val
-		}
+		s.mergeEnv(s.env[path].env, joinedEnv)
 	}
 
 	return joinedEnv
+}
+
+func (s *DotEnvs) mergeEnv(from, to map[string]string) {
+	for k, v := range from {
+		log.WithFields(log.Fields{"key": k, "val": v}).Debug()
+		to[k] = v
+	}
 }
 
 func (s *DotEnvs) sortedPaths() []string {
