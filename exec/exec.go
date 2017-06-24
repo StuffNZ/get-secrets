@@ -9,7 +9,6 @@ import (
 
 // Exec TODO
 func (s *Details) Exec() error {
-	log.WithFields(log.Fields{"command": s.command[0]}).Debug("Finding FQ Path")
 	binPath, err := exec.LookPath(s.command[0])
 	if err != nil {
 		return err

@@ -11,6 +11,8 @@ import (
 func (s *Details) CombineEnvs() []string {
 	newEnvs := s.envToMap(s.env)
 	dotEnvs := s.dotEnvs.Combine()
+	log.WithFields(log.Fields{"env": newEnvs, "dotEnv": dotEnvs}).Debug("Combining envs...")
+
 	s.mergeEnv(dotEnvs, newEnvs)
 
 	log.WithFields(log.Fields{"new": newEnvs}).Debug("Combined envs")
@@ -21,15 +23,12 @@ func (s *Details) CombineEnvs() []string {
 // Merge the first map into the second
 // Because maps are implicit references, updating the second map updates the caller's map
 func (s *Details) mergeEnv(from, to map[string]string) {
-	log.WithFields(log.Fields{"from": from, "to": to}).Debug("Merging envs")
 	for k, v := range from {
-		log.WithFields(log.Fields{"key": k, "val": v}).Debug()
 		to[k] = v
 	}
 }
 
 func (s *Details) envToMap(env []string) map[string]string {
-	log.WithFields(log.Fields{"envList": env}).Debug("Converting from env list to map")
 	newEnv := make(map[string]string)
 
 	for _, envLine := range env {
@@ -37,21 +36,16 @@ func (s *Details) envToMap(env []string) map[string]string {
 		newEnv[kv[0]] = kv[1]
 	}
 
-	log.WithFields(log.Fields{"envMap": newEnv}).Debug("Converted from env list to map")
-
 	return newEnv
 }
 
 func (s *Details) mapToEnv(env map[string]string) []string {
-	log.WithFields(log.Fields{"envMap": env}).Debug("Converting from env map to list")
 	newEnv := make([]string, 0)
 
 	for name, val := range env {
 		line := fmt.Sprintf("%s=%s", name, val)
 		newEnv = append(newEnv, line)
 	}
-
-	log.WithFields(log.Fields{"envList": newEnv}).Debug("Converted from env map to list")
 
 	return newEnv
 }
