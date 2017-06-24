@@ -52,6 +52,14 @@ GO2XUNIT = $(BIN)/go2xunit
 $(BIN)/go2xunit: | $(BASE) ; $(info $(M) building go2xunit...)
 	$Q go get github.com/tebeka/go2xunit
 
+GINKGO = $(BIN)/ginkgo
+$(BIN)/ginkgo: | $(BASE) ; $(info $(M) building ginkgo...)
+	$Q go get github.com/onsi/ginkgo/ginkgo
+
+# GOMEGA = $(BIN)/gomega
+# $(BIN)/gomega: | $(BASE) ; $(info $(M) building gomega...)
+# 	$Q go get github.com/onsi/gomega
+
 # Tests
 
 TEST_TARGETS := test-default test-bench test-short test-verbose test-race
@@ -66,7 +74,7 @@ test-race:    ARGS=-race         ## Run tests with race detector
 $(TEST_TARGETS): SKIP_ARGS=-skip=Integration
 $(INTEGRATION_TEST_TARGETS): SKIP_ARGS=-focus=Integration
 $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
-$(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): test
+$(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): $(BIN)/ginkgo test
 check test tests: fmt lint quick-test
 quick-check quick-test: vendor | $(BASE) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
 	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
