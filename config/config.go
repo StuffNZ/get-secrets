@@ -51,7 +51,7 @@ func readConfig() {
 	viper.AddConfigPath(".")
 
 	if err := viper.ReadInConfig(); err == nil {
-		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Info("Using file")
+		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Debug("Using file")
 
 	} else {
 		// panic(fmt.Errorf("Fatal error config file: %s \n", err))
