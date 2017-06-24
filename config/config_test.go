@@ -10,7 +10,7 @@ import (
 
 var _ = Describe("Config", func() {
 	It("", func() {
-		Skip("Because the AWS SDK is bloody terrible to unit test.")
+		Skip("Because no tests.")
 		Expect(true).To(BeTrue())
 	})
 })
