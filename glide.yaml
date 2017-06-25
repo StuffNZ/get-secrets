@@ -2,7 +2,7 @@ package: bitbucket.org/mexisme/build-dotenv
 import:
 - package: github.com/sirupsen/logrus
   #repo: https://github.com/sirupsen/logrus
-  version: ^0.11.5
+  version: ^1.0.0
 - package: github.com/aws/aws-sdk-go
   version: ^1.8.21
   subpackages:
@@ -10,7 +10,7 @@ import:
   - aws/session
   - service/s3
 - package: github.com/evalphobia/logrus_sentry
-  version: ^0.2.14
+  version: ^0.4.1
 - package: github.com/kr/s3
   subpackages:
   - s3util
