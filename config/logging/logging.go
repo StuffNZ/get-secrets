@@ -14,7 +14,6 @@ import (
 func Configure() {
 	if viper.GetBool("debug") {
 		log.SetLevel(log.DebugLevel)
-		log.Println("Debug mode enabled")
 		log.Debug("Debug mode enabled")
 	}
 
