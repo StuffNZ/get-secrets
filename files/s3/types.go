@@ -1,7 +1,7 @@
 package s3
 
 import (
-	"bitbucket.org/mexisme/build-dotenv/config"
+	"bitbucket.org/mexisme/get-secrets/config"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"

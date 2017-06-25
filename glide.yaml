@@ -1,4 +1,4 @@
-package: bitbucket.org/mexisme/build-dotenv
+package: bitbucket.org/mexisme/get-secrets
 import:
 - package: github.com/sirupsen/logrus
   #repo: https://github.com/sirupsen/logrus
