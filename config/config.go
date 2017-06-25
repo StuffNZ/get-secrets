@@ -12,6 +12,7 @@ import (
 var (
 	initConfigDone = false
 	logConfigDone  = false
+	version        = ""
 )
 
 func init() {
@@ -22,6 +23,11 @@ func init() {
 // ImportMe is to allow other packages to easily depend on this one,
 // since most of the important logic is in init()
 func ImportMe() {
+}
+
+// SetVersion sets the internal "version" var, so we can use it in logging, etc
+func SetVersion(newVersion string) {
+	version = newVersion
 }
 
 // AddConfigItems TODO
@@ -82,17 +88,18 @@ func configLogging() {
 			log.ErrorLevel,
 		}
 		if hook, err := logrus_sentry.NewWithTagsSentryHook(sentryDsn, tags, levels); err == nil {
-			// Set the Sentry "release" version, dep on the setting in the config:
-			for _, releaseKey := range []string{"sentry.release", "version"} {
-				if sentryRelease := viper.GetString(releaseKey); sentryRelease != "" {
-					log.WithFields(log.Fields{releaseKey: sentryRelease}).Debug()
-					hook.SetRelease(sentryRelease)
-					break
-				}
+			// Set the Sentry "release" version:
+			if version != "" {
+				log.WithFields(log.Fields{version: version}).Debug("Setting release version in Sentry")
+				hook.SetRelease(version)
 			}
+
 			hook.StacktraceConfiguration.Enable = true
+
 			// It seems as if the default 100ms is too short:
 			hook.Timeout = 1 * time.Second
+
+			// Now, add it into the Logrus hook-chain
 			log.AddHook(hook)
 
 			log.Debug("Sentry enabled")
