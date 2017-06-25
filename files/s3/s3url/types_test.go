@@ -2,7 +2,7 @@ package s3url_test
 
 import (
 	// "net/url"
-	. "build-dotenv/files/s3/s3url"
+	. "bitbucket.org/mexisme/build-dotenv/files/s3/s3url"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

@@ -2,7 +2,7 @@ package exec_test
 
 import (
 	// TODO: Add this back when some tests are written:
-	// . "build-dotenv/exec"
+	// . "bitbucket.org/mexisme/build-dotenv/exec"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

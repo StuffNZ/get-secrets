@@ -1,8 +1,8 @@
-hash: 1d7e270d869b40f4e36fb8f8546476d1bb98a7474f43b70465f7ccc0e73f578a
-updated: 2017-06-21T15:37:42.467374+12:00
+hash: 82a8c5960157f805e4ce37b5696a94aef8f4fa62d9b1a205c198d767905c1b49
+updated: 2017-06-25T13:06:39.693732348+12:00
 imports:
 - name: github.com/aws/aws-sdk-go
-  version: a9609d199df31ef4b1f347b007d63bb7c48e5619
+  version: 72e42b13da62269f68308fb6068b7ea691a416a4
   subpackages:
   - aws
   - aws/awserr
@@ -41,6 +41,8 @@ imports:
   version: d175f85701dfbf44cb0510114c9943e665e60907
 - name: github.com/go-ini/ini
   version: d3de07a94d22b4a0972deb4b96d790c2c0ce8333
+- name: github.com/hashicorp/errwrap
+  version: 7554cd9344cec97297fa6649b055a8c98c2a1e55
 - name: github.com/hashicorp/go-multierror
   version: ed905158d87462226a13fe39ddf685ea65f1c11f
 - name: github.com/hashicorp/hcl
@@ -102,6 +104,7 @@ testImports:
   version: 77a8c1e5c40d6bb6c5eb4dd4bdce9763564f6298
   subpackages:
   - config
+  - ginkgo
   - internal/codelocation
   - internal/containernode
   - internal/failer

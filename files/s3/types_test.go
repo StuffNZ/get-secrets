@@ -2,7 +2,7 @@ package s3_test
 
 import (
 	// TODO: Add this back when some tests are written:
-	// . "build-dotenv/files/s3"
+	// . "bitbucket.org/mexisme/build-dotenv/files/s3"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

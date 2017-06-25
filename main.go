@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	"build-dotenv/config"
-	"build-dotenv/dotenv"
-	execish "build-dotenv/exec"
-	s3ish "build-dotenv/files/s3"
-	urlish "build-dotenv/files/s3/s3url"
+	"bitbucket.org/mexisme/build-dotenv/config"
+	"bitbucket.org/mexisme/build-dotenv/dotenv"
+	execish "bitbucket.org/mexisme/build-dotenv/exec"
+	s3ish "bitbucket.org/mexisme/build-dotenv/files/s3"
+	urlish "bitbucket.org/mexisme/build-dotenv/files/s3/s3url"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
