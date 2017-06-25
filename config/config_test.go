@@ -2,7 +2,7 @@ package config_test
 
 import (
 	// TODO: Add this back when some tests are written:
-	// . "build-dotenv/config"
+	// . "bitbucket.org/mexisme/build-dotenv/config"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
