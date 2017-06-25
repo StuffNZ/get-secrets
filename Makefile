@@ -10,7 +10,7 @@ TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if .TestGoFiles }}{{ .
 
 GO      = go
 # GO_TEST = go test
-GO_TEST = ginkgo -r -p -v
+GO_TEST = $(GINKGO) -r -p -v
 GODOC   = godoc
 GOFMT   = gofmt
 GLIDE   = glide
@@ -74,9 +74,9 @@ test-race:    ARGS=-race         ## Run tests with race detector
 $(TEST_TARGETS): SKIP_ARGS=-skip=Integration
 $(INTEGRATION_TEST_TARGETS): SKIP_ARGS=-focus=Integration
 $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
-$(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): $(BIN)/ginkgo test
+$(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): test
 check test tests: fmt lint quick-test
-quick-check quick-test: vendor | $(BASE) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
+quick-check quick-test: vendor | $(BASE) $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
 	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
 #	$Q cd $(BASE) && $(GO) test -timeout $(TIMEOUT)s $(ARGS) $(TESTPKGS)
 
