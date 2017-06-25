@@ -4,6 +4,7 @@ import (
 	"os"
 	"time"
 
+	"bitbucket.org/mexisme/get-secrets/version"
 	"github.com/evalphobia/logrus_sentry"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -12,7 +13,6 @@ import (
 var (
 	initConfigDone = false
 	logConfigDone  = false
-	version        = ""
 )
 
 func init() {
@@ -23,11 +23,6 @@ func init() {
 // ImportMe is to allow other packages to easily depend on this one,
 // since most of the important logic is in init()
 func ImportMe() {
-}
-
-// SetVersion sets the internal "version" var, so we can use it in logging, etc
-func SetVersion(newVersion string) {
-	version = newVersion
 }
 
 // AddConfigItems TODO
@@ -89,10 +84,8 @@ func configLogging() {
 		}
 		if hook, err := logrus_sentry.NewWithTagsSentryHook(sentryDsn, tags, levels); err == nil {
 			// Set the Sentry "release" version:
-			if version != "" {
-				log.WithFields(log.Fields{version: version}).Debug("Setting release version in Sentry")
-				hook.SetRelease(version)
-			}
+			log.WithFields(log.Fields{"release": version.Release}).Debug("Setting release version in Sentry")
+			hook.SetRelease(version.Release)
 
 			hook.StacktraceConfiguration.Enable = true
 
