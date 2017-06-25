@@ -15,7 +15,7 @@ import (
 )
 
 func init() {
-	config.SetVersion(Version)
+	config.ImportMe()
 }
 
 func main() {
