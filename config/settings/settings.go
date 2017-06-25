@@ -5,6 +5,7 @@ import (
 	"github.com/spf13/viper"
 
 	"os"
+	"strings"
 )
 
 var initConfigDone = false
@@ -16,6 +17,10 @@ func ReadConfig() {
 	viper.BindEnv("debug")
 	viper.BindEnv("base")
 	viper.BindEnv("app")
+
+	// This means any "." chars in a FQ config name will be replaced with "_"
+	// e.g. "sentry.dsn" --> "$SECRETS_SENTRY_DSN" instead of "$SECRETS_SENTRY.DSN"
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	viper.SetConfigName(".secrets")
 	viper.AddConfigPath("$HOME")
