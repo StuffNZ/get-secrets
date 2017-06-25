@@ -52,6 +52,12 @@ GO2XUNIT = $(BIN)/go2xunit
 $(BIN)/go2xunit: | $(BASE) ; $(info $(M) building go2xunit...)
 	$Q go get github.com/tebeka/go2xunit
 
+.PHONY: glide
+GLIDE = $(BIN)/glide
+glide: $(GLIDE)
+$(BIN)/glide: | $(BASE) ; $(info $(M) building glide...)
+	$Q go get github.com/Masterminds/glide
+
 GINKGO = $(BIN)/ginkgo
 $(BIN)/ginkgo: | $(BASE) ; $(info $(M) building ginkgo...)
 	$Q go get github.com/onsi/ginkgo/ginkgo
@@ -131,10 +137,10 @@ fmt: ; $(info $(M) running gofmt...) @ ## Run gofmt on all source files
 
 # Dependency management
 
-glide.lock: glide.yaml | $(BASE) ; $(info $(M) updating dependencies...)
+glide.lock: glide.yaml | $(BASE) $(GLIDE) ; $(info $(M) updating dependencies...)
 	$Q cd $(BASE) && $(GLIDE) update
 	@touch $@
-vendor: glide.lock | $(BASE) ; $(info $(M) retrieving dependencies...)
+vendor: glide.lock | $(BASE) $(GLIDE) ; $(info $(M) retrieving dependencies...)
 	$Q cd $(BASE) && $(GLIDE) --quiet install
 	@ln -sf . vendor/src
 	@touch $@
