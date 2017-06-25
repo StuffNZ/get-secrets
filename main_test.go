@@ -2,14 +2,14 @@ package main_test
 
 import (
 	// TODO: Add this back when some tests are written:
-	// . "bitbucket.org/mexisme/build-dotenv"
+	// . "bitbucket.org/mexisme/get-secrets"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"bitbucket.org/mexisme/build-dotenv/dotenv"
-	s3ish "bitbucket.org/mexisme/build-dotenv/files/s3"
-	urlish "bitbucket.org/mexisme/build-dotenv/files/s3/s3url"
+	"bitbucket.org/mexisme/get-secrets/dotenv"
+	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
+	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
 	"fmt"
 	"strings"
 
