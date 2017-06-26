@@ -76,7 +76,6 @@ func (s *Details) newS3Session() (*s3.S3, error) {
 	// TODO: Enable AWS_SDK_LOAD_CONFIG env-var, somehow!
 	session, err := session.NewSession()
 	if err != nil {
-		log.Error(err)
 		return nil, err
 	}
 
