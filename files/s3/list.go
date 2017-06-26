@@ -29,7 +29,6 @@ func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
 
 	resp, err := s.s3Session.ListObjects(params)
 	if err != nil {
-		log.WithFields(log.Fields{"s3.params": params}).Error(err)
 		return nil, err
 	}
 

@@ -21,11 +21,9 @@ AddFromString allows to add new *.env string to the list of DotEnvs
 // TODO: Is "path" the wrong name for this?
 func (s *DotEnvs) AddFromString(path string, body string) error {
 	if path == "" {
-		log.Error("Empty path!")
 		return fmt.Errorf("Empty path provided")
 	}
 	if body == "" {
-		log.Error("Empty body!")
 		return fmt.Errorf("Empty body from %#v", path)
 	}
 
