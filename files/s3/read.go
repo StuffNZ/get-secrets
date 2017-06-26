@@ -22,12 +22,14 @@ const BufferSize = 1024 * 1024 // 1MB Buffer
 // ReadCallback defines the func-type that can be used as a Callback
 type ReadCallback func(string, string) error
 
-/* ReadList reads the provided list of paths, and then sends the contents of these to the provided Callback.
-   The Callback function is executed once per path (file object) not as an aggregate.
-   Any errors found when reading the object, or returned by the Callback *are* aggregated into a "multierror" object.
-   If there are errors, the multierror object is returned, otherwise a "nil" is returned.
+/*
+ReadListToCallback reads the provided list of paths, and then sends the contents of these to the provided Callback.
+
+The Callback function is executed once per path (file object) not as an aggregate.
+Any errors found when reading the object, or returned by the Callback *are* aggregated into a "multierror" object.
+If there are errors, the multierror object is returned, otherwise a "nil" is returned.
 */
-func (s *Details) ReadList(subPaths []string, f ReadCallback) error {
+func (s *Details) ReadListToCallback(subPaths []string, f ReadCallback) error {
 	// The errors are aggregated into this multierror object:
 	var errs *multierror.Error
 

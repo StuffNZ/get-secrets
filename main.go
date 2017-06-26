@@ -36,7 +36,7 @@ func main() {
 	s3 := s3ish.New().WithSource(s3url)
 	s3lists, _ := s3.List()
 
-	s3.ReadList(s3lists, dotenvs.AddFromString)
+	s3.ReadListToCallback(s3lists, dotenvs.AddFromString)
 
 	runner := execish.New().WithEnviron(os.Environ()).WithDotEnvs(dotenvs)
 	if len(os.Args) > 1 {

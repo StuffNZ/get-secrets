@@ -71,7 +71,7 @@ var _ = Describe("The main Integration Tests", func() {
 
 		Describe("(including object contents)", func() {
 			It("reads the env files from S3", func() {
-				errs := s3.ReadList(s3lists, env.readCallback)
+				errs := s3.ReadListToCallback(s3lists, env.readCallback)
 
 				Expect(env.envs).To(Not(BeEmpty()))
 				Expect(errs).To(BeNil())
@@ -80,7 +80,7 @@ var _ = Describe("The main Integration Tests", func() {
 			It("fails to read the env files from S3", func() {
 				s3lists = append(s3lists, "")
 				s3lists = append(s3lists, "lol")
-				errs := s3.ReadList(s3lists, env.readCallback)
+				errs := s3.ReadListToCallback(s3lists, env.readCallback)
 
 				Expect(errs).To(Not(BeNil()))
 			})
@@ -94,7 +94,7 @@ var _ = Describe("The main Integration Tests", func() {
 			})
 
 			It("reads the env files from S3", func() {
-				errs := s3.ReadList(s3lists, envs.AddFromString)
+				errs := s3.ReadListToCallback(s3lists, envs.AddFromString)
 
 				Expect(errs).To(BeNil())
 			})
