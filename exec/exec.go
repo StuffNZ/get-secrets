@@ -20,6 +20,6 @@ func (s *Details) Exec() error {
 	}
 
 	env := s.CombineEnvs()
-	log.WithFields(log.Fields{"binPath": binPath, "command": s.command, "env": env}).Debug("Running command...")
+	log.WithFields(log.Fields{"binPath": binPath, "command": s.command, "env": env}).Info("Running command...")
 	return syscall.Exec(binPath, s.command, env)
 }

@@ -54,7 +54,6 @@ func (s *DotEnvs) Combine() map[string]string {
 
 func (s *DotEnvs) mergeEnv(from, to map[string]string) {
 	for k, v := range from {
-		log.WithFields(log.Fields{"key": k, "val": v}).Debug()
 		to[k] = v
 	}
 }

@@ -50,8 +50,7 @@ func ReadConfig() {
 		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Debug("Using file")
 
 	} else {
-		// panic(fmt.Errorf("Fatal error config file: %s \n", err))
-		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Warn(err)
+		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Error(err)
 	}
 }
 
