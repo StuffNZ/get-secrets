@@ -57,10 +57,12 @@ func (s *Details) ReadToString(subPath string) (string, error) {
 		return "", fmt.Errorf("Path %#v is not valid", subPath)
 	}
 	fqPath := s.source.JoinPath(subPath)
+
 	buf, err := s.readWithFqPath(fqPath)
 	if err != nil {
 		return "", err
 	}
+
 	bufBytes := buf.Bytes()
 	bufString := string(bufBytes[:])
 
@@ -74,6 +76,7 @@ func (s *Details) readWithFqPath(path string) (*aws.WriteAtBuffer, error) {
 
 	downloader := s3manager.NewDownloaderWithClient(s.S3())
 
+	log.Infof("Reading object s3://%v/%v ...", bucket, path)
 	params := &s3.GetObjectInput{
 		Bucket: &bucket,
 		Key:    &path,
