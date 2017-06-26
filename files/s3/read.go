@@ -80,8 +80,8 @@ func (s *Details) readWithFqPath(path string) (*aws.WriteAtBuffer, error) {
 	}
 	_, err := downloader.Download(writeBuf, params)
 	if err != nil {
-		log.WithFields(log.Fields{"s3.params": params}).Error(err)
-		return nil, err
+		log.WithFields(log.Fields{"s3.params": params}).Debug(err)
+		return nil, fmt.Errorf("Could not read %v/%v: %v", bucket, path, err)
 	}
 
 	return writeBuf, nil
