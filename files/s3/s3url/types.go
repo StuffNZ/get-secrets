@@ -99,7 +99,7 @@ func (s *Path) JoinPath(path string) string {
 func (s *Path) urlFromURLString(urlString string) (*url.URL, error) {
 	url, err := url.Parse(urlString)
 	if err != nil {
-		log.WithFields(log.Fields{"url-string": urlString}).Error(err)
+		log.WithFields(log.Fields{"url-string": urlString}).Debug(err)
 		return nil, err
 	}
 
@@ -113,7 +113,7 @@ func (s *Path) urlFromURLString(urlString string) (*url.URL, error) {
 		log.Debug("Empty URL Scheme provided. Splitting the implied Path into Host / Path...")
 	}
 
-	log.WithFields(log.Fields{"url": fmt.Sprintf("%#v", url)}).Debug("Base URL decomposition...")
+	log.Debugf("Base URL = %#v", url)
 	return url, nil
 }
 
