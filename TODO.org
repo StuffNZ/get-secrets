@@ -1,4 +1,4 @@
-* Tasks [3/5]
+* Tasks [5/5]
 ** DONE s3 library
    :LOGBOOK:
    - State "DONE"       from "TODO"       [2017-06-23 Fri 22:05]

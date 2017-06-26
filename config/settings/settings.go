@@ -7,7 +7,9 @@ Supported Settings
 
 - base ($SECRETS_BASE) -- sets the base dir for reading/writing config files and .env files
 
-- app ($SECRETS_APP) -- sets the app name for logging purposes
+- application.name ($APPLICATION_NAME) -- sets the app name for logging purposes
+
+- application.environment ($ENVIRONMENT) -- sets the app name for logging purposes
 
 Note: other packages may add other settings.
 */
@@ -29,7 +31,9 @@ func ReadConfig() {
 	viper.SetEnvPrefix("secrets")
 	viper.BindEnv("debug")
 	viper.BindEnv("base")
-	viper.BindEnv("app")
+
+	viper.BindEnv("application.name", "APPLICATION_NAME")
+	viper.BindEnv("application.environment", "ENVIRONMENT")
 
 	// This means any "." chars in a FQ config name will be replaced with "_"
 	// e.g. "sentry.dsn" --> "$SECRETS_SENTRY_DSN" instead of "$SECRETS_SENTRY.DSN"
@@ -46,8 +50,7 @@ func ReadConfig() {
 		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Debug("Using file")
 
 	} else {
-		// panic(fmt.Errorf("Fatal error config file: %s \n", err))
-		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Warn(err)
+		log.WithFields(log.Fields{"config_file": viper.ConfigFileUsed()}).Error(err)
 	}
 }
 

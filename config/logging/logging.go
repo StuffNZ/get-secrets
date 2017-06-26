@@ -18,13 +18,15 @@ func Configure() {
 	}
 
 	if sentryDsn := viper.GetString("sentry.dsn"); sentryDsn != "" {
-		setupSentry(sentryDsn)
+		if err := setupSentry(sentryDsn); err != nil {
+			log.Error(err)
+		}
 	}
 
 	// viper.Debug()
 }
 
-func setupSentry(sentryDsn string) {
+func setupSentry(sentryDsn string) error {
 	log.WithFields(log.Fields{"sentry.dsn": sentryDsn}).Debug("Configuring connection to Sentry.io")
 
 	// TODO: Meta-tag for environment
@@ -42,22 +44,24 @@ func setupSentry(sentryDsn string) {
 	}
 
 	// Hook Sentry into Logrus:
-	if hook, err := logrus_sentry.NewWithTagsSentryHook(sentryDsn, tags, levels); err == nil {
-		// Set the Sentry "release" version:
-		log.WithFields(log.Fields{"release": version.Release}).Debug("Setting release version in Sentry")
-		hook.SetRelease(version.Release)
-
-		hook.StacktraceConfiguration.Enable = true
-
-		// It seems as if the default 100ms is too short:
-		hook.Timeout = 1 * time.Second
-
-		// Now, add it into the Logrus hook-chain
-		log.AddHook(hook)
-
-		log.Debug("Sentry enabled")
-
-	} else {
-		log.Warn(err)
+	hook, err := logrus_sentry.NewWithTagsSentryHook(sentryDsn, tags, levels)
+	if err != nil {
+		return err
 	}
+
+	// Set the Sentry "release" version:
+	log.WithFields(log.Fields{"release": version.Release}).Debug("Setting release version in Sentry")
+	hook.SetRelease(version.Release)
+
+	//hook.StacktraceConfiguration.Enable = true
+
+	// It seems as if the default 100ms is too short:
+	hook.Timeout = 1 * time.Second
+
+	// Now, add it into the Logrus hook-chain
+	log.AddHook(hook)
+
+	log.Info("Sentry enabled")
+
+	return nil
 }
