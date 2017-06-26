@@ -7,7 +7,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// CombineEnvs TODO
+// CombineEnvs merges the provided os.Environ []string with the provided .env KV maps into a new os.Environ []string
 func (s *Details) CombineEnvs() []string {
 	newEnvs := s.envToMap(s.env)
 	dotEnvs := s.dotEnvs.Combine()
@@ -20,8 +20,11 @@ func (s *Details) CombineEnvs() []string {
 	return s.mapToEnv(newEnvs)
 }
 
-// Merge the first map into the second
-// Because maps are implicit references, updating the second map updates the caller's map
+/*
+Merge the first map *into* the second
+
+Because maps are implicit references, updating the second map *updates* the caller's map in-place
+*/
 func (s *Details) mergeEnv(from, to map[string]string) {
 	for k, v := range from {
 		to[k] = v

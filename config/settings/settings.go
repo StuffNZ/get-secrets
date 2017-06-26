@@ -1,3 +1,16 @@
+/*
+Package settings manages reading config from .secrets file or env vars.
+
+Supported Settings
+
+- debug ($SECRETS_DEBUG) -- enables debug mode.
+
+- base ($SECRETS_BASE) -- sets the base dir for reading/writing config files and .env files
+
+- app ($SECRETS_APP) -- sets the app name for logging purposes
+
+Note: other packages may add other settings.
+*/
 package settings
 
 import (

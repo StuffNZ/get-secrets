@@ -1,3 +1,10 @@
+/*
+Package main is the main loop.
+
+Note the one addiional config field:
+
+- s3.path ($SECRETS_S3_PATH) -- defines the dir where to read all .env files from
+*/
 package main
 
 import (
@@ -21,9 +28,11 @@ func init() {
 func main() {
 	log.Debug("Starting...")
 
+	s3Path := viper.GetString("s3.path")
+
 	dotenvs := dotenv.New()
 
-	s3url := urlish.New().WithURL(viper.GetString("s3.path"))
+	s3url := urlish.New().WithURL(s3Path)
 	s3 := s3ish.New().WithSource(s3url)
 	s3lists, _ := s3.List()
 

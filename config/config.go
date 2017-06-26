@@ -22,7 +22,7 @@ func init() {
 func ImportMe() {
 }
 
-// AddConfigItems TODO
+// AddConfigItems passes the configItems through to config.AddConfigItems()
 func AddConfigItems(configItems []string) {
 	// Need to ensure the system has been configured at least once!
 	readConfig() // TODO: Viper dynamically reads -- this may not be needed.

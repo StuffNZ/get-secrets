@@ -16,13 +16,12 @@ import (
 	"github.com/subosito/gotenv"
 )
 
-// EnvRead TODO
-type EnvRead struct {
+type envRead struct {
 	bodies []string
 	envs   []gotenv.Env
 }
 
-func (s *EnvRead) readCallback(path, body string) error {
+func (s *envRead) readCallback(path, body string) error {
 	if path == "" {
 		return fmt.Errorf("Empty path")
 	}
@@ -39,13 +38,13 @@ func (s *EnvRead) readCallback(path, body string) error {
 
 var _ = Describe("The main Integration Tests", func() {
 	var (
-		env   *EnvRead
+		env   *envRead
 		s3url *urlish.Path
 		s3    *s3ish.Details
 	)
 
 	BeforeEach(func() {
-		env = &EnvRead{
+		env = &envRead{
 			bodies: make([]string, 0),
 			envs:   make([]gotenv.Env, 0),
 		}
