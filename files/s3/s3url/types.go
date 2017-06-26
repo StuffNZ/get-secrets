@@ -36,10 +36,16 @@ func (s *Path) WithURL(url string) *Path {
 	}
 
 	clone.urlString = url
-	clone.url = clone.urlFromURLString(clone.urlString)
-	bucket, prefix := s.bucketPrefixFromURL(clone.url)
-	clone.bucket, clone.prefix, err = s.tidyBucketPrefix(bucket, prefix)
+	if clone.url, err = clone.urlFromURLString(clone.urlString); err != nil {
+		log.Panic(err)
+	}
+
+	bucket, prefix, err := s.bucketPrefixFromURL(clone.url)
 	if err != nil {
+		log.Panic(err)
+	}
+
+	if clone.bucket, clone.prefix, err = s.tidyBucketPrefix(bucket, prefix); err != nil {
 		log.Panic(err)
 	}
 
@@ -63,7 +69,9 @@ func (s *Path) WithBucketPrefix(bucket, prefix string) *Path {
 	}
 
 	clone.urlString = fmt.Sprintf("s3://%s/%s", clone.bucket, clone.prefix)
-	clone.url = clone.urlFromURLString(clone.urlString)
+	if clone.url, err = clone.urlFromURLString(clone.urlString); err != nil {
+		log.Panic(err)
+	}
 
 	return &clone
 }
@@ -88,21 +96,33 @@ func (s *Path) JoinPath(path string) string {
 	return strings.Join([]string{s.PrefixDir(), path}, "")
 }
 
-func (s *Path) urlFromURLString(urlString string) *url.URL {
+func (s *Path) urlFromURLString(urlString string) (*url.URL, error) {
 	url, err := url.Parse(urlString)
 	if err != nil {
-		log.WithFields(log.Fields{"url-string": urlString}).Panic(err)
+		log.WithFields(log.Fields{"url-string": urlString}).Error(err)
+		return nil, err
 	}
 
-	return url
+	if url.Scheme == "" {
+		hostPath := strings.SplitN(url.Path, "/", 2)
+		if len(hostPath) < 2 {
+			return nil, fmt.Errorf("Could not split URL <%#v> into host / path; got <%#v>", url, hostPath)
+		}
+
+		url.Scheme, url.Host, url.Path, url.RawPath = "s3", hostPath[0], hostPath[1], ""
+		log.Debug("Empty URL Scheme provided. Splitting the implied Path into Host / Path...")
+	}
+
+	log.WithFields(log.Fields{"url": fmt.Sprintf("%#v", url)}).Debug("Base URL decomposition...")
+	return url, nil
 }
 
-func (s *Path) bucketPrefixFromURL(url *url.URL) (string, string) {
+func (s *Path) bucketPrefixFromURL(url *url.URL) (string, string, error) {
 	if url.Scheme != "s3" {
-		log.WithFields(log.Fields{"url": url}).Panic("Base URL Scheme is not supported.")
+		return "", "", fmt.Errorf("Base URL Scheme in %v is not supported", url)
 	}
 
-	return url.Host, url.Path
+	return url.Host, url.Path, nil
 }
 
 func (s *Path) tidyBucketPrefix(bucket, prefix string) (string, string, error) {
