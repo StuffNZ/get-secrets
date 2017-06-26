@@ -7,6 +7,8 @@ Supported Settings
 
 - base ($SECRETS_BASE) -- sets the base dir for reading/writing config files and .env files
 
+- dotenv.skip ($SKIP_SECRETS) -- skips the code which reads .env files from S3
+
 - application.name ($APPLICATION_NAME) -- sets the app name for logging purposes
 
 - application.environment ($ENVIRONMENT) -- sets the app name for logging purposes
@@ -31,6 +33,8 @@ func ReadConfig() {
 	viper.SetEnvPrefix("secrets")
 	viper.BindEnv("debug")
 	viper.BindEnv("base")
+
+	viper.BindEnv("dotenv.skip", "SKIP_SECRETS")
 
 	viper.BindEnv("application.name", "APPLICATION_NAME")
 	viper.BindEnv("application.environment", "ENVIRONMENT")
