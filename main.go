@@ -32,7 +32,10 @@ func main() {
 
 	dotenvs := dotenv.New()
 
-	if !viper.GetBool("dotenv.skip") {
+	if viper.GetBool("dotenv.skip") {
+		log.Info("Not getting .env secrets due to configuration")
+
+	} else {
 		s3Path := viper.GetString("s3.dotenv_path")
 		s3url := urlish.New().WithURL(s3Path)
 		log.Infof("S3 .env Base path = %#v (%#v)", s3Path, s3url)
