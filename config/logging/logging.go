@@ -53,7 +53,7 @@ func setupSentry(sentryDsn string) error {
 	log.WithFields(log.Fields{"release": version.Release}).Debug("Setting release version in Sentry")
 	hook.SetRelease(version.Release)
 
-	hook.StacktraceConfiguration.Enable = true
+	//hook.StacktraceConfiguration.Enable = true
 
 	// It seems as if the default 100ms is too short:
 	hook.Timeout = 1 * time.Second

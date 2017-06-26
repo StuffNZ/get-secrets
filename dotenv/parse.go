@@ -70,6 +70,5 @@ func (s *DotEnvs) sortedPaths() []string {
 }
 
 func (s *DotEnvs) parseEnv(body string) gotenv.Env {
-	env := gotenv.Parse(strings.NewReader(body))
-	return env
+	return gotenv.Parse(strings.NewReader(body))
 }
