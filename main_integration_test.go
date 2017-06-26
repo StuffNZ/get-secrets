@@ -49,7 +49,7 @@ var _ = Describe("The main Integration Tests", func() {
 			envs:   make([]gotenv.Env, 0),
 		}
 
-		// s3url = urlish.New().WithURL(viper.GetString("s3.path"))
+		// s3url = urlish.New().WithURL(viper.GetString("s3.dotenv_path"))
 		s3url = urlish.New().WithURL("s3://kiwiops-ecs-staging-env/stuff-brightcove-video-service")
 		s3 = s3ish.New().WithSource(s3url)
 	})

@@ -3,7 +3,7 @@ Package main is the main loop.
 
 Note the one addiional config field:
 
-- s3.path ($SECRETS_S3_PATH) -- defines the dir where to read all .env files from
+- s3.dotenv_path ($SECRETS_S3_DOTENV_PATH) -- defines the dir where to read all .env files from
 */
 package main
 
@@ -31,7 +31,7 @@ func main() {
 
 	log.Debug("Starting...")
 
-	s3Path := viper.GetString("s3.path")
+	s3Path := viper.GetString("s3.dotenv_path")
 
 	dotenvs := dotenv.New()
 

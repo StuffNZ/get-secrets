@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	config.AddConfigItems([]string{"s3.path"})
+	config.AddConfigItems([]string{"s3.dotenv_path"})
 }
 
 // AwsRegion is the default AWS Region
