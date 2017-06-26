@@ -9,6 +9,8 @@ Supported Settings
 
 - application.name ($APPLICATION_NAME) -- sets the app name for logging purposes
 
+- application.environment ($ENVIRONMENT) -- sets the app name for logging purposes
+
 Note: other packages may add other settings.
 */
 package settings
@@ -31,6 +33,7 @@ func ReadConfig() {
 	viper.BindEnv("base")
 
 	viper.BindEnv("application.name", "APPLICATION_NAME")
+	viper.BindEnv("application.environment", "ENVIRONMENT")
 
 	// This means any "." chars in a FQ config name will be replaced with "_"
 	// e.g. "sentry.dsn" --> "$SECRETS_SENTRY_DSN" instead of "$SECRETS_SENTRY.DSN"
