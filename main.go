@@ -27,8 +27,8 @@ func init() {
 }
 
 func main() {
-	appName, appEnv := appDetails()
-	log.Infof("Starting %v in %v", appName, appEnv)
+	appName, appEnv := viper.GetString("application.name"), viper.GetString("application.environment")
+	log.Infof("Preparing to run app %#v in env %#v", appName, appEnv)
 
 	dotenvs := dotenv.New()
 
@@ -60,17 +60,6 @@ func main() {
 	for _, envLine := range runner.CombineEnvs() {
 		fmt.Printf("export %s\n", envLine)
 	}
-}
-func appDetails() (string, string) {
-	appName, appEnv := viper.GetString("application.name"), viper.GetString("application.environment")
-	if appName == "" {
-		appName = "(UNKNOWN APP)"
-	}
-	if appEnv == "" {
-		appEnv = "(UNKNOWN ENVIRONMENT)"
-	}
-
-	return appName, appEnv
 }
 
 func panicErrs(err error) {

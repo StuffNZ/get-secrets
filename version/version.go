@@ -1,4 +1,16 @@
 package version
 
+const (
+	application = "get-secrets"
+	release     = "0.3.3"
+)
+
+// Application is the "friendly" name for this code
+func Application() string {
+	return application
+}
+
 // Release is the current version of "get-secrets"
-const Release = "0.3.2"
+func Release() string {
+	return release
+}
