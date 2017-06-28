@@ -12,6 +12,9 @@ import (
 // Configure set-ups the Logrus library -- debug mode, etc
 // Currently set-up via Viper
 func Configure() {
+	// TODO: Should this be a Debug message?
+	log.Infof("## %#v release %v ##", version.Application(), version.Release())
+
 	if viper.GetBool("debug") {
 		log.SetLevel(log.DebugLevel)
 		log.Debug("Debug mode enabled")
@@ -50,8 +53,8 @@ func setupSentry(sentryDsn string) error {
 	}
 
 	// Set the Sentry "release" version:
-	log.WithFields(log.Fields{"release": version.Release}).Debug("Setting release version in Sentry")
-	hook.SetRelease(version.Release)
+	log.WithFields(log.Fields{"release": version.Release()}).Debug("Setting release version in Sentry")
+	hook.SetRelease(version.Release())
 
 	//hook.StacktraceConfiguration.Enable = true
 
