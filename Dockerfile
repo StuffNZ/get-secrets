@@ -1,4 +1,4 @@
-FROM golang:1.8-alpine3.6 as builder
+FROM golang:1.8-alpine as builder
 
 RUN apk upgrade --no-cache --update && \
     apk add --no-cache --update git make
@@ -7,7 +7,7 @@ COPY . /app
 
 RUN cd /app && make
 
-FROM alpine:3.6
+FROM alpine
 
 RUN addgroup app && \
     adduser -D -G app -h /app -s /bin/sh app
