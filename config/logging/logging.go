@@ -20,7 +20,7 @@ func Configure() {
 		log.Debug("Debug mode enabled")
 	}
 
-	if sentryDsn := viper.GetString("sentry.dsn"); sentryDsn != "" {
+	if sentryDsn := viper.GetString("logging.sentry.dsn"); sentryDsn != "" {
 		if err := setupSentry(sentryDsn); err != nil {
 			log.Error(err)
 		}
