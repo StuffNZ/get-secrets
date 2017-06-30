@@ -12,6 +12,22 @@ import (
 // Configure set-ups the Logrus library -- debug mode, etc
 // Currently set-up via Viper
 func Configure() {
+	// We do this before setting debug mode, to help-out the log aggregators:
+	switch loggingFormat := viper.GetString("logging.format"); loggingFormat {
+	case "":
+		fallthrough
+
+	case "text":
+		// This is the default log formatter in logrus, anyway:
+		log.SetFormatter(&log.TextFormatter{})
+
+	case "json":
+		log.SetFormatter(&log.JSONFormatter{})
+
+	default:
+		log.Panicf("Log format %#v not supported.", loggingFormat)
+	}
+
 	// TODO: Should this be a Debug message?
 	log.Infof("## %#v release %v ##", version.Application(), version.Release())
 
@@ -20,7 +36,7 @@ func Configure() {
 		log.Debug("Debug mode enabled")
 	}
 
-	if sentryDsn := viper.GetString("sentry.dsn"); sentryDsn != "" {
+	if sentryDsn := viper.GetString("logging.sentry.dsn"); sentryDsn != "" {
 		if err := setupSentry(sentryDsn); err != nil {
 			log.Error(err)
 		}
