@@ -20,6 +20,21 @@ func Configure() {
 		log.Debug("Debug mode enabled")
 	}
 
+	switch loggingFormat := viper.GetString("logging.format"); loggingFormat {
+	case "":
+		fallthrough
+
+	case "text":
+		// This is the default log formatter:
+		// log.SetFormatter(&log.TextFormatter{})
+
+	case "json":
+		log.SetFormatter(&log.JSONFormatter{})
+
+	default:
+		log.Panicf("Log format %#v not supported.", loggingFormat)
+	}
+
 	if sentryDsn := viper.GetString("logging.sentry.dsn"); sentryDsn != "" {
 		if err := setupSentry(sentryDsn); err != nil {
 			log.Error(err)
