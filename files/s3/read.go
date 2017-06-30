@@ -63,13 +63,11 @@ func (s *Details) ReadToString(subPath string) (string, error) {
 		return "", err
 	}
 
-	bufBytes := buf.Bytes()
-	bufString := string(bufBytes[:])
-
+	bufString := string(buf[:])
 	return bufString, nil
 }
 
-func (s *Details) readWithFqPath(path string) (*aws.WriteAtBuffer, error) {
+func (s *Details) readWithFqPath(path string) ([]byte, error) {
 	bucket := s.source.Bucket()
 	buf := make([]byte, BufferSize)
 	writeBuf := aws.NewWriteAtBuffer(buf)
@@ -81,11 +79,12 @@ func (s *Details) readWithFqPath(path string) (*aws.WriteAtBuffer, error) {
 		Bucket: &bucket,
 		Key:    &path,
 	}
-	_, err := downloader.Download(writeBuf, params)
+	numBytes, err := downloader.Download(writeBuf, params)
 	if err != nil {
 		log.WithFields(log.Fields{"s3.params": params}).Debug(err)
 		return nil, fmt.Errorf("Could not read %v/%v: %v", bucket, path, err)
 	}
 
-	return writeBuf, nil
+	bufBytes := writeBuf.Bytes()
+	return bufBytes[:numBytes], nil
 }
