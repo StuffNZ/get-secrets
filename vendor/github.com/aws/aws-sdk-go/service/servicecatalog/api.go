@@ -15,19 +15,18 @@ const opAcceptPortfolioShare = "AcceptPortfolioShare"
 
 // AcceptPortfolioShareRequest generates a "aws/request.Request" representing the
 // client's request for the AcceptPortfolioShare operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See AcceptPortfolioShare for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the AcceptPortfolioShare method directly
-// instead.
+// See AcceptPortfolioShare for more information on using the AcceptPortfolioShare
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the AcceptPortfolioShareRequest method.
 //    req, resp := client.AcceptPortfolioShareRequest(params)
@@ -102,19 +101,18 @@ const opAssociatePrincipalWithPortfolio = "AssociatePrincipalWithPortfolio"
 
 // AssociatePrincipalWithPortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the AssociatePrincipalWithPortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See AssociatePrincipalWithPortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the AssociatePrincipalWithPortfolio method directly
-// instead.
+// See AssociatePrincipalWithPortfolio for more information on using the AssociatePrincipalWithPortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the AssociatePrincipalWithPortfolioRequest method.
 //    req, resp := client.AssociatePrincipalWithPortfolioRequest(params)
@@ -189,19 +187,18 @@ const opAssociateProductWithPortfolio = "AssociateProductWithPortfolio"
 
 // AssociateProductWithPortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the AssociateProductWithPortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See AssociateProductWithPortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the AssociateProductWithPortfolio method directly
-// instead.
+// See AssociateProductWithPortfolio for more information on using the AssociateProductWithPortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the AssociateProductWithPortfolioRequest method.
 //    req, resp := client.AssociateProductWithPortfolioRequest(params)
@@ -272,23 +269,121 @@ func (c *ServiceCatalog) AssociateProductWithPortfolioWithContext(ctx aws.Contex
 	return out, req.Send()
 }
 
+const opAssociateTagOptionWithResource = "AssociateTagOptionWithResource"
+
+// AssociateTagOptionWithResourceRequest generates a "aws/request.Request" representing the
+// client's request for the AssociateTagOptionWithResource operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AssociateTagOptionWithResource for more information on using the AssociateTagOptionWithResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AssociateTagOptionWithResourceRequest method.
+//    req, resp := client.AssociateTagOptionWithResourceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateTagOptionWithResource
+func (c *ServiceCatalog) AssociateTagOptionWithResourceRequest(input *AssociateTagOptionWithResourceInput) (req *request.Request, output *AssociateTagOptionWithResourceOutput) {
+	op := &request.Operation{
+		Name:       opAssociateTagOptionWithResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &AssociateTagOptionWithResourceInput{}
+	}
+
+	output = &AssociateTagOptionWithResourceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// AssociateTagOptionWithResource API operation for AWS Service Catalog.
+//
+// Associate a TagOption identifier with a resource identifier.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation AssociateTagOptionWithResource for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeResourceNotFoundException "ResourceNotFoundException"
+//   The specified resource was not found.
+//
+//   * ErrCodeInvalidParametersException "InvalidParametersException"
+//   One or more parameters provided to the operation are invalid.
+//
+//   * ErrCodeLimitExceededException "LimitExceededException"
+//   The current limits of the service would have been exceeded by this operation.
+//   Reduce the resource use or increase the service limits and retry the operation.
+//
+//   * ErrCodeDuplicateResourceException "DuplicateResourceException"
+//   The specified resource is a duplicate.
+//
+//   * ErrCodeInvalidStateException "InvalidStateException"
+//   An attempt was made to modify a resource that is in an invalid state. Inspect
+//   the resource you are using for this operation to ensure that all resource
+//   states are valid before retrying the operation.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateTagOptionWithResource
+func (c *ServiceCatalog) AssociateTagOptionWithResource(input *AssociateTagOptionWithResourceInput) (*AssociateTagOptionWithResourceOutput, error) {
+	req, out := c.AssociateTagOptionWithResourceRequest(input)
+	return out, req.Send()
+}
+
+// AssociateTagOptionWithResourceWithContext is the same as AssociateTagOptionWithResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AssociateTagOptionWithResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) AssociateTagOptionWithResourceWithContext(ctx aws.Context, input *AssociateTagOptionWithResourceInput, opts ...request.Option) (*AssociateTagOptionWithResourceOutput, error) {
+	req, out := c.AssociateTagOptionWithResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateConstraint = "CreateConstraint"
 
 // CreateConstraintRequest generates a "aws/request.Request" representing the
 // client's request for the CreateConstraint operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateConstraint for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateConstraint method directly
-// instead.
+// See CreateConstraint for more information on using the CreateConstraint
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateConstraintRequest method.
 //    req, resp := client.CreateConstraintRequest(params)
@@ -366,19 +461,18 @@ const opCreatePortfolio = "CreatePortfolio"
 
 // CreatePortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the CreatePortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreatePortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreatePortfolio method directly
-// instead.
+// See CreatePortfolio for more information on using the CreatePortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreatePortfolioRequest method.
 //    req, resp := client.CreatePortfolioRequest(params)
@@ -424,6 +518,11 @@ func (c *ServiceCatalog) CreatePortfolioRequest(input *CreatePortfolioInput) (re
 //   The current limits of the service would have been exceeded by this operation.
 //   Reduce the resource use or increase the service limits and retry the operation.
 //
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/CreatePortfolio
 func (c *ServiceCatalog) CreatePortfolio(input *CreatePortfolioInput) (*CreatePortfolioOutput, error) {
 	req, out := c.CreatePortfolioRequest(input)
@@ -450,19 +549,18 @@ const opCreatePortfolioShare = "CreatePortfolioShare"
 
 // CreatePortfolioShareRequest generates a "aws/request.Request" representing the
 // client's request for the CreatePortfolioShare operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreatePortfolioShare for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreatePortfolioShare method directly
-// instead.
+// See CreatePortfolioShare for more information on using the CreatePortfolioShare
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreatePortfolioShareRequest method.
 //    req, resp := client.CreatePortfolioShareRequest(params)
@@ -537,19 +635,18 @@ const opCreateProduct = "CreateProduct"
 
 // CreateProductRequest generates a "aws/request.Request" representing the
 // client's request for the CreateProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateProduct method directly
-// instead.
+// See CreateProduct for more information on using the CreateProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateProductRequest method.
 //    req, resp := client.CreateProductRequest(params)
@@ -595,6 +692,11 @@ func (c *ServiceCatalog) CreateProductRequest(input *CreateProductInput) (req *r
 //   The current limits of the service would have been exceeded by this operation.
 //   Reduce the resource use or increase the service limits and retry the operation.
 //
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/CreateProduct
 func (c *ServiceCatalog) CreateProduct(input *CreateProductInput) (*CreateProductOutput, error) {
 	req, out := c.CreateProductRequest(input)
@@ -621,19 +723,18 @@ const opCreateProvisioningArtifact = "CreateProvisioningArtifact"
 
 // CreateProvisioningArtifactRequest generates a "aws/request.Request" representing the
 // client's request for the CreateProvisioningArtifact operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateProvisioningArtifact for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateProvisioningArtifact method directly
-// instead.
+// See CreateProvisioningArtifact for more information on using the CreateProvisioningArtifact
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateProvisioningArtifactRequest method.
 //    req, resp := client.CreateProvisioningArtifactRequest(params)
@@ -707,23 +808,110 @@ func (c *ServiceCatalog) CreateProvisioningArtifactWithContext(ctx aws.Context, 
 	return out, req.Send()
 }
 
+const opCreateTagOption = "CreateTagOption"
+
+// CreateTagOptionRequest generates a "aws/request.Request" representing the
+// client's request for the CreateTagOption operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateTagOption for more information on using the CreateTagOption
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateTagOptionRequest method.
+//    req, resp := client.CreateTagOptionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/CreateTagOption
+func (c *ServiceCatalog) CreateTagOptionRequest(input *CreateTagOptionInput) (req *request.Request, output *CreateTagOptionOutput) {
+	op := &request.Operation{
+		Name:       opCreateTagOption,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateTagOptionInput{}
+	}
+
+	output = &CreateTagOptionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateTagOption API operation for AWS Service Catalog.
+//
+// Create a new TagOption.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation CreateTagOption for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeDuplicateResourceException "DuplicateResourceException"
+//   The specified resource is a duplicate.
+//
+//   * ErrCodeLimitExceededException "LimitExceededException"
+//   The current limits of the service would have been exceeded by this operation.
+//   Reduce the resource use or increase the service limits and retry the operation.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/CreateTagOption
+func (c *ServiceCatalog) CreateTagOption(input *CreateTagOptionInput) (*CreateTagOptionOutput, error) {
+	req, out := c.CreateTagOptionRequest(input)
+	return out, req.Send()
+}
+
+// CreateTagOptionWithContext is the same as CreateTagOption with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateTagOption for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) CreateTagOptionWithContext(ctx aws.Context, input *CreateTagOptionInput, opts ...request.Option) (*CreateTagOptionOutput, error) {
+	req, out := c.CreateTagOptionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteConstraint = "DeleteConstraint"
 
 // DeleteConstraintRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteConstraint operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteConstraint for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteConstraint method directly
-// instead.
+// See DeleteConstraint for more information on using the DeleteConstraint
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteConstraintRequest method.
 //    req, resp := client.DeleteConstraintRequest(params)
@@ -794,19 +982,18 @@ const opDeletePortfolio = "DeletePortfolio"
 
 // DeletePortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the DeletePortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeletePortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeletePortfolio method directly
-// instead.
+// See DeletePortfolio for more information on using the DeletePortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeletePortfolioRequest method.
 //    req, resp := client.DeletePortfolioRequest(params)
@@ -857,6 +1044,11 @@ func (c *ServiceCatalog) DeletePortfolioRequest(input *DeletePortfolioInput) (re
 //   The operation was requested against a resource that is currently in use.
 //   Free the resource from use and retry the operation.
 //
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DeletePortfolio
 func (c *ServiceCatalog) DeletePortfolio(input *DeletePortfolioInput) (*DeletePortfolioOutput, error) {
 	req, out := c.DeletePortfolioRequest(input)
@@ -883,19 +1075,18 @@ const opDeletePortfolioShare = "DeletePortfolioShare"
 
 // DeletePortfolioShareRequest generates a "aws/request.Request" representing the
 // client's request for the DeletePortfolioShare operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeletePortfolioShare for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeletePortfolioShare method directly
-// instead.
+// See DeletePortfolioShare for more information on using the DeletePortfolioShare
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeletePortfolioShareRequest method.
 //    req, resp := client.DeletePortfolioShareRequest(params)
@@ -963,19 +1154,18 @@ const opDeleteProduct = "DeleteProduct"
 
 // DeleteProductRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteProduct method directly
-// instead.
+// See DeleteProduct for more information on using the DeleteProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteProductRequest method.
 //    req, resp := client.DeleteProductRequest(params)
@@ -1025,6 +1215,11 @@ func (c *ServiceCatalog) DeleteProductRequest(input *DeleteProductInput) (req *r
 //   * ErrCodeInvalidParametersException "InvalidParametersException"
 //   One or more parameters provided to the operation are invalid.
 //
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DeleteProduct
 func (c *ServiceCatalog) DeleteProduct(input *DeleteProductInput) (*DeleteProductOutput, error) {
 	req, out := c.DeleteProductRequest(input)
@@ -1051,19 +1246,18 @@ const opDeleteProvisioningArtifact = "DeleteProvisioningArtifact"
 
 // DeleteProvisioningArtifactRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteProvisioningArtifact operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteProvisioningArtifact for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteProvisioningArtifact method directly
-// instead.
+// See DeleteProvisioningArtifact for more information on using the DeleteProvisioningArtifact
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteProvisioningArtifactRequest method.
 //    req, resp := client.DeleteProvisioningArtifactRequest(params)
@@ -1141,19 +1335,18 @@ const opDescribeConstraint = "DescribeConstraint"
 
 // DescribeConstraintRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeConstraint operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeConstraint for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeConstraint method directly
-// instead.
+// See DescribeConstraint for more information on using the DescribeConstraint
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeConstraintRequest method.
 //    req, resp := client.DescribeConstraintRequest(params)
@@ -1221,19 +1414,18 @@ const opDescribePortfolio = "DescribePortfolio"
 
 // DescribePortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the DescribePortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribePortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribePortfolio method directly
-// instead.
+// See DescribePortfolio for more information on using the DescribePortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribePortfolioRequest method.
 //    req, resp := client.DescribePortfolioRequest(params)
@@ -1302,19 +1494,18 @@ const opDescribeProduct = "DescribeProduct"
 
 // DescribeProductRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeProduct method directly
-// instead.
+// See DescribeProduct for more information on using the DescribeProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeProductRequest method.
 //    req, resp := client.DescribeProductRequest(params)
@@ -1388,19 +1579,18 @@ const opDescribeProductAsAdmin = "DescribeProductAsAdmin"
 
 // DescribeProductAsAdminRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeProductAsAdmin operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeProductAsAdmin for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeProductAsAdmin method directly
-// instead.
+// See DescribeProductAsAdmin for more information on using the DescribeProductAsAdmin
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeProductAsAdminRequest method.
 //    req, resp := client.DescribeProductAsAdminRequest(params)
@@ -1468,19 +1658,18 @@ const opDescribeProductView = "DescribeProductView"
 
 // DescribeProductViewRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeProductView operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeProductView for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeProductView method directly
-// instead.
+// See DescribeProductView for more information on using the DescribeProductView
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeProductViewRequest method.
 //    req, resp := client.DescribeProductViewRequest(params)
@@ -1554,19 +1743,18 @@ const opDescribeProvisionedProduct = "DescribeProvisionedProduct"
 
 // DescribeProvisionedProductRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeProvisionedProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeProvisionedProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeProvisionedProduct method directly
-// instead.
+// See DescribeProvisionedProduct for more information on using the DescribeProvisionedProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeProvisionedProductRequest method.
 //    req, resp := client.DescribeProvisionedProductRequest(params)
@@ -1634,19 +1822,18 @@ const opDescribeProvisioningArtifact = "DescribeProvisioningArtifact"
 
 // DescribeProvisioningArtifactRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeProvisioningArtifact operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeProvisioningArtifact for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeProvisioningArtifact method directly
-// instead.
+// See DescribeProvisioningArtifact for more information on using the DescribeProvisioningArtifact
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeProvisioningArtifactRequest method.
 //    req, resp := client.DescribeProvisioningArtifactRequest(params)
@@ -1714,19 +1901,18 @@ const opDescribeProvisioningParameters = "DescribeProvisioningParameters"
 
 // DescribeProvisioningParametersRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeProvisioningParameters operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeProvisioningParameters for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeProvisioningParameters method directly
-// instead.
+// See DescribeProvisioningParameters for more information on using the DescribeProvisioningParameters
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeProvisioningParametersRequest method.
 //    req, resp := client.DescribeProvisioningParametersRequest(params)
@@ -1759,6 +1945,15 @@ func (c *ServiceCatalog) DescribeProvisioningParametersRequest(input *DescribePr
 // in a specified manner. Use this operation to obtain the list of ProvisioningArtifactParameters
 // parameters available to call the ProvisionProduct operation for the specified
 // product.
+//
+// If the output contains a TagOption key with an empty list of values, there
+// is a TagOption conflict for that key. The end user cannot take action to
+// fix the conflict, and launch is not blocked. In subsequent calls to the ProvisionProduct
+// operation, do not include conflicted TagOption keys as tags. Calls to ProvisionProduct
+// with empty TagOption values cause the error "Parameter validation failed:
+// Missing required parameter in Tags[N]:Value ". Calls to ProvisionProduct
+// with conflicted TagOption keys automatically tag the provisioned product
+// with the conflicted keys with the value "sc-tagoption-conflict-portfolioId-productId".
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1800,19 +1995,18 @@ const opDescribeRecord = "DescribeRecord"
 
 // DescribeRecordRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeRecord operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeRecord for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeRecord method directly
-// instead.
+// See DescribeRecord for more information on using the DescribeRecord
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeRecordRequest method.
 //    req, resp := client.DescribeRecordRequest(params)
@@ -1878,23 +2072,106 @@ func (c *ServiceCatalog) DescribeRecordWithContext(ctx aws.Context, input *Descr
 	return out, req.Send()
 }
 
+const opDescribeTagOption = "DescribeTagOption"
+
+// DescribeTagOptionRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeTagOption operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeTagOption for more information on using the DescribeTagOption
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeTagOptionRequest method.
+//    req, resp := client.DescribeTagOptionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DescribeTagOption
+func (c *ServiceCatalog) DescribeTagOptionRequest(input *DescribeTagOptionInput) (req *request.Request, output *DescribeTagOptionOutput) {
+	op := &request.Operation{
+		Name:       opDescribeTagOption,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeTagOptionInput{}
+	}
+
+	output = &DescribeTagOptionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeTagOption API operation for AWS Service Catalog.
+//
+// Describes a TagOption.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation DescribeTagOption for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeResourceNotFoundException "ResourceNotFoundException"
+//   The specified resource was not found.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DescribeTagOption
+func (c *ServiceCatalog) DescribeTagOption(input *DescribeTagOptionInput) (*DescribeTagOptionOutput, error) {
+	req, out := c.DescribeTagOptionRequest(input)
+	return out, req.Send()
+}
+
+// DescribeTagOptionWithContext is the same as DescribeTagOption with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeTagOption for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) DescribeTagOptionWithContext(ctx aws.Context, input *DescribeTagOptionInput, opts ...request.Option) (*DescribeTagOptionOutput, error) {
+	req, out := c.DescribeTagOptionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisassociatePrincipalFromPortfolio = "DisassociatePrincipalFromPortfolio"
 
 // DisassociatePrincipalFromPortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the DisassociatePrincipalFromPortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DisassociatePrincipalFromPortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DisassociatePrincipalFromPortfolio method directly
-// instead.
+// See DisassociatePrincipalFromPortfolio for more information on using the DisassociatePrincipalFromPortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DisassociatePrincipalFromPortfolioRequest method.
 //    req, resp := client.DisassociatePrincipalFromPortfolioRequest(params)
@@ -1965,19 +2242,18 @@ const opDisassociateProductFromPortfolio = "DisassociateProductFromPortfolio"
 
 // DisassociateProductFromPortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the DisassociateProductFromPortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DisassociateProductFromPortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DisassociateProductFromPortfolio method directly
-// instead.
+// See DisassociateProductFromPortfolio for more information on using the DisassociateProductFromPortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DisassociateProductFromPortfolioRequest method.
 //    req, resp := client.DisassociateProductFromPortfolioRequest(params)
@@ -2019,6 +2295,10 @@ func (c *ServiceCatalog) DisassociateProductFromPortfolioRequest(input *Disassoc
 //   * ErrCodeResourceNotFoundException "ResourceNotFoundException"
 //   The specified resource was not found.
 //
+//   * ErrCodeResourceInUseException "ResourceInUseException"
+//   The operation was requested against a resource that is currently in use.
+//   Free the resource from use and retry the operation.
+//
 //   * ErrCodeInvalidParametersException "InvalidParametersException"
 //   One or more parameters provided to the operation are invalid.
 //
@@ -2044,23 +2324,106 @@ func (c *ServiceCatalog) DisassociateProductFromPortfolioWithContext(ctx aws.Con
 	return out, req.Send()
 }
 
+const opDisassociateTagOptionFromResource = "DisassociateTagOptionFromResource"
+
+// DisassociateTagOptionFromResourceRequest generates a "aws/request.Request" representing the
+// client's request for the DisassociateTagOptionFromResource operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DisassociateTagOptionFromResource for more information on using the DisassociateTagOptionFromResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DisassociateTagOptionFromResourceRequest method.
+//    req, resp := client.DisassociateTagOptionFromResourceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateTagOptionFromResource
+func (c *ServiceCatalog) DisassociateTagOptionFromResourceRequest(input *DisassociateTagOptionFromResourceInput) (req *request.Request, output *DisassociateTagOptionFromResourceOutput) {
+	op := &request.Operation{
+		Name:       opDisassociateTagOptionFromResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DisassociateTagOptionFromResourceInput{}
+	}
+
+	output = &DisassociateTagOptionFromResourceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DisassociateTagOptionFromResource API operation for AWS Service Catalog.
+//
+// Disassociates a TagOption from a resource.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation DisassociateTagOptionFromResource for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeResourceNotFoundException "ResourceNotFoundException"
+//   The specified resource was not found.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateTagOptionFromResource
+func (c *ServiceCatalog) DisassociateTagOptionFromResource(input *DisassociateTagOptionFromResourceInput) (*DisassociateTagOptionFromResourceOutput, error) {
+	req, out := c.DisassociateTagOptionFromResourceRequest(input)
+	return out, req.Send()
+}
+
+// DisassociateTagOptionFromResourceWithContext is the same as DisassociateTagOptionFromResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DisassociateTagOptionFromResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) DisassociateTagOptionFromResourceWithContext(ctx aws.Context, input *DisassociateTagOptionFromResourceInput, opts ...request.Option) (*DisassociateTagOptionFromResourceOutput, error) {
+	req, out := c.DisassociateTagOptionFromResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListAcceptedPortfolioShares = "ListAcceptedPortfolioShares"
 
 // ListAcceptedPortfolioSharesRequest generates a "aws/request.Request" representing the
 // client's request for the ListAcceptedPortfolioShares operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListAcceptedPortfolioShares for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListAcceptedPortfolioShares method directly
-// instead.
+// See ListAcceptedPortfolioShares for more information on using the ListAcceptedPortfolioShares
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListAcceptedPortfolioSharesRequest method.
 //    req, resp := client.ListAcceptedPortfolioSharesRequest(params)
@@ -2128,19 +2491,18 @@ const opListConstraintsForPortfolio = "ListConstraintsForPortfolio"
 
 // ListConstraintsForPortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the ListConstraintsForPortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListConstraintsForPortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListConstraintsForPortfolio method directly
-// instead.
+// See ListConstraintsForPortfolio for more information on using the ListConstraintsForPortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListConstraintsForPortfolioRequest method.
 //    req, resp := client.ListConstraintsForPortfolioRequest(params)
@@ -2212,19 +2574,18 @@ const opListLaunchPaths = "ListLaunchPaths"
 
 // ListLaunchPathsRequest generates a "aws/request.Request" representing the
 // client's request for the ListLaunchPaths operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListLaunchPaths for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListLaunchPaths method directly
-// instead.
+// See ListLaunchPaths for more information on using the ListLaunchPaths
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListLaunchPathsRequest method.
 //    req, resp := client.ListLaunchPathsRequest(params)
@@ -2297,19 +2658,18 @@ const opListPortfolioAccess = "ListPortfolioAccess"
 
 // ListPortfolioAccessRequest generates a "aws/request.Request" representing the
 // client's request for the ListPortfolioAccess operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListPortfolioAccess for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListPortfolioAccess method directly
-// instead.
+// See ListPortfolioAccess for more information on using the ListPortfolioAccess
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListPortfolioAccessRequest method.
 //    req, resp := client.ListPortfolioAccessRequest(params)
@@ -2378,19 +2738,18 @@ const opListPortfolios = "ListPortfolios"
 
 // ListPortfoliosRequest generates a "aws/request.Request" representing the
 // client's request for the ListPortfolios operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListPortfolios for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListPortfolios method directly
-// instead.
+// See ListPortfolios for more information on using the ListPortfolios
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListPortfoliosRequest method.
 //    req, resp := client.ListPortfoliosRequest(params)
@@ -2458,19 +2817,18 @@ const opListPortfoliosForProduct = "ListPortfoliosForProduct"
 
 // ListPortfoliosForProductRequest generates a "aws/request.Request" representing the
 // client's request for the ListPortfoliosForProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListPortfoliosForProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListPortfoliosForProduct method directly
-// instead.
+// See ListPortfoliosForProduct for more information on using the ListPortfoliosForProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListPortfoliosForProductRequest method.
 //    req, resp := client.ListPortfoliosForProductRequest(params)
@@ -2541,19 +2899,18 @@ const opListPrincipalsForPortfolio = "ListPrincipalsForPortfolio"
 
 // ListPrincipalsForPortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the ListPrincipalsForPortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListPrincipalsForPortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListPrincipalsForPortfolio method directly
-// instead.
+// See ListPrincipalsForPortfolio for more information on using the ListPrincipalsForPortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListPrincipalsForPortfolioRequest method.
 //    req, resp := client.ListPrincipalsForPortfolioRequest(params)
@@ -2624,19 +2981,18 @@ const opListProvisioningArtifacts = "ListProvisioningArtifacts"
 
 // ListProvisioningArtifactsRequest generates a "aws/request.Request" representing the
 // client's request for the ListProvisioningArtifacts operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListProvisioningArtifacts for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListProvisioningArtifacts method directly
-// instead.
+// See ListProvisioningArtifacts for more information on using the ListProvisioningArtifacts
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListProvisioningArtifactsRequest method.
 //    req, resp := client.ListProvisioningArtifactsRequest(params)
@@ -2707,19 +3063,18 @@ const opListRecordHistory = "ListRecordHistory"
 
 // ListRecordHistoryRequest generates a "aws/request.Request" representing the
 // client's request for the ListRecordHistory operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListRecordHistory for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListRecordHistory method directly
-// instead.
+// See ListRecordHistory for more information on using the ListRecordHistory
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListRecordHistoryRequest method.
 //    req, resp := client.ListRecordHistoryRequest(params)
@@ -2784,23 +3139,305 @@ func (c *ServiceCatalog) ListRecordHistoryWithContext(ctx aws.Context, input *Li
 	return out, req.Send()
 }
 
+const opListResourcesForTagOption = "ListResourcesForTagOption"
+
+// ListResourcesForTagOptionRequest generates a "aws/request.Request" representing the
+// client's request for the ListResourcesForTagOption operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListResourcesForTagOption for more information on using the ListResourcesForTagOption
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListResourcesForTagOptionRequest method.
+//    req, resp := client.ListResourcesForTagOptionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListResourcesForTagOption
+func (c *ServiceCatalog) ListResourcesForTagOptionRequest(input *ListResourcesForTagOptionInput) (req *request.Request, output *ListResourcesForTagOptionOutput) {
+	op := &request.Operation{
+		Name:       opListResourcesForTagOption,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"PageToken"},
+			OutputTokens:    []string{"PageToken"},
+			LimitToken:      "PageSize",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListResourcesForTagOptionInput{}
+	}
+
+	output = &ListResourcesForTagOptionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListResourcesForTagOption API operation for AWS Service Catalog.
+//
+// Lists resources associated with a TagOption.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation ListResourcesForTagOption for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeResourceNotFoundException "ResourceNotFoundException"
+//   The specified resource was not found.
+//
+//   * ErrCodeInvalidParametersException "InvalidParametersException"
+//   One or more parameters provided to the operation are invalid.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListResourcesForTagOption
+func (c *ServiceCatalog) ListResourcesForTagOption(input *ListResourcesForTagOptionInput) (*ListResourcesForTagOptionOutput, error) {
+	req, out := c.ListResourcesForTagOptionRequest(input)
+	return out, req.Send()
+}
+
+// ListResourcesForTagOptionWithContext is the same as ListResourcesForTagOption with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListResourcesForTagOption for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) ListResourcesForTagOptionWithContext(ctx aws.Context, input *ListResourcesForTagOptionInput, opts ...request.Option) (*ListResourcesForTagOptionOutput, error) {
+	req, out := c.ListResourcesForTagOptionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListResourcesForTagOptionPages iterates over the pages of a ListResourcesForTagOption operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListResourcesForTagOption method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListResourcesForTagOption operation.
+//    pageNum := 0
+//    err := client.ListResourcesForTagOptionPages(params,
+//        func(page *ListResourcesForTagOptionOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *ServiceCatalog) ListResourcesForTagOptionPages(input *ListResourcesForTagOptionInput, fn func(*ListResourcesForTagOptionOutput, bool) bool) error {
+	return c.ListResourcesForTagOptionPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListResourcesForTagOptionPagesWithContext same as ListResourcesForTagOptionPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) ListResourcesForTagOptionPagesWithContext(ctx aws.Context, input *ListResourcesForTagOptionInput, fn func(*ListResourcesForTagOptionOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListResourcesForTagOptionInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListResourcesForTagOptionRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	cont := true
+	for p.Next() && cont {
+		cont = fn(p.Page().(*ListResourcesForTagOptionOutput), !p.HasNextPage())
+	}
+	return p.Err()
+}
+
+const opListTagOptions = "ListTagOptions"
+
+// ListTagOptionsRequest generates a "aws/request.Request" representing the
+// client's request for the ListTagOptions operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListTagOptions for more information on using the ListTagOptions
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListTagOptionsRequest method.
+//    req, resp := client.ListTagOptionsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListTagOptions
+func (c *ServiceCatalog) ListTagOptionsRequest(input *ListTagOptionsInput) (req *request.Request, output *ListTagOptionsOutput) {
+	op := &request.Operation{
+		Name:       opListTagOptions,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"PageToken"},
+			OutputTokens:    []string{"PageToken"},
+			LimitToken:      "PageSize",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListTagOptionsInput{}
+	}
+
+	output = &ListTagOptionsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListTagOptions API operation for AWS Service Catalog.
+//
+// Lists detailed TagOptions information.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation ListTagOptions for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeInvalidParametersException "InvalidParametersException"
+//   One or more parameters provided to the operation are invalid.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListTagOptions
+func (c *ServiceCatalog) ListTagOptions(input *ListTagOptionsInput) (*ListTagOptionsOutput, error) {
+	req, out := c.ListTagOptionsRequest(input)
+	return out, req.Send()
+}
+
+// ListTagOptionsWithContext is the same as ListTagOptions with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListTagOptions for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) ListTagOptionsWithContext(ctx aws.Context, input *ListTagOptionsInput, opts ...request.Option) (*ListTagOptionsOutput, error) {
+	req, out := c.ListTagOptionsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListTagOptionsPages iterates over the pages of a ListTagOptions operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListTagOptions method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListTagOptions operation.
+//    pageNum := 0
+//    err := client.ListTagOptionsPages(params,
+//        func(page *ListTagOptionsOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *ServiceCatalog) ListTagOptionsPages(input *ListTagOptionsInput, fn func(*ListTagOptionsOutput, bool) bool) error {
+	return c.ListTagOptionsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListTagOptionsPagesWithContext same as ListTagOptionsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) ListTagOptionsPagesWithContext(ctx aws.Context, input *ListTagOptionsInput, fn func(*ListTagOptionsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListTagOptionsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListTagOptionsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	cont := true
+	for p.Next() && cont {
+		cont = fn(p.Page().(*ListTagOptionsOutput), !p.HasNextPage())
+	}
+	return p.Err()
+}
+
 const opProvisionProduct = "ProvisionProduct"
 
 // ProvisionProductRequest generates a "aws/request.Request" representing the
 // client's request for the ProvisionProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ProvisionProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ProvisionProduct method directly
-// instead.
+// See ProvisionProduct for more information on using the ProvisionProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ProvisionProductRequest method.
 //    req, resp := client.ProvisionProductRequest(params)
@@ -2835,6 +3472,12 @@ func (c *ServiceCatalog) ProvisionProductRequest(input *ProvisionProductInput) (
 // resources that come with it.
 //
 // You can check the status of this request using the DescribeRecord operation.
+// The error "Parameter validation failed: Missing required parameter in Tags[N]:Value"
+// indicates that your request contains a tag which has a tag key but no corresponding
+// tag value (value is empty or null). Your call may have included values returned
+// from a DescribeProvisioningParameters call that resulted in a TagOption key
+// with an empty list. This happens when TagOption keys are in conflict. For
+// more information, see DescribeProvisioningParameters.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2879,19 +3522,18 @@ const opRejectPortfolioShare = "RejectPortfolioShare"
 
 // RejectPortfolioShareRequest generates a "aws/request.Request" representing the
 // client's request for the RejectPortfolioShare operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RejectPortfolioShare for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RejectPortfolioShare method directly
-// instead.
+// See RejectPortfolioShare for more information on using the RejectPortfolioShare
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RejectPortfolioShareRequest method.
 //    req, resp := client.RejectPortfolioShareRequest(params)
@@ -2959,19 +3601,18 @@ const opScanProvisionedProducts = "ScanProvisionedProducts"
 
 // ScanProvisionedProductsRequest generates a "aws/request.Request" representing the
 // client's request for the ScanProvisionedProducts operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ScanProvisionedProducts for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ScanProvisionedProducts method directly
-// instead.
+// See ScanProvisionedProducts for more information on using the ScanProvisionedProducts
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ScanProvisionedProductsRequest method.
 //    req, resp := client.ScanProvisionedProductsRequest(params)
@@ -3040,19 +3681,18 @@ const opSearchProducts = "SearchProducts"
 
 // SearchProductsRequest generates a "aws/request.Request" representing the
 // client's request for the SearchProducts operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See SearchProducts for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the SearchProducts method directly
-// instead.
+// See SearchProducts for more information on using the SearchProducts
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the SearchProductsRequest method.
 //    req, resp := client.SearchProductsRequest(params)
@@ -3124,19 +3764,18 @@ const opSearchProductsAsAdmin = "SearchProductsAsAdmin"
 
 // SearchProductsAsAdminRequest generates a "aws/request.Request" representing the
 // client's request for the SearchProductsAsAdmin operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See SearchProductsAsAdmin for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the SearchProductsAsAdmin method directly
-// instead.
+// See SearchProductsAsAdmin for more information on using the SearchProductsAsAdmin
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the SearchProductsAsAdminRequest method.
 //    req, resp := client.SearchProductsAsAdminRequest(params)
@@ -3210,19 +3849,18 @@ const opTerminateProvisionedProduct = "TerminateProvisionedProduct"
 
 // TerminateProvisionedProductRequest generates a "aws/request.Request" representing the
 // client's request for the TerminateProvisionedProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See TerminateProvisionedProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the TerminateProvisionedProduct method directly
-// instead.
+// See TerminateProvisionedProduct for more information on using the TerminateProvisionedProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the TerminateProvisionedProductRequest method.
 //    req, resp := client.TerminateProvisionedProductRequest(params)
@@ -3297,19 +3935,18 @@ const opUpdateConstraint = "UpdateConstraint"
 
 // UpdateConstraintRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateConstraint operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateConstraint for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateConstraint method directly
-// instead.
+// See UpdateConstraint for more information on using the UpdateConstraint
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateConstraintRequest method.
 //    req, resp := client.UpdateConstraintRequest(params)
@@ -3380,19 +4017,18 @@ const opUpdatePortfolio = "UpdatePortfolio"
 
 // UpdatePortfolioRequest generates a "aws/request.Request" representing the
 // client's request for the UpdatePortfolio operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdatePortfolio for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdatePortfolio method directly
-// instead.
+// See UpdatePortfolio for more information on using the UpdatePortfolio
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdatePortfolioRequest method.
 //    req, resp := client.UpdatePortfolioRequest(params)
@@ -3442,6 +4078,11 @@ func (c *ServiceCatalog) UpdatePortfolioRequest(input *UpdatePortfolioInput) (re
 //   The current limits of the service would have been exceeded by this operation.
 //   Reduce the resource use or increase the service limits and retry the operation.
 //
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdatePortfolio
 func (c *ServiceCatalog) UpdatePortfolio(input *UpdatePortfolioInput) (*UpdatePortfolioOutput, error) {
 	req, out := c.UpdatePortfolioRequest(input)
@@ -3468,19 +4109,18 @@ const opUpdateProduct = "UpdateProduct"
 
 // UpdateProductRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateProduct method directly
-// instead.
+// See UpdateProduct for more information on using the UpdateProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateProductRequest method.
 //    req, resp := client.UpdateProductRequest(params)
@@ -3525,6 +4165,11 @@ func (c *ServiceCatalog) UpdateProductRequest(input *UpdateProductInput) (req *r
 //   * ErrCodeInvalidParametersException "InvalidParametersException"
 //   One or more parameters provided to the operation are invalid.
 //
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateProduct
 func (c *ServiceCatalog) UpdateProduct(input *UpdateProductInput) (*UpdateProductOutput, error) {
 	req, out := c.UpdateProductRequest(input)
@@ -3551,19 +4196,18 @@ const opUpdateProvisionedProduct = "UpdateProvisionedProduct"
 
 // UpdateProvisionedProductRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateProvisionedProduct operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateProvisionedProduct for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateProvisionedProduct method directly
-// instead.
+// See UpdateProvisionedProduct for more information on using the UpdateProvisionedProduct
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateProvisionedProductRequest method.
 //    req, resp := client.UpdateProvisionedProductRequest(params)
@@ -3640,19 +4284,18 @@ const opUpdateProvisioningArtifact = "UpdateProvisioningArtifact"
 
 // UpdateProvisioningArtifactRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateProvisioningArtifact operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateProvisioningArtifact for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateProvisioningArtifact method directly
-// instead.
+// See UpdateProvisioningArtifact for more information on using the UpdateProvisioningArtifact
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateProvisioningArtifactRequest method.
 //    req, resp := client.UpdateProvisioningArtifactRequest(params)
@@ -3716,6 +4359,96 @@ func (c *ServiceCatalog) UpdateProvisioningArtifact(input *UpdateProvisioningArt
 // for more information on using Contexts.
 func (c *ServiceCatalog) UpdateProvisioningArtifactWithContext(ctx aws.Context, input *UpdateProvisioningArtifactInput, opts ...request.Option) (*UpdateProvisioningArtifactOutput, error) {
 	req, out := c.UpdateProvisioningArtifactRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUpdateTagOption = "UpdateTagOption"
+
+// UpdateTagOptionRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateTagOption operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateTagOption for more information on using the UpdateTagOption
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UpdateTagOptionRequest method.
+//    req, resp := client.UpdateTagOptionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateTagOption
+func (c *ServiceCatalog) UpdateTagOptionRequest(input *UpdateTagOptionInput) (req *request.Request, output *UpdateTagOptionOutput) {
+	op := &request.Operation{
+		Name:       opUpdateTagOption,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UpdateTagOptionInput{}
+	}
+
+	output = &UpdateTagOptionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// UpdateTagOption API operation for AWS Service Catalog.
+//
+// Updates an existing TagOption.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS Service Catalog's
+// API operation UpdateTagOption for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeTagOptionNotMigratedException "TagOptionNotMigratedException"
+//   An operation requiring TagOptions failed because the TagOptions migration
+//   process has not been performed for this account. Please use the AWS console
+//   to perform the migration process before retrying the operation.
+//
+//   * ErrCodeResourceNotFoundException "ResourceNotFoundException"
+//   The specified resource was not found.
+//
+//   * ErrCodeDuplicateResourceException "DuplicateResourceException"
+//   The specified resource is a duplicate.
+//
+//   * ErrCodeInvalidParametersException "InvalidParametersException"
+//   One or more parameters provided to the operation are invalid.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateTagOption
+func (c *ServiceCatalog) UpdateTagOption(input *UpdateTagOptionInput) (*UpdateTagOptionOutput, error) {
+	req, out := c.UpdateTagOptionRequest(input)
+	return out, req.Send()
+}
+
+// UpdateTagOptionWithContext is the same as UpdateTagOption with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateTagOption for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *ServiceCatalog) UpdateTagOptionWithContext(ctx aws.Context, input *UpdateTagOptionInput, opts ...request.Option) (*UpdateTagOptionOutput, error) {
+	req, out := c.UpdateTagOptionRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -4044,6 +4777,77 @@ func (s AssociateProductWithPortfolioOutput) String() string {
 
 // GoString returns the string representation
 func (s AssociateProductWithPortfolioOutput) GoString() string {
+	return s.String()
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateTagOptionWithResourceInput
+type AssociateTagOptionWithResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The resource identifier.
+	//
+	// ResourceId is a required field
+	ResourceId *string `type:"string" required:"true"`
+
+	// The TagOption identifier.
+	//
+	// TagOptionId is a required field
+	TagOptionId *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s AssociateTagOptionWithResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateTagOptionWithResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *AssociateTagOptionWithResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "AssociateTagOptionWithResourceInput"}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+	if s.TagOptionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagOptionId"))
+	}
+	if s.TagOptionId != nil && len(*s.TagOptionId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TagOptionId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *AssociateTagOptionWithResourceInput) SetResourceId(v string) *AssociateTagOptionWithResourceInput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetTagOptionId sets the TagOptionId field's value.
+func (s *AssociateTagOptionWithResourceInput) SetTagOptionId(v string) *AssociateTagOptionWithResourceInput {
+	s.TagOptionId = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateTagOptionWithResourceOutput
+type AssociateTagOptionWithResourceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s AssociateTagOptionWithResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AssociateTagOptionWithResourceOutput) GoString() string {
 	return s.String()
 }
 
@@ -4934,6 +5738,89 @@ func (s *CreateProvisioningArtifactOutput) SetStatus(v string) *CreateProvisioni
 	return s
 }
 
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/CreateTagOptionInput
+type CreateTagOptionInput struct {
+	_ struct{} `type:"structure"`
+
+	// The TagOption key.
+	//
+	// Key is a required field
+	Key *string `min:"1" type:"string" required:"true"`
+
+	// The TagOption value.
+	//
+	// Value is a required field
+	Value *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateTagOptionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateTagOptionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateTagOptionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateTagOptionInput"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
+	}
+	if s.Value != nil && len(*s.Value) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Value", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *CreateTagOptionInput) SetKey(v string) *CreateTagOptionInput {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *CreateTagOptionInput) SetValue(v string) *CreateTagOptionInput {
+	s.Value = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/CreateTagOptionOutput
+type CreateTagOptionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The resulting detailed TagOption information.
+	TagOptionDetail *TagOptionDetail `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateTagOptionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateTagOptionOutput) GoString() string {
+	return s.String()
+}
+
+// SetTagOptionDetail sets the TagOptionDetail field's value.
+func (s *CreateTagOptionOutput) SetTagOptionDetail(v *TagOptionDetail) *CreateTagOptionOutput {
+	s.TagOptionDetail = v
+	return s
+}
+
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DeleteConstraintInput
 type DeleteConstraintInput struct {
 	_ struct{} `type:"structure"`
@@ -5510,6 +6397,9 @@ type DescribePortfolioOutput struct {
 	// Detailed portfolio information.
 	PortfolioDetail *PortfolioDetail `type:"structure"`
 
+	// TagOptions associated with the portfolio.
+	TagOptions []*TagOptionDetail `type:"list"`
+
 	// Tags associated with the portfolio.
 	Tags []*Tag `type:"list"`
 }
@@ -5527,6 +6417,12 @@ func (s DescribePortfolioOutput) GoString() string {
 // SetPortfolioDetail sets the PortfolioDetail field's value.
 func (s *DescribePortfolioOutput) SetPortfolioDetail(v *PortfolioDetail) *DescribePortfolioOutput {
 	s.PortfolioDetail = v
+	return s
+}
+
+// SetTagOptions sets the TagOptions field's value.
+func (s *DescribePortfolioOutput) SetTagOptions(v []*TagOptionDetail) *DescribePortfolioOutput {
+	s.TagOptions = v
 	return s
 }
 
@@ -5606,6 +6502,9 @@ type DescribeProductAsAdminOutput struct {
 	// A list of provisioning artifact summaries for the product.
 	ProvisioningArtifactSummaries []*ProvisioningArtifactSummary `type:"list"`
 
+	// List of TagOptions associated with the product.
+	TagOptions []*TagOptionDetail `type:"list"`
+
 	// Tags associated with the product.
 	Tags []*Tag `type:"list"`
 }
@@ -5629,6 +6528,12 @@ func (s *DescribeProductAsAdminOutput) SetProductViewDetail(v *ProductViewDetail
 // SetProvisioningArtifactSummaries sets the ProvisioningArtifactSummaries field's value.
 func (s *DescribeProductAsAdminOutput) SetProvisioningArtifactSummaries(v []*ProvisioningArtifactSummary) *DescribeProductAsAdminOutput {
 	s.ProvisioningArtifactSummaries = v
+	return s
+}
+
+// SetTagOptions sets the TagOptions field's value.
+func (s *DescribeProductAsAdminOutput) SetTagOptions(v []*TagOptionDetail) *DescribeProductAsAdminOutput {
+	s.TagOptions = v
 	return s
 }
 
@@ -5937,7 +6842,7 @@ type DescribeProvisioningArtifactInput struct {
 	// ProvisioningArtifactId is a required field
 	ProvisioningArtifactId *string `min:"1" type:"string" required:"true"`
 
-	// Selects verbose results. If set to true, the CloudFormation template is returned.
+	// Enable a verbose level of details for the provisioning artifact.
 	Verbose *bool `type:"boolean"`
 }
 
@@ -6142,6 +7047,9 @@ type DescribeProvisioningParametersOutput struct {
 	// includes a list of allowable values and additional metadata about each parameter.
 	ProvisioningArtifactParameters []*ProvisioningArtifactParameter `type:"list"`
 
+	// List of TagOptions associated with the provisioned provisioning parameters.
+	TagOptions []*TagOptionSummary `type:"list"`
+
 	// Any additional metadata specifically related to the provisioning of the product.
 	// For example, see the Version field of the CloudFormation template.
 	UsageInstructions []*UsageInstruction `type:"list"`
@@ -6166,6 +7074,12 @@ func (s *DescribeProvisioningParametersOutput) SetConstraintSummaries(v []*Const
 // SetProvisioningArtifactParameters sets the ProvisioningArtifactParameters field's value.
 func (s *DescribeProvisioningParametersOutput) SetProvisioningArtifactParameters(v []*ProvisioningArtifactParameter) *DescribeProvisioningParametersOutput {
 	s.ProvisioningArtifactParameters = v
+	return s
+}
+
+// SetTagOptions sets the TagOptions field's value.
+func (s *DescribeProvisioningParametersOutput) SetTagOptions(v []*TagOptionSummary) *DescribeProvisioningParametersOutput {
+	s.TagOptions = v
 	return s
 }
 
@@ -6300,6 +7214,72 @@ func (s *DescribeRecordOutput) SetRecordDetail(v *RecordDetail) *DescribeRecordO
 // SetRecordOutputs sets the RecordOutputs field's value.
 func (s *DescribeRecordOutput) SetRecordOutputs(v []*RecordOutput) *DescribeRecordOutput {
 	s.RecordOutputs = v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DescribeTagOptionInput
+type DescribeTagOptionInput struct {
+	_ struct{} `type:"structure"`
+
+	// The identifier of the TagOption.
+	//
+	// Id is a required field
+	Id *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DescribeTagOptionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeTagOptionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeTagOptionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeTagOptionInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+	if s.Id != nil && len(*s.Id) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Id", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetId sets the Id field's value.
+func (s *DescribeTagOptionInput) SetId(v string) *DescribeTagOptionInput {
+	s.Id = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DescribeTagOptionOutput
+type DescribeTagOptionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The resulting detailed TagOption information.
+	TagOptionDetail *TagOptionDetail `type:"structure"`
+}
+
+// String returns the string representation
+func (s DescribeTagOptionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeTagOptionOutput) GoString() string {
+	return s.String()
+}
+
+// SetTagOptionDetail sets the TagOptionDetail field's value.
+func (s *DescribeTagOptionOutput) SetTagOptionDetail(v *TagOptionDetail) *DescribeTagOptionOutput {
+	s.TagOptionDetail = v
 	return s
 }
 
@@ -6484,6 +7464,77 @@ func (s DisassociateProductFromPortfolioOutput) String() string {
 
 // GoString returns the string representation
 func (s DisassociateProductFromPortfolioOutput) GoString() string {
+	return s.String()
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateTagOptionFromResourceInput
+type DisassociateTagOptionFromResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// Identifier of the resource from which to disassociate the TagOption.
+	//
+	// ResourceId is a required field
+	ResourceId *string `type:"string" required:"true"`
+
+	// Identifier of the TagOption to disassociate from the resource.
+	//
+	// TagOptionId is a required field
+	TagOptionId *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DisassociateTagOptionFromResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateTagOptionFromResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DisassociateTagOptionFromResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DisassociateTagOptionFromResourceInput"}
+	if s.ResourceId == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceId"))
+	}
+	if s.TagOptionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagOptionId"))
+	}
+	if s.TagOptionId != nil && len(*s.TagOptionId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TagOptionId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceId sets the ResourceId field's value.
+func (s *DisassociateTagOptionFromResourceInput) SetResourceId(v string) *DisassociateTagOptionFromResourceInput {
+	s.ResourceId = &v
+	return s
+}
+
+// SetTagOptionId sets the TagOptionId field's value.
+func (s *DisassociateTagOptionFromResourceInput) SetTagOptionId(v string) *DisassociateTagOptionFromResourceInput {
+	s.TagOptionId = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateTagOptionFromResourceOutput
+type DisassociateTagOptionFromResourceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DisassociateTagOptionFromResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DisassociateTagOptionFromResourceOutput) GoString() string {
 	return s.String()
 }
 
@@ -6780,7 +7831,7 @@ type ListLaunchPathsInput struct {
 	// page of size PageSize.
 	PageToken *string `type:"string"`
 
-	// The product identifier.. Identifies the product for which to retrieve LaunchPathSummaries
+	// The product identifier. Identifies the product for which to retrieve LaunchPathSummaries
 	// information.
 	//
 	// ProductId is a required field
@@ -7515,6 +8566,266 @@ func (s *ListRecordHistorySearchFilter) SetKey(v string) *ListRecordHistorySearc
 // SetValue sets the Value field's value.
 func (s *ListRecordHistorySearchFilter) SetValue(v string) *ListRecordHistorySearchFilter {
 	s.Value = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListResourcesForTagOptionInput
+type ListResourcesForTagOptionInput struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of items to return in the results. If more results exist
+	// than fit in the specified PageSize, the value of NextPageToken in the response
+	// is non-null.
+	PageSize *int64 `type:"integer"`
+
+	// The page token of the first page retrieved. If null, this retrieves the first
+	// page of size PageSize.
+	PageToken *string `type:"string"`
+
+	// Resource type.
+	ResourceType *string `type:"string"`
+
+	// Identifier of the TagOption.
+	//
+	// TagOptionId is a required field
+	TagOptionId *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ListResourcesForTagOptionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListResourcesForTagOptionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListResourcesForTagOptionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListResourcesForTagOptionInput"}
+	if s.TagOptionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagOptionId"))
+	}
+	if s.TagOptionId != nil && len(*s.TagOptionId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TagOptionId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListResourcesForTagOptionInput) SetPageSize(v int64) *ListResourcesForTagOptionInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetPageToken sets the PageToken field's value.
+func (s *ListResourcesForTagOptionInput) SetPageToken(v string) *ListResourcesForTagOptionInput {
+	s.PageToken = &v
+	return s
+}
+
+// SetResourceType sets the ResourceType field's value.
+func (s *ListResourcesForTagOptionInput) SetResourceType(v string) *ListResourcesForTagOptionInput {
+	s.ResourceType = &v
+	return s
+}
+
+// SetTagOptionId sets the TagOptionId field's value.
+func (s *ListResourcesForTagOptionInput) SetTagOptionId(v string) *ListResourcesForTagOptionInput {
+	s.TagOptionId = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListResourcesForTagOptionOutput
+type ListResourcesForTagOptionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The page token of the first page retrieved. If null, this retrieves the first
+	// page of size PageSize.
+	PageToken *string `type:"string"`
+
+	// The resulting detailed resource information.
+	ResourceDetails []*ResourceDetail `type:"list"`
+}
+
+// String returns the string representation
+func (s ListResourcesForTagOptionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListResourcesForTagOptionOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageToken sets the PageToken field's value.
+func (s *ListResourcesForTagOptionOutput) SetPageToken(v string) *ListResourcesForTagOptionOutput {
+	s.PageToken = &v
+	return s
+}
+
+// SetResourceDetails sets the ResourceDetails field's value.
+func (s *ListResourcesForTagOptionOutput) SetResourceDetails(v []*ResourceDetail) *ListResourcesForTagOptionOutput {
+	s.ResourceDetails = v
+	return s
+}
+
+// The ListTagOptions filters.
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListTagOptionsFilters
+type ListTagOptionsFilters struct {
+	_ struct{} `type:"structure"`
+
+	// The ListTagOptionsFilters active state.
+	Active *bool `type:"boolean"`
+
+	// The ListTagOptionsFilters key.
+	Key *string `min:"1" type:"string"`
+
+	// The ListTagOptionsFilters value.
+	Value *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ListTagOptionsFilters) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListTagOptionsFilters) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagOptionsFilters) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagOptionsFilters"}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Value != nil && len(*s.Value) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Value", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActive sets the Active field's value.
+func (s *ListTagOptionsFilters) SetActive(v bool) *ListTagOptionsFilters {
+	s.Active = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *ListTagOptionsFilters) SetKey(v string) *ListTagOptionsFilters {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *ListTagOptionsFilters) SetValue(v string) *ListTagOptionsFilters {
+	s.Value = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListTagOptionsInput
+type ListTagOptionsInput struct {
+	_ struct{} `type:"structure"`
+
+	// The list of filters with which to limit search results. If no search filters
+	// are specified, the output is all TagOptions.
+	Filters *ListTagOptionsFilters `type:"structure"`
+
+	// The maximum number of items to return in the results. If more results exist
+	// than fit in the specified PageSize, the value of NextPageToken in the response
+	// is non-null.
+	PageSize *int64 `type:"integer"`
+
+	// The page token of the first page retrieved. If null, this retrieves the first
+	// page of size PageSize.
+	PageToken *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ListTagOptionsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListTagOptionsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagOptionsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagOptionsInput"}
+	if s.Filters != nil {
+		if err := s.Filters.Validate(); err != nil {
+			invalidParams.AddNested("Filters", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFilters sets the Filters field's value.
+func (s *ListTagOptionsInput) SetFilters(v *ListTagOptionsFilters) *ListTagOptionsInput {
+	s.Filters = v
+	return s
+}
+
+// SetPageSize sets the PageSize field's value.
+func (s *ListTagOptionsInput) SetPageSize(v int64) *ListTagOptionsInput {
+	s.PageSize = &v
+	return s
+}
+
+// SetPageToken sets the PageToken field's value.
+func (s *ListTagOptionsInput) SetPageToken(v string) *ListTagOptionsInput {
+	s.PageToken = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListTagOptionsOutput
+type ListTagOptionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The page token of the first page retrieved. If null, this retrieves the first
+	// page of size PageSize.
+	PageToken *string `type:"string"`
+
+	// The resulting detailed TagOption information.
+	TagOptionDetails []*TagOptionDetail `type:"list"`
+}
+
+// String returns the string representation
+func (s ListTagOptionsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListTagOptionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetPageToken sets the PageToken field's value.
+func (s *ListTagOptionsOutput) SetPageToken(v string) *ListTagOptionsOutput {
+	s.PageToken = &v
+	return s
+}
+
+// SetTagOptionDetails sets the TagOptionDetails field's value.
+func (s *ListTagOptionsOutput) SetTagOptionDetails(v []*TagOptionDetail) *ListTagOptionsOutput {
+	s.TagOptionDetails = v
 	return s
 }
 
@@ -8452,7 +9763,7 @@ func (s *ProvisioningArtifactProperties) SetType(v string) *ProvisioningArtifact
 	return s
 }
 
-// Summary information about a provisioning artifact.
+// Stores summary information about a provisioning artifact.
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ProvisioningArtifactSummary
 type ProvisioningArtifactSummary struct {
 	_ struct{} `type:"structure"`
@@ -8460,13 +9771,13 @@ type ProvisioningArtifactSummary struct {
 	// The UTC timestamp of the creation time.
 	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
 
-	// The provisioning artifact description.
+	// The description of the provisioning artifact.
 	Description *string `type:"string"`
 
-	// The provisioning artifact identifier.
+	// The identifier of the provisioning artifact.
 	Id *string `min:"1" type:"string"`
 
-	// The provisioning artifact name.
+	// The name of the provisioning artifact.
 	Name *string `type:"string"`
 
 	// The provisioning artifact metadata. This data is used with products created
@@ -8608,7 +9919,7 @@ type RecordDetail struct {
 	// IN_PROGRESS - The requested operation is in-progress.
 	//
 	// IN_PROGRESS_IN_ERROR - The provisioned product is under change but the requested
-	// operation failed and some remediation is occurring. For example, a roll-back.
+	// operation failed and some remediation is occurring. For example, a rollback.
 	//
 	// SUCCEEDED - The requested operation has successfully completed.
 	//
@@ -8894,6 +10205,67 @@ func (s RejectPortfolioShareOutput) String() string {
 // GoString returns the string representation
 func (s RejectPortfolioShareOutput) GoString() string {
 	return s.String()
+}
+
+// Detailed resource information.
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ResourceDetail
+type ResourceDetail struct {
+	_ struct{} `type:"structure"`
+
+	// ARN of the resource.
+	ARN *string `type:"string"`
+
+	// Creation time of the resource.
+	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+
+	// Description of the resource.
+	Description *string `type:"string"`
+
+	// Identifier of the resource.
+	Id *string `type:"string"`
+
+	// Name of the resource.
+	Name *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ResourceDetail) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceDetail) GoString() string {
+	return s.String()
+}
+
+// SetARN sets the ARN field's value.
+func (s *ResourceDetail) SetARN(v string) *ResourceDetail {
+	s.ARN = &v
+	return s
+}
+
+// SetCreatedTime sets the CreatedTime field's value.
+func (s *ResourceDetail) SetCreatedTime(v time.Time) *ResourceDetail {
+	s.CreatedTime = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ResourceDetail) SetDescription(v string) *ResourceDetail {
+	s.Description = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ResourceDetail) SetId(v string) *ResourceDetail {
+	s.Id = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ResourceDetail) SetName(v string) *ResourceDetail {
+	s.Name = &v
+	return s
 }
 
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ScanProvisionedProductsInput
@@ -9268,7 +10640,7 @@ func (s *SearchProductsOutput) SetProductViewSummaries(v []*ProductViewSummary) 
 	return s
 }
 
-// Key/value pairs to associate with this provisioning. These tags are entirely
+// Key-value pairs to associate with this provisioning. These tags are entirely
 // discretionary and are propagated to the resources created in the provisioning.
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/Tag
 type Tag struct {
@@ -9326,6 +10698,92 @@ func (s *Tag) SetKey(v string) *Tag {
 // SetValue sets the Value field's value.
 func (s *Tag) SetValue(v string) *Tag {
 	s.Value = &v
+	return s
+}
+
+// The TagOption details.
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/TagOptionDetail
+type TagOptionDetail struct {
+	_ struct{} `type:"structure"`
+
+	// The TagOptionDetail active state.
+	Active *bool `type:"boolean"`
+
+	// The TagOptionDetail identifier.
+	Id *string `min:"1" type:"string"`
+
+	// The TagOptionDetail key.
+	Key *string `min:"1" type:"string"`
+
+	// The TagOptionDetail value.
+	Value *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s TagOptionDetail) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagOptionDetail) GoString() string {
+	return s.String()
+}
+
+// SetActive sets the Active field's value.
+func (s *TagOptionDetail) SetActive(v bool) *TagOptionDetail {
+	s.Active = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *TagOptionDetail) SetId(v string) *TagOptionDetail {
+	s.Id = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *TagOptionDetail) SetKey(v string) *TagOptionDetail {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *TagOptionDetail) SetValue(v string) *TagOptionDetail {
+	s.Value = &v
+	return s
+}
+
+// The TagOption summary key-value pair.
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/TagOptionSummary
+type TagOptionSummary struct {
+	_ struct{} `type:"structure"`
+
+	// The TagOptionSummary key.
+	Key *string `min:"1" type:"string"`
+
+	// The TagOptionSummary value.
+	Values []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s TagOptionSummary) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagOptionSummary) GoString() string {
+	return s.String()
+}
+
+// SetKey sets the Key field's value.
+func (s *TagOptionSummary) SetKey(v string) *TagOptionSummary {
+	s.Key = &v
+	return s
+}
+
+// SetValues sets the Values field's value.
+func (s *TagOptionSummary) SetValues(v []*string) *TagOptionSummary {
+	s.Values = v
 	return s
 }
 
@@ -10271,6 +11729,93 @@ func (s *UpdateProvisioningParameter) SetUsePreviousValue(v bool) *UpdateProvisi
 // SetValue sets the Value field's value.
 func (s *UpdateProvisioningParameter) SetValue(v string) *UpdateProvisioningParameter {
 	s.Value = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateTagOptionInput
+type UpdateTagOptionInput struct {
+	_ struct{} `type:"structure"`
+
+	// The updated active state.
+	Active *bool `type:"boolean"`
+
+	// The identifier of the constraint to update.
+	//
+	// Id is a required field
+	Id *string `min:"1" type:"string" required:"true"`
+
+	// The updated value.
+	Value *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s UpdateTagOptionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UpdateTagOptionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateTagOptionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateTagOptionInput"}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+	if s.Id != nil && len(*s.Id) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Id", 1))
+	}
+	if s.Value != nil && len(*s.Value) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Value", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActive sets the Active field's value.
+func (s *UpdateTagOptionInput) SetActive(v bool) *UpdateTagOptionInput {
+	s.Active = &v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *UpdateTagOptionInput) SetId(v string) *UpdateTagOptionInput {
+	s.Id = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *UpdateTagOptionInput) SetValue(v string) *UpdateTagOptionInput {
+	s.Value = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateTagOptionOutput
+type UpdateTagOptionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The resulting detailed TagOption information.
+	TagOptionDetail *TagOptionDetail `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateTagOptionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UpdateTagOptionOutput) GoString() string {
+	return s.String()
+}
+
+// SetTagOptionDetail sets the TagOptionDetail field's value.
+func (s *UpdateTagOptionOutput) SetTagOptionDetail(v *TagOptionDetail) *UpdateTagOptionOutput {
+	s.TagOptionDetail = v
 	return s
 }
 
