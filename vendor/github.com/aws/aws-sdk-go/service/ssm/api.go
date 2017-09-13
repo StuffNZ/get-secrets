@@ -15,19 +15,18 @@ const opAddTagsToResource = "AddTagsToResource"
 
 // AddTagsToResourceRequest generates a "aws/request.Request" representing the
 // client's request for the AddTagsToResource operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See AddTagsToResource for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the AddTagsToResource method directly
-// instead.
+// See AddTagsToResource for more information on using the AddTagsToResource
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the AddTagsToResourceRequest method.
 //    req, resp := client.AddTagsToResourceRequest(params)
@@ -126,19 +125,18 @@ const opCancelCommand = "CancelCommand"
 
 // CancelCommandRequest generates a "aws/request.Request" representing the
 // client's request for the CancelCommand operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CancelCommand for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CancelCommand method directly
-// instead.
+// See CancelCommand for more information on using the CancelCommand
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CancelCommandRequest method.
 //    req, resp := client.CancelCommandRequest(params)
@@ -227,19 +225,18 @@ const opCreateActivation = "CreateActivation"
 
 // CreateActivationRequest generates a "aws/request.Request" representing the
 // client's request for the CreateActivation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateActivation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateActivation method directly
-// instead.
+// See CreateActivation for more information on using the CreateActivation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateActivationRequest method.
 //    req, resp := client.CreateActivationRequest(params)
@@ -311,19 +308,18 @@ const opCreateAssociation = "CreateAssociation"
 
 // CreateAssociationRequest generates a "aws/request.Request" representing the
 // client's request for the CreateAssociation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateAssociation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateAssociation method directly
-// instead.
+// See CreateAssociation for more information on using the CreateAssociation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateAssociationRequest method.
 //    req, resp := client.CreateAssociationRequest(params)
@@ -444,19 +440,18 @@ const opCreateAssociationBatch = "CreateAssociationBatch"
 
 // CreateAssociationBatchRequest generates a "aws/request.Request" representing the
 // client's request for the CreateAssociationBatch operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateAssociationBatch for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateAssociationBatch method directly
-// instead.
+// See CreateAssociationBatch for more information on using the CreateAssociationBatch
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateAssociationBatchRequest method.
 //    req, resp := client.CreateAssociationBatchRequest(params)
@@ -577,19 +572,18 @@ const opCreateDocument = "CreateDocument"
 
 // CreateDocumentRequest generates a "aws/request.Request" representing the
 // client's request for the CreateDocument operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateDocument for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateDocument method directly
-// instead.
+// See CreateDocument for more information on using the CreateDocument
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateDocumentRequest method.
 //    req, resp := client.CreateDocumentRequest(params)
@@ -675,19 +669,18 @@ const opCreateMaintenanceWindow = "CreateMaintenanceWindow"
 
 // CreateMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the CreateMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreateMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreateMaintenanceWindow method directly
-// instead.
+// See CreateMaintenanceWindow for more information on using the CreateMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreateMaintenanceWindowRequest method.
 //    req, resp := client.CreateMaintenanceWindowRequest(params)
@@ -763,19 +756,18 @@ const opCreatePatchBaseline = "CreatePatchBaseline"
 
 // CreatePatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the CreatePatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See CreatePatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the CreatePatchBaseline method directly
-// instead.
+// See CreatePatchBaseline for more information on using the CreatePatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the CreatePatchBaselineRequest method.
 //    req, resp := client.CreatePatchBaselineRequest(params)
@@ -847,23 +839,121 @@ func (c *SSM) CreatePatchBaselineWithContext(ctx aws.Context, input *CreatePatch
 	return out, req.Send()
 }
 
+const opCreateResourceDataSync = "CreateResourceDataSync"
+
+// CreateResourceDataSyncRequest generates a "aws/request.Request" representing the
+// client's request for the CreateResourceDataSync operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateResourceDataSync for more information on using the CreateResourceDataSync
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateResourceDataSyncRequest method.
+//    req, resp := client.CreateResourceDataSyncRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSync
+func (c *SSM) CreateResourceDataSyncRequest(input *CreateResourceDataSyncInput) (req *request.Request, output *CreateResourceDataSyncOutput) {
+	op := &request.Operation{
+		Name:       opCreateResourceDataSync,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateResourceDataSyncInput{}
+	}
+
+	output = &CreateResourceDataSyncOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateResourceDataSync API operation for Amazon Simple Systems Manager (SSM).
+//
+// Creates a resource data sync configuration to a single bucket in Amazon S3.
+// This is an asynchronous operation that returns immediately. After a successful
+// initial sync is completed, the system continuously syncs data to the Amazon
+// S3 bucket. To check the status of the sync, use the ListResourceDataSync
+// (API_ListResourceDataSync.html) operation.
+//
+// By default, data is not encrypted in Amazon S3. We strongly recommend that
+// you enable encryption in Amazon S3 to ensure secure data storage. We also
+// recommend that you secure access to the Amazon S3 bucket by creating a restrictive
+// bucket policy. To view an example of a restrictive Amazon S3 bucket policy
+// for Resource Data Sync, see Configuring Resource Data Sync for Inventory
+// (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync).
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Systems Manager (SSM)'s
+// API operation CreateResourceDataSync for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeInternalServerError "InternalServerError"
+//   An error occurred on the server side.
+//
+//   * ErrCodeResourceDataSyncCountExceededException "ResourceDataSyncCountExceededException"
+//   You have exceeded the allowed maximum sync configurations.
+//
+//   * ErrCodeResourceDataSyncAlreadyExistsException "ResourceDataSyncAlreadyExistsException"
+//   A sync configuration with the same name already exists.
+//
+//   * ErrCodeResourceDataSyncInvalidConfigurationException "ResourceDataSyncInvalidConfigurationException"
+//   The specified sync configuration is invalid.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSync
+func (c *SSM) CreateResourceDataSync(input *CreateResourceDataSyncInput) (*CreateResourceDataSyncOutput, error) {
+	req, out := c.CreateResourceDataSyncRequest(input)
+	return out, req.Send()
+}
+
+// CreateResourceDataSyncWithContext is the same as CreateResourceDataSync with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateResourceDataSync for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *SSM) CreateResourceDataSyncWithContext(ctx aws.Context, input *CreateResourceDataSyncInput, opts ...request.Option) (*CreateResourceDataSyncOutput, error) {
+	req, out := c.CreateResourceDataSyncRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteActivation = "DeleteActivation"
 
 // DeleteActivationRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteActivation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteActivation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteActivation method directly
-// instead.
+// See DeleteActivation for more information on using the DeleteActivation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteActivationRequest method.
 //    req, resp := client.DeleteActivationRequest(params)
@@ -942,19 +1032,18 @@ const opDeleteAssociation = "DeleteAssociation"
 
 // DeleteAssociationRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteAssociation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteAssociation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteAssociation method directly
-// instead.
+// See DeleteAssociation for more information on using the DeleteAssociation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteAssociationRequest method.
 //    req, resp := client.DeleteAssociationRequest(params)
@@ -1052,19 +1141,18 @@ const opDeleteDocument = "DeleteDocument"
 
 // DeleteDocumentRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteDocument operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteDocument for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteDocument method directly
-// instead.
+// See DeleteDocument for more information on using the DeleteDocument
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteDocumentRequest method.
 //    req, resp := client.DeleteDocumentRequest(params)
@@ -1147,19 +1235,18 @@ const opDeleteMaintenanceWindow = "DeleteMaintenanceWindow"
 
 // DeleteMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteMaintenanceWindow method directly
-// instead.
+// See DeleteMaintenanceWindow for more information on using the DeleteMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteMaintenanceWindowRequest method.
 //    req, resp := client.DeleteMaintenanceWindowRequest(params)
@@ -1227,19 +1314,18 @@ const opDeleteParameter = "DeleteParameter"
 
 // DeleteParameterRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteParameter operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteParameter for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteParameter method directly
-// instead.
+// See DeleteParameter for more information on using the DeleteParameter
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteParameterRequest method.
 //    req, resp := client.DeleteParameterRequest(params)
@@ -1310,19 +1396,18 @@ const opDeleteParameters = "DeleteParameters"
 
 // DeleteParametersRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteParameters operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeleteParameters for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeleteParameters method directly
-// instead.
+// See DeleteParameters for more information on using the DeleteParameters
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeleteParametersRequest method.
 //    req, resp := client.DeleteParametersRequest(params)
@@ -1351,7 +1436,8 @@ func (c *SSM) DeleteParametersRequest(input *DeleteParametersInput) (req *reques
 
 // DeleteParameters API operation for Amazon Simple Systems Manager (SSM).
 //
-// Delete a list of parameters.
+// Delete a list of parameters. This API is used to delete parameters by using
+// the Amazon EC2 console.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1390,19 +1476,18 @@ const opDeletePatchBaseline = "DeletePatchBaseline"
 
 // DeletePatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the DeletePatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeletePatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeletePatchBaseline method directly
-// instead.
+// See DeletePatchBaseline for more information on using the DeletePatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeletePatchBaselineRequest method.
 //    req, resp := client.DeletePatchBaselineRequest(params)
@@ -1470,23 +1555,107 @@ func (c *SSM) DeletePatchBaselineWithContext(ctx aws.Context, input *DeletePatch
 	return out, req.Send()
 }
 
+const opDeleteResourceDataSync = "DeleteResourceDataSync"
+
+// DeleteResourceDataSyncRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteResourceDataSync operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteResourceDataSync for more information on using the DeleteResourceDataSync
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteResourceDataSyncRequest method.
+//    req, resp := client.DeleteResourceDataSyncRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourceDataSync
+func (c *SSM) DeleteResourceDataSyncRequest(input *DeleteResourceDataSyncInput) (req *request.Request, output *DeleteResourceDataSyncOutput) {
+	op := &request.Operation{
+		Name:       opDeleteResourceDataSync,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteResourceDataSyncInput{}
+	}
+
+	output = &DeleteResourceDataSyncOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteResourceDataSync API operation for Amazon Simple Systems Manager (SSM).
+//
+// Deletes a Resource Data Sync configuration. After the configuration is deleted,
+// changes to inventory data on managed instances are no longer synced with
+// the target Amazon S3 bucket. Deleting a sync configuration does not delete
+// data in the target Amazon S3 bucket.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Systems Manager (SSM)'s
+// API operation DeleteResourceDataSync for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeInternalServerError "InternalServerError"
+//   An error occurred on the server side.
+//
+//   * ErrCodeResourceDataSyncNotFoundException "ResourceDataSyncNotFoundException"
+//   The specified sync name was not found.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourceDataSync
+func (c *SSM) DeleteResourceDataSync(input *DeleteResourceDataSyncInput) (*DeleteResourceDataSyncOutput, error) {
+	req, out := c.DeleteResourceDataSyncRequest(input)
+	return out, req.Send()
+}
+
+// DeleteResourceDataSyncWithContext is the same as DeleteResourceDataSync with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteResourceDataSync for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *SSM) DeleteResourceDataSyncWithContext(ctx aws.Context, input *DeleteResourceDataSyncInput, opts ...request.Option) (*DeleteResourceDataSyncOutput, error) {
+	req, out := c.DeleteResourceDataSyncRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeregisterManagedInstance = "DeregisterManagedInstance"
 
 // DeregisterManagedInstanceRequest generates a "aws/request.Request" representing the
 // client's request for the DeregisterManagedInstance operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeregisterManagedInstance for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeregisterManagedInstance method directly
-// instead.
+// See DeregisterManagedInstance for more information on using the DeregisterManagedInstance
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeregisterManagedInstanceRequest method.
 //    req, resp := client.DeregisterManagedInstanceRequest(params)
@@ -1571,19 +1740,18 @@ const opDeregisterPatchBaselineForPatchGroup = "DeregisterPatchBaselineForPatchG
 
 // DeregisterPatchBaselineForPatchGroupRequest generates a "aws/request.Request" representing the
 // client's request for the DeregisterPatchBaselineForPatchGroup operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeregisterPatchBaselineForPatchGroup for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeregisterPatchBaselineForPatchGroup method directly
-// instead.
+// See DeregisterPatchBaselineForPatchGroup for more information on using the DeregisterPatchBaselineForPatchGroup
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeregisterPatchBaselineForPatchGroupRequest method.
 //    req, resp := client.DeregisterPatchBaselineForPatchGroupRequest(params)
@@ -1655,19 +1823,18 @@ const opDeregisterTargetFromMaintenanceWindow = "DeregisterTargetFromMaintenance
 
 // DeregisterTargetFromMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the DeregisterTargetFromMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeregisterTargetFromMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeregisterTargetFromMaintenanceWindow method directly
-// instead.
+// See DeregisterTargetFromMaintenanceWindow for more information on using the DeregisterTargetFromMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeregisterTargetFromMaintenanceWindowRequest method.
 //    req, resp := client.DeregisterTargetFromMaintenanceWindowRequest(params)
@@ -1739,19 +1906,18 @@ const opDeregisterTaskFromMaintenanceWindow = "DeregisterTaskFromMaintenanceWind
 
 // DeregisterTaskFromMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the DeregisterTaskFromMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DeregisterTaskFromMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DeregisterTaskFromMaintenanceWindow method directly
-// instead.
+// See DeregisterTaskFromMaintenanceWindow for more information on using the DeregisterTaskFromMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DeregisterTaskFromMaintenanceWindowRequest method.
 //    req, resp := client.DeregisterTaskFromMaintenanceWindowRequest(params)
@@ -1823,19 +1989,18 @@ const opDescribeActivations = "DescribeActivations"
 
 // DescribeActivationsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeActivations operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeActivations for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeActivations method directly
-// instead.
+// See DescribeActivations for more information on using the DescribeActivations
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeActivationsRequest method.
 //    req, resp := client.DescribeActivationsRequest(params)
@@ -1968,19 +2133,18 @@ const opDescribeAssociation = "DescribeAssociation"
 
 // DescribeAssociationRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeAssociation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeAssociation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeAssociation method directly
-// instead.
+// See DescribeAssociation for more information on using the DescribeAssociation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeAssociationRequest method.
 //    req, resp := client.DescribeAssociationRequest(params)
@@ -2070,19 +2234,18 @@ const opDescribeAutomationExecutions = "DescribeAutomationExecutions"
 
 // DescribeAutomationExecutionsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeAutomationExecutions operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeAutomationExecutions for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeAutomationExecutions method directly
-// instead.
+// See DescribeAutomationExecutions for more information on using the DescribeAutomationExecutions
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeAutomationExecutionsRequest method.
 //    req, resp := client.DescribeAutomationExecutionsRequest(params)
@@ -2153,19 +2316,18 @@ const opDescribeAvailablePatches = "DescribeAvailablePatches"
 
 // DescribeAvailablePatchesRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeAvailablePatches operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeAvailablePatches for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeAvailablePatches method directly
-// instead.
+// See DescribeAvailablePatches for more information on using the DescribeAvailablePatches
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeAvailablePatchesRequest method.
 //    req, resp := client.DescribeAvailablePatchesRequest(params)
@@ -2233,19 +2395,18 @@ const opDescribeDocument = "DescribeDocument"
 
 // DescribeDocumentRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeDocument operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeDocument for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeDocument method directly
-// instead.
+// See DescribeDocument for more information on using the DescribeDocument
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeDocumentRequest method.
 //    req, resp := client.DescribeDocumentRequest(params)
@@ -2319,19 +2480,18 @@ const opDescribeDocumentPermission = "DescribeDocumentPermission"
 
 // DescribeDocumentPermissionRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeDocumentPermission operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeDocumentPermission for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeDocumentPermission method directly
-// instead.
+// See DescribeDocumentPermission for more information on using the DescribeDocumentPermission
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeDocumentPermissionRequest method.
 //    req, resp := client.DescribeDocumentPermissionRequest(params)
@@ -2408,19 +2568,18 @@ const opDescribeEffectiveInstanceAssociations = "DescribeEffectiveInstanceAssoci
 
 // DescribeEffectiveInstanceAssociationsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeEffectiveInstanceAssociations operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeEffectiveInstanceAssociations for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeEffectiveInstanceAssociations method directly
-// instead.
+// See DescribeEffectiveInstanceAssociations for more information on using the DescribeEffectiveInstanceAssociations
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeEffectiveInstanceAssociationsRequest method.
 //    req, resp := client.DescribeEffectiveInstanceAssociationsRequest(params)
@@ -2506,19 +2665,18 @@ const opDescribeEffectivePatchesForPatchBaseline = "DescribeEffectivePatchesForP
 
 // DescribeEffectivePatchesForPatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeEffectivePatchesForPatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeEffectivePatchesForPatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeEffectivePatchesForPatchBaseline method directly
-// instead.
+// See DescribeEffectivePatchesForPatchBaseline for more information on using the DescribeEffectivePatchesForPatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeEffectivePatchesForPatchBaselineRequest method.
 //    req, resp := client.DescribeEffectivePatchesForPatchBaselineRequest(params)
@@ -2548,7 +2706,8 @@ func (c *SSM) DescribeEffectivePatchesForPatchBaselineRequest(input *DescribeEff
 // DescribeEffectivePatchesForPatchBaseline API operation for Amazon Simple Systems Manager (SSM).
 //
 // Retrieves the current effective patches (the patch and the approval state)
-// for the specified patch baseline.
+// for the specified patch baseline. Note that this API applies only to Windows
+// patch baselines.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2565,6 +2724,11 @@ func (c *SSM) DescribeEffectivePatchesForPatchBaselineRequest(input *DescribeEff
 //   * ErrCodeDoesNotExistException "DoesNotExistException"
 //   Error returned when the ID specified for a resource (e.g. a Maintenance Window)
 //   doesn't exist.
+//
+//   * ErrCodeUnsupportedOperatingSystem "UnsupportedOperatingSystem"
+//   The operating systems you specified is not supported, or the operation is
+//   not supported for the operating system. Valid operating systems include:
+//   Windows, AmazonLinux, RedhatEnterpriseLinux, and Ubuntu.
 //
 //   * ErrCodeInternalServerError "InternalServerError"
 //   An error occurred on the server side.
@@ -2595,19 +2759,18 @@ const opDescribeInstanceAssociationsStatus = "DescribeInstanceAssociationsStatus
 
 // DescribeInstanceAssociationsStatusRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeInstanceAssociationsStatus operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeInstanceAssociationsStatus for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeInstanceAssociationsStatus method directly
-// instead.
+// See DescribeInstanceAssociationsStatus for more information on using the DescribeInstanceAssociationsStatus
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeInstanceAssociationsStatusRequest method.
 //    req, resp := client.DescribeInstanceAssociationsStatusRequest(params)
@@ -2693,19 +2856,18 @@ const opDescribeInstanceInformation = "DescribeInstanceInformation"
 
 // DescribeInstanceInformationRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeInstanceInformation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeInstanceInformation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeInstanceInformation method directly
-// instead.
+// See DescribeInstanceInformation for more information on using the DescribeInstanceInformation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeInstanceInformationRequest method.
 //    req, resp := client.DescribeInstanceInformationRequest(params)
@@ -2858,19 +3020,18 @@ const opDescribeInstancePatchStates = "DescribeInstancePatchStates"
 
 // DescribeInstancePatchStatesRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeInstancePatchStates operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeInstancePatchStates for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeInstancePatchStates method directly
-// instead.
+// See DescribeInstancePatchStates for more information on using the DescribeInstancePatchStates
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeInstancePatchStatesRequest method.
 //    req, resp := client.DescribeInstancePatchStatesRequest(params)
@@ -2941,19 +3102,18 @@ const opDescribeInstancePatchStatesForPatchGroup = "DescribeInstancePatchStatesF
 
 // DescribeInstancePatchStatesForPatchGroupRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeInstancePatchStatesForPatchGroup operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeInstancePatchStatesForPatchGroup for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeInstancePatchStatesForPatchGroup method directly
-// instead.
+// See DescribeInstancePatchStatesForPatchGroup for more information on using the DescribeInstancePatchStatesForPatchGroup
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeInstancePatchStatesForPatchGroupRequest method.
 //    req, resp := client.DescribeInstancePatchStatesForPatchGroupRequest(params)
@@ -3029,19 +3189,18 @@ const opDescribeInstancePatches = "DescribeInstancePatches"
 
 // DescribeInstancePatchesRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeInstancePatches operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeInstancePatches for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeInstancePatches method directly
-// instead.
+// See DescribeInstancePatches for more information on using the DescribeInstancePatches
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeInstancePatchesRequest method.
 //    req, resp := client.DescribeInstancePatchesRequest(params)
@@ -3132,19 +3291,18 @@ const opDescribeMaintenanceWindowExecutionTaskInvocations = "DescribeMaintenance
 
 // DescribeMaintenanceWindowExecutionTaskInvocationsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeMaintenanceWindowExecutionTaskInvocations operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeMaintenanceWindowExecutionTaskInvocations for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeMaintenanceWindowExecutionTaskInvocations method directly
-// instead.
+// See DescribeMaintenanceWindowExecutionTaskInvocations for more information on using the DescribeMaintenanceWindowExecutionTaskInvocations
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeMaintenanceWindowExecutionTaskInvocationsRequest method.
 //    req, resp := client.DescribeMaintenanceWindowExecutionTaskInvocationsRequest(params)
@@ -3217,19 +3375,18 @@ const opDescribeMaintenanceWindowExecutionTasks = "DescribeMaintenanceWindowExec
 
 // DescribeMaintenanceWindowExecutionTasksRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeMaintenanceWindowExecutionTasks operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeMaintenanceWindowExecutionTasks for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeMaintenanceWindowExecutionTasks method directly
-// instead.
+// See DescribeMaintenanceWindowExecutionTasks for more information on using the DescribeMaintenanceWindowExecutionTasks
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeMaintenanceWindowExecutionTasksRequest method.
 //    req, resp := client.DescribeMaintenanceWindowExecutionTasksRequest(params)
@@ -3301,19 +3458,18 @@ const opDescribeMaintenanceWindowExecutions = "DescribeMaintenanceWindowExecutio
 
 // DescribeMaintenanceWindowExecutionsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeMaintenanceWindowExecutions operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeMaintenanceWindowExecutions for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeMaintenanceWindowExecutions method directly
-// instead.
+// See DescribeMaintenanceWindowExecutions for more information on using the DescribeMaintenanceWindowExecutions
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeMaintenanceWindowExecutionsRequest method.
 //    req, resp := client.DescribeMaintenanceWindowExecutionsRequest(params)
@@ -3383,19 +3539,18 @@ const opDescribeMaintenanceWindowTargets = "DescribeMaintenanceWindowTargets"
 
 // DescribeMaintenanceWindowTargetsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeMaintenanceWindowTargets operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeMaintenanceWindowTargets for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeMaintenanceWindowTargets method directly
-// instead.
+// See DescribeMaintenanceWindowTargets for more information on using the DescribeMaintenanceWindowTargets
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeMaintenanceWindowTargetsRequest method.
 //    req, resp := client.DescribeMaintenanceWindowTargetsRequest(params)
@@ -3467,19 +3622,18 @@ const opDescribeMaintenanceWindowTasks = "DescribeMaintenanceWindowTasks"
 
 // DescribeMaintenanceWindowTasksRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeMaintenanceWindowTasks operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeMaintenanceWindowTasks for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeMaintenanceWindowTasks method directly
-// instead.
+// See DescribeMaintenanceWindowTasks for more information on using the DescribeMaintenanceWindowTasks
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeMaintenanceWindowTasksRequest method.
 //    req, resp := client.DescribeMaintenanceWindowTasksRequest(params)
@@ -3551,19 +3705,18 @@ const opDescribeMaintenanceWindows = "DescribeMaintenanceWindows"
 
 // DescribeMaintenanceWindowsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeMaintenanceWindows operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeMaintenanceWindows for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeMaintenanceWindows method directly
-// instead.
+// See DescribeMaintenanceWindows for more information on using the DescribeMaintenanceWindows
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeMaintenanceWindowsRequest method.
 //    req, resp := client.DescribeMaintenanceWindowsRequest(params)
@@ -3631,19 +3784,18 @@ const opDescribeParameters = "DescribeParameters"
 
 // DescribeParametersRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeParameters operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribeParameters for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribeParameters method directly
-// instead.
+// See DescribeParameters for more information on using the DescribeParameters
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribeParametersRequest method.
 //    req, resp := client.DescribeParametersRequest(params)
@@ -3679,6 +3831,14 @@ func (c *SSM) DescribeParametersRequest(input *DescribeParametersInput) (req *re
 // DescribeParameters API operation for Amazon Simple Systems Manager (SSM).
 //
 // Get information about a parameter.
+//
+// Request results are returned on a best-effort basis. If you specify MaxResults
+// in the request, the response includes information up to the limit specified.
+// The number of items returned, however, can be between zero and the value
+// of MaxResults. If the service reaches an internal limit while processing
+// the results, it stops the operation and returns the matching values up to
+// that point and a NextToken. You can specify the NextToken in a subsequent
+// call to get the next set of results.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -3780,19 +3940,18 @@ const opDescribePatchBaselines = "DescribePatchBaselines"
 
 // DescribePatchBaselinesRequest generates a "aws/request.Request" representing the
 // client's request for the DescribePatchBaselines operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribePatchBaselines for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribePatchBaselines method directly
-// instead.
+// See DescribePatchBaselines for more information on using the DescribePatchBaselines
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribePatchBaselinesRequest method.
 //    req, resp := client.DescribePatchBaselinesRequest(params)
@@ -3860,19 +4019,18 @@ const opDescribePatchGroupState = "DescribePatchGroupState"
 
 // DescribePatchGroupStateRequest generates a "aws/request.Request" representing the
 // client's request for the DescribePatchGroupState operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribePatchGroupState for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribePatchGroupState method directly
-// instead.
+// See DescribePatchGroupState for more information on using the DescribePatchGroupState
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribePatchGroupStateRequest method.
 //    req, resp := client.DescribePatchGroupStateRequest(params)
@@ -3943,19 +4101,18 @@ const opDescribePatchGroups = "DescribePatchGroups"
 
 // DescribePatchGroupsRequest generates a "aws/request.Request" representing the
 // client's request for the DescribePatchGroups operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See DescribePatchGroups for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the DescribePatchGroups method directly
-// instead.
+// See DescribePatchGroups for more information on using the DescribePatchGroups
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the DescribePatchGroupsRequest method.
 //    req, resp := client.DescribePatchGroupsRequest(params)
@@ -4023,19 +4180,18 @@ const opGetAutomationExecution = "GetAutomationExecution"
 
 // GetAutomationExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the GetAutomationExecution operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetAutomationExecution for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetAutomationExecution method directly
-// instead.
+// See GetAutomationExecution for more information on using the GetAutomationExecution
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetAutomationExecutionRequest method.
 //    req, resp := client.GetAutomationExecutionRequest(params)
@@ -4107,19 +4263,18 @@ const opGetCommandInvocation = "GetCommandInvocation"
 
 // GetCommandInvocationRequest generates a "aws/request.Request" representing the
 // client's request for the GetCommandInvocation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetCommandInvocation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetCommandInvocation method directly
-// instead.
+// See GetCommandInvocation for more information on using the GetCommandInvocation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetCommandInvocationRequest method.
 //    req, resp := client.GetCommandInvocationRequest(params)
@@ -4212,19 +4367,18 @@ const opGetDefaultPatchBaseline = "GetDefaultPatchBaseline"
 
 // GetDefaultPatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the GetDefaultPatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetDefaultPatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetDefaultPatchBaseline method directly
-// instead.
+// See GetDefaultPatchBaseline for more information on using the GetDefaultPatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetDefaultPatchBaselineRequest method.
 //    req, resp := client.GetDefaultPatchBaselineRequest(params)
@@ -4253,7 +4407,9 @@ func (c *SSM) GetDefaultPatchBaselineRequest(input *GetDefaultPatchBaselineInput
 
 // GetDefaultPatchBaseline API operation for Amazon Simple Systems Manager (SSM).
 //
-// Retrieves the default patch baseline.
+// Retrieves the default patch baseline. Note that Systems Manager supports
+// creating multiple default patch baselines. For example, you can create a
+// default patch baseline for each operating system.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4292,19 +4448,18 @@ const opGetDeployablePatchSnapshotForInstance = "GetDeployablePatchSnapshotForIn
 
 // GetDeployablePatchSnapshotForInstanceRequest generates a "aws/request.Request" representing the
 // client's request for the GetDeployablePatchSnapshotForInstance operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetDeployablePatchSnapshotForInstance for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetDeployablePatchSnapshotForInstance method directly
-// instead.
+// See GetDeployablePatchSnapshotForInstance for more information on using the GetDeployablePatchSnapshotForInstance
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetDeployablePatchSnapshotForInstanceRequest method.
 //    req, resp := client.GetDeployablePatchSnapshotForInstanceRequest(params)
@@ -4334,8 +4489,7 @@ func (c *SSM) GetDeployablePatchSnapshotForInstanceRequest(input *GetDeployableP
 // GetDeployablePatchSnapshotForInstance API operation for Amazon Simple Systems Manager (SSM).
 //
 // Retrieves the current snapshot for the patch baseline the instance uses.
-// This API is primarily used by the AWS-ApplyPatchBaseline Systems Manager
-// document.
+// This API is primarily used by the AWS-RunPatchBaseline Systems Manager document.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -4347,6 +4501,11 @@ func (c *SSM) GetDeployablePatchSnapshotForInstanceRequest(input *GetDeployableP
 // Returned Error Codes:
 //   * ErrCodeInternalServerError "InternalServerError"
 //   An error occurred on the server side.
+//
+//   * ErrCodeUnsupportedOperatingSystem "UnsupportedOperatingSystem"
+//   The operating systems you specified is not supported, or the operation is
+//   not supported for the operating system. Valid operating systems include:
+//   Windows, AmazonLinux, RedhatEnterpriseLinux, and Ubuntu.
 //
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDeployablePatchSnapshotForInstance
 func (c *SSM) GetDeployablePatchSnapshotForInstance(input *GetDeployablePatchSnapshotForInstanceInput) (*GetDeployablePatchSnapshotForInstanceOutput, error) {
@@ -4374,19 +4533,18 @@ const opGetDocument = "GetDocument"
 
 // GetDocumentRequest generates a "aws/request.Request" representing the
 // client's request for the GetDocument operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetDocument for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetDocument method directly
-// instead.
+// See GetDocument for more information on using the GetDocument
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetDocumentRequest method.
 //    req, resp := client.GetDocumentRequest(params)
@@ -4460,19 +4618,18 @@ const opGetInventory = "GetInventory"
 
 // GetInventoryRequest generates a "aws/request.Request" representing the
 // client's request for the GetInventory operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetInventory for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetInventory method directly
-// instead.
+// See GetInventory for more information on using the GetInventory
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetInventoryRequest method.
 //    req, resp := client.GetInventoryRequest(params)
@@ -4553,19 +4710,18 @@ const opGetInventorySchema = "GetInventorySchema"
 
 // GetInventorySchemaRequest generates a "aws/request.Request" representing the
 // client's request for the GetInventorySchema operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetInventorySchema for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetInventorySchema method directly
-// instead.
+// See GetInventorySchema for more information on using the GetInventorySchema
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetInventorySchemaRequest method.
 //    req, resp := client.GetInventorySchemaRequest(params)
@@ -4640,19 +4796,18 @@ const opGetMaintenanceWindow = "GetMaintenanceWindow"
 
 // GetMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the GetMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetMaintenanceWindow method directly
-// instead.
+// See GetMaintenanceWindow for more information on using the GetMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetMaintenanceWindowRequest method.
 //    req, resp := client.GetMaintenanceWindowRequest(params)
@@ -4724,19 +4879,18 @@ const opGetMaintenanceWindowExecution = "GetMaintenanceWindowExecution"
 
 // GetMaintenanceWindowExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the GetMaintenanceWindowExecution operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetMaintenanceWindowExecution for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetMaintenanceWindowExecution method directly
-// instead.
+// See GetMaintenanceWindowExecution for more information on using the GetMaintenanceWindowExecution
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetMaintenanceWindowExecutionRequest method.
 //    req, resp := client.GetMaintenanceWindowExecutionRequest(params)
@@ -4809,19 +4963,18 @@ const opGetMaintenanceWindowExecutionTask = "GetMaintenanceWindowExecutionTask"
 
 // GetMaintenanceWindowExecutionTaskRequest generates a "aws/request.Request" representing the
 // client's request for the GetMaintenanceWindowExecutionTask operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetMaintenanceWindowExecutionTask for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetMaintenanceWindowExecutionTask method directly
-// instead.
+// See GetMaintenanceWindowExecutionTask for more information on using the GetMaintenanceWindowExecutionTask
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetMaintenanceWindowExecutionTaskRequest method.
 //    req, resp := client.GetMaintenanceWindowExecutionTaskRequest(params)
@@ -4894,19 +5047,18 @@ const opGetParameter = "GetParameter"
 
 // GetParameterRequest generates a "aws/request.Request" representing the
 // client's request for the GetParameter operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetParameter for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetParameter method directly
-// instead.
+// See GetParameter for more information on using the GetParameter
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetParameterRequest method.
 //    req, resp := client.GetParameterRequest(params)
@@ -4980,19 +5132,18 @@ const opGetParameterHistory = "GetParameterHistory"
 
 // GetParameterHistoryRequest generates a "aws/request.Request" representing the
 // client's request for the GetParameterHistory operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetParameterHistory for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetParameterHistory method directly
-// instead.
+// See GetParameterHistory for more information on using the GetParameterHistory
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetParameterHistoryRequest method.
 //    req, resp := client.GetParameterHistoryRequest(params)
@@ -5125,19 +5276,18 @@ const opGetParameters = "GetParameters"
 
 // GetParametersRequest generates a "aws/request.Request" representing the
 // client's request for the GetParameters operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetParameters for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetParameters method directly
-// instead.
+// See GetParameters for more information on using the GetParameters
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetParametersRequest method.
 //    req, resp := client.GetParametersRequest(params)
@@ -5208,19 +5358,18 @@ const opGetParametersByPath = "GetParametersByPath"
 
 // GetParametersByPathRequest generates a "aws/request.Request" representing the
 // client's request for the GetParametersByPath operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetParametersByPath for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetParametersByPath method directly
-// instead.
+// See GetParametersByPath for more information on using the GetParametersByPath
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetParametersByPathRequest method.
 //    req, resp := client.GetParametersByPathRequest(params)
@@ -5255,8 +5404,16 @@ func (c *SSM) GetParametersByPathRequest(input *GetParametersByPathInput) (req *
 
 // GetParametersByPath API operation for Amazon Simple Systems Manager (SSM).
 //
-// Retrieve parameters in a specific hierarchy. For more information, see Using
-// Parameter Hierarchies (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working-path.html).
+// Retrieve parameters in a specific hierarchy. For more information, see Working
+// with Systems Manager Parameters (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html).
+//
+// Request results are returned on a best-effort basis. If you specify MaxResults
+// in the request, the response includes information up to the limit specified.
+// The number of items returned, however, can be between zero and the value
+// of MaxResults. If the service reaches an internal limit while processing
+// the results, it stops the operation and returns the matching values up to
+// that point and a NextToken. You can specify the NextToken in a subsequent
+// call to get the next set of results.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -5361,19 +5518,18 @@ const opGetPatchBaseline = "GetPatchBaseline"
 
 // GetPatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the GetPatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetPatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetPatchBaseline method directly
-// instead.
+// See GetPatchBaseline for more information on using the GetPatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetPatchBaselineRequest method.
 //    req, resp := client.GetPatchBaselineRequest(params)
@@ -5449,19 +5605,18 @@ const opGetPatchBaselineForPatchGroup = "GetPatchBaselineForPatchGroup"
 
 // GetPatchBaselineForPatchGroupRequest generates a "aws/request.Request" representing the
 // client's request for the GetPatchBaselineForPatchGroup operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See GetPatchBaselineForPatchGroup for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the GetPatchBaselineForPatchGroup method directly
-// instead.
+// See GetPatchBaselineForPatchGroup for more information on using the GetPatchBaselineForPatchGroup
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the GetPatchBaselineForPatchGroupRequest method.
 //    req, resp := client.GetPatchBaselineForPatchGroupRequest(params)
@@ -5530,19 +5685,18 @@ const opListAssociations = "ListAssociations"
 
 // ListAssociationsRequest generates a "aws/request.Request" representing the
 // client's request for the ListAssociations operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListAssociations for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListAssociations method directly
-// instead.
+// See ListAssociations for more information on using the ListAssociations
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListAssociationsRequest method.
 //    req, resp := client.ListAssociationsRequest(params)
@@ -5669,19 +5823,18 @@ const opListCommandInvocations = "ListCommandInvocations"
 
 // ListCommandInvocationsRequest generates a "aws/request.Request" representing the
 // client's request for the ListCommandInvocations operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListCommandInvocations for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListCommandInvocations method directly
-// instead.
+// See ListCommandInvocations for more information on using the ListCommandInvocations
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListCommandInvocationsRequest method.
 //    req, resp := client.ListCommandInvocationsRequest(params)
@@ -5832,19 +5985,18 @@ const opListCommands = "ListCommands"
 
 // ListCommandsRequest generates a "aws/request.Request" representing the
 // client's request for the ListCommands operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListCommands for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListCommands method directly
-// instead.
+// See ListCommands for more information on using the ListCommands
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListCommandsRequest method.
 //    req, resp := client.ListCommandsRequest(params)
@@ -5991,19 +6143,18 @@ const opListDocumentVersions = "ListDocumentVersions"
 
 // ListDocumentVersionsRequest generates a "aws/request.Request" representing the
 // client's request for the ListDocumentVersions operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListDocumentVersions for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListDocumentVersions method directly
-// instead.
+// See ListDocumentVersions for more information on using the ListDocumentVersions
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListDocumentVersionsRequest method.
 //    req, resp := client.ListDocumentVersionsRequest(params)
@@ -6077,19 +6228,18 @@ const opListDocuments = "ListDocuments"
 
 // ListDocumentsRequest generates a "aws/request.Request" representing the
 // client's request for the ListDocuments operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListDocuments for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListDocuments method directly
-// instead.
+// See ListDocuments for more information on using the ListDocuments
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListDocumentsRequest method.
 //    req, resp := client.ListDocumentsRequest(params)
@@ -6219,19 +6369,18 @@ const opListInventoryEntries = "ListInventoryEntries"
 
 // ListInventoryEntriesRequest generates a "aws/request.Request" representing the
 // client's request for the ListInventoryEntries operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListInventoryEntries for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListInventoryEntries method directly
-// instead.
+// See ListInventoryEntries for more information on using the ListInventoryEntries
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListInventoryEntriesRequest method.
 //    req, resp := client.ListInventoryEntriesRequest(params)
@@ -6320,23 +6469,113 @@ func (c *SSM) ListInventoryEntriesWithContext(ctx aws.Context, input *ListInvent
 	return out, req.Send()
 }
 
+const opListResourceDataSync = "ListResourceDataSync"
+
+// ListResourceDataSyncRequest generates a "aws/request.Request" representing the
+// client's request for the ListResourceDataSync operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListResourceDataSync for more information on using the ListResourceDataSync
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListResourceDataSyncRequest method.
+//    req, resp := client.ListResourceDataSyncRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceDataSync
+func (c *SSM) ListResourceDataSyncRequest(input *ListResourceDataSyncInput) (req *request.Request, output *ListResourceDataSyncOutput) {
+	op := &request.Operation{
+		Name:       opListResourceDataSync,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ListResourceDataSyncInput{}
+	}
+
+	output = &ListResourceDataSyncOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListResourceDataSync API operation for Amazon Simple Systems Manager (SSM).
+//
+// Lists your resource data sync configurations. Includes information about
+// the last time a sync attempted to start, the last sync status, and the last
+// time a sync successfully completed.
+//
+// The number of sync configurations might be too large to return using a single
+// call to ListResourceDataSync. You can limit the number of sync configurations
+// returned by using the MaxResults parameter. To determine whether there are
+// more sync configurations to list, check the value of NextToken in the output.
+// If there are more sync configurations to list, you can request them by specifying
+// the NextToken returned in the call to the parameter of a subsequent call.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Systems Manager (SSM)'s
+// API operation ListResourceDataSync for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeInternalServerError "InternalServerError"
+//   An error occurred on the server side.
+//
+//   * ErrCodeInvalidNextToken "InvalidNextToken"
+//   The specified token is not valid.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceDataSync
+func (c *SSM) ListResourceDataSync(input *ListResourceDataSyncInput) (*ListResourceDataSyncOutput, error) {
+	req, out := c.ListResourceDataSyncRequest(input)
+	return out, req.Send()
+}
+
+// ListResourceDataSyncWithContext is the same as ListResourceDataSync with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListResourceDataSync for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *SSM) ListResourceDataSyncWithContext(ctx aws.Context, input *ListResourceDataSyncInput, opts ...request.Option) (*ListResourceDataSyncOutput, error) {
+	req, out := c.ListResourceDataSyncRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListTagsForResource = "ListTagsForResource"
 
 // ListTagsForResourceRequest generates a "aws/request.Request" representing the
 // client's request for the ListTagsForResource operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ListTagsForResource for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ListTagsForResource method directly
-// instead.
+// See ListTagsForResource for more information on using the ListTagsForResource
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ListTagsForResourceRequest method.
 //    req, resp := client.ListTagsForResourceRequest(params)
@@ -6412,19 +6651,18 @@ const opModifyDocumentPermission = "ModifyDocumentPermission"
 
 // ModifyDocumentPermissionRequest generates a "aws/request.Request" representing the
 // client's request for the ModifyDocumentPermission operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See ModifyDocumentPermission for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the ModifyDocumentPermission method directly
-// instead.
+// See ModifyDocumentPermission for more information on using the ModifyDocumentPermission
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the ModifyDocumentPermissionRequest method.
 //    req, resp := client.ModifyDocumentPermissionRequest(params)
@@ -6510,19 +6748,18 @@ const opPutInventory = "PutInventory"
 
 // PutInventoryRequest generates a "aws/request.Request" representing the
 // client's request for the PutInventory operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See PutInventory for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the PutInventory method directly
-// instead.
+// See PutInventory for more information on using the PutInventory
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the PutInventoryRequest method.
 //    req, resp := client.PutInventoryRequest(params)
@@ -6631,19 +6868,18 @@ const opPutParameter = "PutParameter"
 
 // PutParameterRequest generates a "aws/request.Request" representing the
 // client's request for the PutParameter operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See PutParameter for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the PutParameter method directly
-// instead.
+// See PutParameter for more information on using the PutParameter
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the PutParameterRequest method.
 //    req, resp := client.PutParameterRequest(params)
@@ -6704,7 +6940,7 @@ func (c *SSM) PutParameterRequest(input *PutParameterInput) (req *request.Reques
 //
 //   /Finance/Prod/IAD/OS/WinServ2016/license15
 //
-//   For more information, see Develop a Parameter Hierarchy (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working-path.html).
+//   For more information, see Working with Systems Manager Parameters (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html).
 //
 //   * ErrCodeHierarchyTypeMismatchException "HierarchyTypeMismatchException"
 //   Parameter Store does not support changing a parameter type in a hierarchy.
@@ -6746,19 +6982,18 @@ const opRegisterDefaultPatchBaseline = "RegisterDefaultPatchBaseline"
 
 // RegisterDefaultPatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the RegisterDefaultPatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RegisterDefaultPatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RegisterDefaultPatchBaseline method directly
-// instead.
+// See RegisterDefaultPatchBaseline for more information on using the RegisterDefaultPatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RegisterDefaultPatchBaselineRequest method.
 //    req, resp := client.RegisterDefaultPatchBaselineRequest(params)
@@ -6834,19 +7069,18 @@ const opRegisterPatchBaselineForPatchGroup = "RegisterPatchBaselineForPatchGroup
 
 // RegisterPatchBaselineForPatchGroupRequest generates a "aws/request.Request" representing the
 // client's request for the RegisterPatchBaselineForPatchGroup operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RegisterPatchBaselineForPatchGroup for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RegisterPatchBaselineForPatchGroup method directly
-// instead.
+// See RegisterPatchBaselineForPatchGroup for more information on using the RegisterPatchBaselineForPatchGroup
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RegisterPatchBaselineForPatchGroupRequest method.
 //    req, resp := client.RegisterPatchBaselineForPatchGroupRequest(params)
@@ -6930,19 +7164,18 @@ const opRegisterTargetWithMaintenanceWindow = "RegisterTargetWithMaintenanceWind
 
 // RegisterTargetWithMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the RegisterTargetWithMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RegisterTargetWithMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RegisterTargetWithMaintenanceWindow method directly
-// instead.
+// See RegisterTargetWithMaintenanceWindow for more information on using the RegisterTargetWithMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RegisterTargetWithMaintenanceWindowRequest method.
 //    req, resp := client.RegisterTargetWithMaintenanceWindowRequest(params)
@@ -7022,19 +7255,18 @@ const opRegisterTaskWithMaintenanceWindow = "RegisterTaskWithMaintenanceWindow"
 
 // RegisterTaskWithMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the RegisterTaskWithMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RegisterTaskWithMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RegisterTaskWithMaintenanceWindow method directly
-// instead.
+// See RegisterTaskWithMaintenanceWindow for more information on using the RegisterTaskWithMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RegisterTaskWithMaintenanceWindowRequest method.
 //    req, resp := client.RegisterTaskWithMaintenanceWindowRequest(params)
@@ -7114,19 +7346,18 @@ const opRemoveTagsFromResource = "RemoveTagsFromResource"
 
 // RemoveTagsFromResourceRequest generates a "aws/request.Request" representing the
 // client's request for the RemoveTagsFromResource operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See RemoveTagsFromResource for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the RemoveTagsFromResource method directly
-// instead.
+// See RemoveTagsFromResource for more information on using the RemoveTagsFromResource
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the RemoveTagsFromResourceRequest method.
 //    req, resp := client.RemoveTagsFromResourceRequest(params)
@@ -7198,23 +7429,109 @@ func (c *SSM) RemoveTagsFromResourceWithContext(ctx aws.Context, input *RemoveTa
 	return out, req.Send()
 }
 
+const opSendAutomationSignal = "SendAutomationSignal"
+
+// SendAutomationSignalRequest generates a "aws/request.Request" representing the
+// client's request for the SendAutomationSignal operation. The "output" return
+// value will be populated with the request's response once the request complets
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See SendAutomationSignal for more information on using the SendAutomationSignal
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the SendAutomationSignalRequest method.
+//    req, resp := client.SendAutomationSignalRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendAutomationSignal
+func (c *SSM) SendAutomationSignalRequest(input *SendAutomationSignalInput) (req *request.Request, output *SendAutomationSignalOutput) {
+	op := &request.Operation{
+		Name:       opSendAutomationSignal,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &SendAutomationSignalInput{}
+	}
+
+	output = &SendAutomationSignalOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// SendAutomationSignal API operation for Amazon Simple Systems Manager (SSM).
+//
+// Sends a signal to an Automation execution to change the current behavior
+// or status of the execution.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Simple Systems Manager (SSM)'s
+// API operation SendAutomationSignal for usage and error information.
+//
+// Returned Error Codes:
+//   * ErrCodeAutomationExecutionNotFoundException "AutomationExecutionNotFoundException"
+//   There is no automation execution information for the requested automation
+//   execution ID.
+//
+//   * ErrCodeInvalidAutomationSignalException "InvalidAutomationSignalException"
+//   The signal is not valid for the current Automation execution.
+//
+//   * ErrCodeInternalServerError "InternalServerError"
+//   An error occurred on the server side.
+//
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendAutomationSignal
+func (c *SSM) SendAutomationSignal(input *SendAutomationSignalInput) (*SendAutomationSignalOutput, error) {
+	req, out := c.SendAutomationSignalRequest(input)
+	return out, req.Send()
+}
+
+// SendAutomationSignalWithContext is the same as SendAutomationSignal with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SendAutomationSignal for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *SSM) SendAutomationSignalWithContext(ctx aws.Context, input *SendAutomationSignalInput, opts ...request.Option) (*SendAutomationSignalOutput, error) {
+	req, out := c.SendAutomationSignalRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opSendCommand = "SendCommand"
 
 // SendCommandRequest generates a "aws/request.Request" representing the
 // client's request for the SendCommand operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See SendCommand for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the SendCommand method directly
-// instead.
+// See SendCommand for more information on using the SendCommand
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the SendCommandRequest method.
 //    req, resp := client.SendCommandRequest(params)
@@ -7328,19 +7645,18 @@ const opStartAutomationExecution = "StartAutomationExecution"
 
 // StartAutomationExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the StartAutomationExecution operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See StartAutomationExecution for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the StartAutomationExecution method directly
-// instead.
+// See StartAutomationExecution for more information on using the StartAutomationExecution
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the StartAutomationExecutionRequest method.
 //    req, resp := client.StartAutomationExecutionRequest(params)
@@ -7423,19 +7739,18 @@ const opStopAutomationExecution = "StopAutomationExecution"
 
 // StopAutomationExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the StopAutomationExecution operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See StopAutomationExecution for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the StopAutomationExecution method directly
-// instead.
+// See StopAutomationExecution for more information on using the StopAutomationExecution
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the StopAutomationExecutionRequest method.
 //    req, resp := client.StopAutomationExecutionRequest(params)
@@ -7507,19 +7822,18 @@ const opUpdateAssociation = "UpdateAssociation"
 
 // UpdateAssociationRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateAssociation operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateAssociation for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateAssociation method directly
-// instead.
+// See UpdateAssociation for more information on using the UpdateAssociation
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateAssociationRequest method.
 //    req, resp := client.UpdateAssociationRequest(params)
@@ -7618,19 +7932,18 @@ const opUpdateAssociationStatus = "UpdateAssociationStatus"
 
 // UpdateAssociationStatusRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateAssociationStatus operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateAssociationStatus for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateAssociationStatus method directly
-// instead.
+// See UpdateAssociationStatus for more information on using the UpdateAssociationStatus
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateAssociationStatusRequest method.
 //    req, resp := client.UpdateAssociationStatusRequest(params)
@@ -7727,19 +8040,18 @@ const opUpdateDocument = "UpdateDocument"
 
 // UpdateDocumentRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateDocument operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateDocument for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateDocument method directly
-// instead.
+// See UpdateDocument for more information on using the UpdateDocument
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateDocumentRequest method.
 //    req, resp := client.UpdateDocumentRequest(params)
@@ -7830,19 +8142,18 @@ const opUpdateDocumentDefaultVersion = "UpdateDocumentDefaultVersion"
 
 // UpdateDocumentDefaultVersionRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateDocumentDefaultVersion operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateDocumentDefaultVersion for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateDocumentDefaultVersion method directly
-// instead.
+// See UpdateDocumentDefaultVersion for more information on using the UpdateDocumentDefaultVersion
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateDocumentDefaultVersionRequest method.
 //    req, resp := client.UpdateDocumentDefaultVersionRequest(params)
@@ -7919,19 +8230,18 @@ const opUpdateMaintenanceWindow = "UpdateMaintenanceWindow"
 
 // UpdateMaintenanceWindowRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateMaintenanceWindow operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateMaintenanceWindow for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateMaintenanceWindow method directly
-// instead.
+// See UpdateMaintenanceWindow for more information on using the UpdateMaintenanceWindow
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateMaintenanceWindowRequest method.
 //    req, resp := client.UpdateMaintenanceWindowRequest(params)
@@ -8003,19 +8313,18 @@ const opUpdateManagedInstanceRole = "UpdateManagedInstanceRole"
 
 // UpdateManagedInstanceRoleRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateManagedInstanceRole operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdateManagedInstanceRole for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdateManagedInstanceRole method directly
-// instead.
+// See UpdateManagedInstanceRole for more information on using the UpdateManagedInstanceRole
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdateManagedInstanceRoleRequest method.
 //    req, resp := client.UpdateManagedInstanceRoleRequest(params)
@@ -8099,19 +8408,18 @@ const opUpdatePatchBaseline = "UpdatePatchBaseline"
 
 // UpdatePatchBaselineRequest generates a "aws/request.Request" representing the
 // client's request for the UpdatePatchBaseline operation. The "output" return
-// value can be used to capture response data after the request's "Send" method
-// is called.
+// value will be populated with the request's response once the request complets
+// successfuly.
 //
-// See UpdatePatchBaseline for usage and error information.
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
 //
-// Creating a request object using this method should be used when you want to inject
-// custom logic into the request's lifecycle using a custom handler, or if you want to
-// access properties on the request object before or after sending the request. If
-// you just want the service response, call the UpdatePatchBaseline method directly
-// instead.
+// See UpdatePatchBaseline for more information on using the UpdatePatchBaseline
+// API call, and error handling.
 //
-// Note: You must call the "Send" method on the returned request object in order
-// to execute the request.
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
 //
 //    // Example sending a request using the UpdatePatchBaselineRequest method.
 //    req, resp := client.UpdatePatchBaselineRequest(params)
@@ -10517,6 +10825,12 @@ type CreatePatchBaselineInput struct {
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []*string `type:"list"`
 
+	// Defines the compliance level for approved patches. This means that if an
+	// approved patch is reported as missing, this is the severity of the compliance
+	// violation. Valid compliance severity levels include the following: CRITICAL,
+	// HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED. The default value is UNSPECIFIED.
+	ApprovedPatchesComplianceLevel *string `type:"string" enum:"PatchComplianceLevel"`
+
 	// User-provided idempotency token.
 	ClientToken *string `min:"1" type:"string" idempotencyToken:"true"`
 
@@ -10530,6 +10844,11 @@ type CreatePatchBaselineInput struct {
 	//
 	// Name is a required field
 	Name *string `min:"3" type:"string" required:"true"`
+
+	// Defines the operating system the patch baseline applies to. Supported operating
+	// systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX.
+	// The Default value is WINDOWS.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 
 	// A list of explicitly rejected patches for the baseline.
 	RejectedPatches []*string `type:"list"`
@@ -10589,6 +10908,12 @@ func (s *CreatePatchBaselineInput) SetApprovedPatches(v []*string) *CreatePatchB
 	return s
 }
 
+// SetApprovedPatchesComplianceLevel sets the ApprovedPatchesComplianceLevel field's value.
+func (s *CreatePatchBaselineInput) SetApprovedPatchesComplianceLevel(v string) *CreatePatchBaselineInput {
+	s.ApprovedPatchesComplianceLevel = &v
+	return s
+}
+
 // SetClientToken sets the ClientToken field's value.
 func (s *CreatePatchBaselineInput) SetClientToken(v string) *CreatePatchBaselineInput {
 	s.ClientToken = &v
@@ -10610,6 +10935,12 @@ func (s *CreatePatchBaselineInput) SetGlobalFilters(v *PatchFilterGroup) *Create
 // SetName sets the Name field's value.
 func (s *CreatePatchBaselineInput) SetName(v string) *CreatePatchBaselineInput {
 	s.Name = &v
+	return s
+}
+
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *CreatePatchBaselineInput) SetOperatingSystem(v string) *CreatePatchBaselineInput {
+	s.OperatingSystem = &v
 	return s
 }
 
@@ -10641,6 +10972,82 @@ func (s CreatePatchBaselineOutput) GoString() string {
 func (s *CreatePatchBaselineOutput) SetBaselineId(v string) *CreatePatchBaselineOutput {
 	s.BaselineId = &v
 	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSyncRequest
+type CreateResourceDataSyncInput struct {
+	_ struct{} `type:"structure"`
+
+	// Amazon S3 configuration details for the sync.
+	//
+	// S3Destination is a required field
+	S3Destination *ResourceDataSyncS3Destination `type:"structure" required:"true"`
+
+	// A name for the configuration.
+	//
+	// SyncName is a required field
+	SyncName *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s CreateResourceDataSyncInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateResourceDataSyncInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateResourceDataSyncInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateResourceDataSyncInput"}
+	if s.S3Destination == nil {
+		invalidParams.Add(request.NewErrParamRequired("S3Destination"))
+	}
+	if s.SyncName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SyncName"))
+	}
+	if s.SyncName != nil && len(*s.SyncName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SyncName", 1))
+	}
+	if s.S3Destination != nil {
+		if err := s.S3Destination.Validate(); err != nil {
+			invalidParams.AddNested("S3Destination", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetS3Destination sets the S3Destination field's value.
+func (s *CreateResourceDataSyncInput) SetS3Destination(v *ResourceDataSyncS3Destination) *CreateResourceDataSyncInput {
+	s.S3Destination = v
+	return s
+}
+
+// SetSyncName sets the SyncName field's value.
+func (s *CreateResourceDataSyncInput) SetSyncName(v string) *CreateResourceDataSyncInput {
+	s.SyncName = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSyncResult
+type CreateResourceDataSyncOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateResourceDataSyncOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateResourceDataSyncOutput) GoString() string {
+	return s.String()
 }
 
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteActivationRequest
@@ -11071,6 +11478,63 @@ func (s DeletePatchBaselineOutput) GoString() string {
 func (s *DeletePatchBaselineOutput) SetBaselineId(v string) *DeletePatchBaselineOutput {
 	s.BaselineId = &v
 	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourceDataSyncRequest
+type DeleteResourceDataSyncInput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the configuration to delete.
+	//
+	// SyncName is a required field
+	SyncName *string `min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteResourceDataSyncInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteResourceDataSyncInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteResourceDataSyncInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteResourceDataSyncInput"}
+	if s.SyncName == nil {
+		invalidParams.Add(request.NewErrParamRequired("SyncName"))
+	}
+	if s.SyncName != nil && len(*s.SyncName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SyncName", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetSyncName sets the SyncName field's value.
+func (s *DeleteResourceDataSyncInput) SetSyncName(v string) *DeleteResourceDataSyncInput {
+	s.SyncName = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourceDataSyncResult
+type DeleteResourceDataSyncOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteResourceDataSyncOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteResourceDataSyncOutput) GoString() string {
+	return s.String()
 }
 
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterManagedInstanceRequest
@@ -13789,6 +14253,9 @@ func (s *DescribePatchGroupStateOutput) SetInstancesWithNotApplicablePatches(v i
 type DescribePatchGroupsInput struct {
 	_ struct{} `type:"structure"`
 
+	// One or more filters. Use a filter to return a more specific list of results.
+	Filters []*PatchOrchestratorFilter `type:"list"`
+
 	// The maximum number of patch groups to return (per page).
 	MaxResults *int64 `min:"1" type:"integer"`
 
@@ -13813,11 +14280,27 @@ func (s *DescribePatchGroupsInput) Validate() error {
 	if s.MaxResults != nil && *s.MaxResults < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
 	}
+	if s.Filters != nil {
+		for i, v := range s.Filters {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Filters", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
 	}
 	return nil
+}
+
+// SetFilters sets the Filters field's value.
+func (s *DescribePatchGroupsInput) SetFilters(v []*PatchOrchestratorFilter) *DescribePatchGroupsInput {
+	s.Filters = v
+	return s
 }
 
 // SetMaxResults sets the MaxResults field's value.
@@ -14785,6 +15268,9 @@ func (s *GetCommandInvocationOutput) SetStatusDetails(v string) *GetCommandInvoc
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDefaultPatchBaselineRequest
 type GetDefaultPatchBaselineInput struct {
 	_ struct{} `type:"structure"`
+
+	// Returns the default patch baseline for the specified operating system.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 }
 
 // String returns the string representation
@@ -14797,12 +15283,21 @@ func (s GetDefaultPatchBaselineInput) GoString() string {
 	return s.String()
 }
 
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *GetDefaultPatchBaselineInput) SetOperatingSystem(v string) *GetDefaultPatchBaselineInput {
+	s.OperatingSystem = &v
+	return s
+}
+
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDefaultPatchBaselineResult
 type GetDefaultPatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the default patch baseline.
 	BaselineId *string `min:"20" type:"string"`
+
+	// The operating system for the returned patch baseline.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 }
 
 // String returns the string representation
@@ -14818,6 +15313,12 @@ func (s GetDefaultPatchBaselineOutput) GoString() string {
 // SetBaselineId sets the BaselineId field's value.
 func (s *GetDefaultPatchBaselineOutput) SetBaselineId(v string) *GetDefaultPatchBaselineOutput {
 	s.BaselineId = &v
+	return s
+}
+
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *GetDefaultPatchBaselineOutput) SetOperatingSystem(v string) *GetDefaultPatchBaselineOutput {
+	s.OperatingSystem = &v
 	return s
 }
 
@@ -14885,6 +15386,10 @@ type GetDeployablePatchSnapshotForInstanceOutput struct {
 	// The ID of the instance.
 	InstanceId *string `type:"string"`
 
+	// Returns the specific operating system (for example Windows Server 2012 or
+	// Amazon Linux 2015.09) on the instance for the specified patch snapshot.
+	Product *string `type:"string"`
+
 	// A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
 	SnapshotDownloadUrl *string `type:"string"`
 
@@ -14905,6 +15410,12 @@ func (s GetDeployablePatchSnapshotForInstanceOutput) GoString() string {
 // SetInstanceId sets the InstanceId field's value.
 func (s *GetDeployablePatchSnapshotForInstanceOutput) SetInstanceId(v string) *GetDeployablePatchSnapshotForInstanceOutput {
 	s.InstanceId = &v
+	return s
+}
+
+// SetProduct sets the Product field's value.
+func (s *GetDeployablePatchSnapshotForInstanceOutput) SetProduct(v string) *GetDeployablePatchSnapshotForInstanceOutput {
+	s.Product = &v
 	return s
 }
 
@@ -16105,6 +16616,10 @@ func (s *GetParametersOutput) SetParameters(v []*Parameter) *GetParametersOutput
 type GetPatchBaselineForPatchGroupInput struct {
 	_ struct{} `type:"structure"`
 
+	// Returns he operating system rule specified for patch groups using the patch
+	// baseline.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
+
 	// The name of the patch group whose patch baseline should be retrieved.
 	//
 	// PatchGroup is a required field
@@ -16137,6 +16652,12 @@ func (s *GetPatchBaselineForPatchGroupInput) Validate() error {
 	return nil
 }
 
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *GetPatchBaselineForPatchGroupInput) SetOperatingSystem(v string) *GetPatchBaselineForPatchGroupInput {
+	s.OperatingSystem = &v
+	return s
+}
+
 // SetPatchGroup sets the PatchGroup field's value.
 func (s *GetPatchBaselineForPatchGroupInput) SetPatchGroup(v string) *GetPatchBaselineForPatchGroupInput {
 	s.PatchGroup = &v
@@ -16149,6 +16670,9 @@ type GetPatchBaselineForPatchGroupOutput struct {
 
 	// The ID of the patch baseline that should be used for the patch group.
 	BaselineId *string `min:"20" type:"string"`
+
+	// The operating system rule specified for patch groups using the patch baseline.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 
 	// The name of the patch group.
 	PatchGroup *string `min:"1" type:"string"`
@@ -16167,6 +16691,12 @@ func (s GetPatchBaselineForPatchGroupOutput) GoString() string {
 // SetBaselineId sets the BaselineId field's value.
 func (s *GetPatchBaselineForPatchGroupOutput) SetBaselineId(v string) *GetPatchBaselineForPatchGroupOutput {
 	s.BaselineId = &v
+	return s
+}
+
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *GetPatchBaselineForPatchGroupOutput) SetOperatingSystem(v string) *GetPatchBaselineForPatchGroupOutput {
+	s.OperatingSystem = &v
 	return s
 }
 
@@ -16228,6 +16758,10 @@ type GetPatchBaselineOutput struct {
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []*string `type:"list"`
 
+	// Returns the specified compliance severity level for approved patches in the
+	// patch baseline.
+	ApprovedPatchesComplianceLevel *string `type:"string" enum:"PatchComplianceLevel"`
+
 	// The ID of the retrieved patch baseline.
 	BaselineId *string `min:"20" type:"string"`
 
@@ -16245,6 +16779,9 @@ type GetPatchBaselineOutput struct {
 
 	// The name of the patch baseline.
 	Name *string `min:"3" type:"string"`
+
+	// Returns the operating system specified for the patch baseline.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 
 	// Patch groups included in the patch baseline.
 	PatchGroups []*string `type:"list"`
@@ -16272,6 +16809,12 @@ func (s *GetPatchBaselineOutput) SetApprovalRules(v *PatchRuleGroup) *GetPatchBa
 // SetApprovedPatches sets the ApprovedPatches field's value.
 func (s *GetPatchBaselineOutput) SetApprovedPatches(v []*string) *GetPatchBaselineOutput {
 	s.ApprovedPatches = v
+	return s
+}
+
+// SetApprovedPatchesComplianceLevel sets the ApprovedPatchesComplianceLevel field's value.
+func (s *GetPatchBaselineOutput) SetApprovedPatchesComplianceLevel(v string) *GetPatchBaselineOutput {
+	s.ApprovedPatchesComplianceLevel = &v
 	return s
 }
 
@@ -16308,6 +16851,12 @@ func (s *GetPatchBaselineOutput) SetModifiedDate(v time.Time) *GetPatchBaselineO
 // SetName sets the Name field's value.
 func (s *GetPatchBaselineOutput) SetName(v string) *GetPatchBaselineOutput {
 	s.Name = &v
+	return s
+}
+
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *GetPatchBaselineOutput) SetOperatingSystem(v string) *GetPatchBaselineOutput {
+	s.OperatingSystem = &v
 	return s
 }
 
@@ -18221,6 +18770,88 @@ func (s *ListInventoryEntriesOutput) SetTypeName(v string) *ListInventoryEntries
 	return s
 }
 
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceDataSyncRequest
+type ListResourceDataSyncInput struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of items to return for this call. The call also returns
+	// a token that you can specify in a subsequent call to get the next set of
+	// results.
+	MaxResults *int64 `min:"1" type:"integer"`
+
+	// A token to start the list. Use this token to get the next set of results.
+	NextToken *string `type:"string"`
+}
+
+// String returns the string representation
+func (s ListResourceDataSyncInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListResourceDataSyncInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListResourceDataSyncInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListResourceDataSyncInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListResourceDataSyncInput) SetMaxResults(v int64) *ListResourceDataSyncInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListResourceDataSyncInput) SetNextToken(v string) *ListResourceDataSyncInput {
+	s.NextToken = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceDataSyncResult
+type ListResourceDataSyncOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The token for the next set of items to return. Use this token to get the
+	// next set of results.
+	NextToken *string `type:"string"`
+
+	// A list of your current Resource Data Sync configurations and their statuses.
+	ResourceDataSyncItems []*ResourceDataSyncItem `type:"list"`
+}
+
+// String returns the string representation
+func (s ListResourceDataSyncOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListResourceDataSyncOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListResourceDataSyncOutput) SetNextToken(v string) *ListResourceDataSyncOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetResourceDataSyncItems sets the ResourceDataSyncItems field's value.
+func (s *ListResourceDataSyncOutput) SetResourceDataSyncItems(v []*ResourceDataSyncItem) *ListResourceDataSyncOutput {
+	s.ResourceDataSyncItems = v
+	return s
+}
+
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListTagsForResourceRequest
 type ListTagsForResourceInput struct {
 	_ struct{} `type:"structure"`
@@ -19462,7 +20093,7 @@ type Patch struct {
 
 	// The ID of the patch (this is different than the Microsoft Knowledge Base
 	// ID).
-	Id *string `type:"string"`
+	Id *string `min:"1" type:"string"`
 
 	// The Microsoft Knowledge Base ID of the patch.
 	KbNumber *string `type:"string"`
@@ -19594,8 +20225,15 @@ type PatchBaselineIdentity struct {
 	// The name of the patch baseline.
 	BaselineName *string `min:"3" type:"string"`
 
-	// Whether this is the default baseline.
+	// Whether this is the default baseline. Note that Systems Manager supports
+	// creating multiple default patch baselines. For example, you can create a
+	// default patch baseline for each operating system.
 	DefaultBaseline *bool `type:"boolean"`
+
+	// Defines the operating system the patch baseline applies to. Supported operating
+	// systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX.
+	// The Default value is WINDOWS.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 }
 
 // String returns the string representation
@@ -19632,6 +20270,12 @@ func (s *PatchBaselineIdentity) SetDefaultBaseline(v bool) *PatchBaselineIdentit
 	return s
 }
 
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *PatchBaselineIdentity) SetOperatingSystem(v string) *PatchBaselineIdentity {
+	s.OperatingSystem = &v
+	return s
+}
+
 // Information about the state of a patch on a particular instance as it relates
 // to the patch baseline used to patch the instance.
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PatchComplianceData
@@ -19643,12 +20287,13 @@ type PatchComplianceData struct {
 	// Classification is a required field
 	Classification *string `type:"string" required:"true"`
 
-	// The date/time the patch was installed on the instance.
+	// The date/time the patch was installed on the instance. Note that not all
+	// operating systems provide this level of information.
 	//
 	// InstalledTime is a required field
 	InstalledTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
 
-	// The Microsoft Knowledge Base ID of the patch.
+	// The operating system-specific ID of the patch.
 	//
 	// KBId is a required field
 	KBId *string `type:"string" required:"true"`
@@ -19916,6 +20561,11 @@ type PatchRule struct {
 	// ApproveAfterDays is a required field
 	ApproveAfterDays *int64 `type:"integer" required:"true"`
 
+	// A compliance severity level for all approved patches in a patch baseline.
+	// Valid compliance severity levels include the following: Unspecified, Critical,
+	// High, Medium, Low, and Informational.
+	ComplianceLevel *string `type:"string" enum:"PatchComplianceLevel"`
+
 	// The patch filter group that defines the criteria for the rule.
 	//
 	// PatchFilterGroup is a required field
@@ -19956,6 +20606,12 @@ func (s *PatchRule) Validate() error {
 // SetApproveAfterDays sets the ApproveAfterDays field's value.
 func (s *PatchRule) SetApproveAfterDays(v int64) *PatchRule {
 	s.ApproveAfterDays = &v
+	return s
+}
+
+// SetComplianceLevel sets the ComplianceLevel field's value.
+func (s *PatchRule) SetComplianceLevel(v string) *PatchRule {
+	s.ComplianceLevel = &v
 	return s
 }
 
@@ -20023,6 +20679,9 @@ type PatchStatus struct {
 	// The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
 	ApprovalDate *time.Time `type:"timestamp" timestampFormat:"unix"`
 
+	// The compliance severity level for a patch.
+	ComplianceLevel *string `type:"string" enum:"PatchComplianceLevel"`
+
 	// The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED,
 	// EXPLICIT_REJECTED).
 	DeploymentStatus *string `type:"string" enum:"PatchDeploymentStatus"`
@@ -20041,6 +20700,12 @@ func (s PatchStatus) GoString() string {
 // SetApprovalDate sets the ApprovalDate field's value.
 func (s *PatchStatus) SetApprovalDate(v time.Time) *PatchStatus {
 	s.ApprovalDate = &v
+	return s
+}
+
+// SetComplianceLevel sets the ComplianceLevel field's value.
+func (s *PatchStatus) SetComplianceLevel(v string) *PatchStatus {
+	s.ComplianceLevel = &v
 	return s
 }
 
@@ -20852,6 +21517,163 @@ func (s RemoveTagsFromResourceOutput) GoString() string {
 	return s.String()
 }
 
+// Information about a Resource Data Sync configuration, including its current
+// status and last successful sync.
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResourceDataSyncItem
+type ResourceDataSyncItem struct {
+	_ struct{} `type:"structure"`
+
+	// The status reported by the last sync.
+	LastStatus *string `type:"string" enum:"LastResourceDataSyncStatus"`
+
+	// The last time the sync operations returned a status of SUCCESSFUL (UTC).
+	LastSuccessfulSyncTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+
+	// The last time the configuration attempted to sync (UTC).
+	LastSyncTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+
+	// Configuration information for the target Amazon S3 bucket.
+	S3Destination *ResourceDataSyncS3Destination `type:"structure"`
+
+	// The date and time the configuration was created (UTC).
+	SyncCreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+
+	// The name of the Resource Data Sync.
+	SyncName *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ResourceDataSyncItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceDataSyncItem) GoString() string {
+	return s.String()
+}
+
+// SetLastStatus sets the LastStatus field's value.
+func (s *ResourceDataSyncItem) SetLastStatus(v string) *ResourceDataSyncItem {
+	s.LastStatus = &v
+	return s
+}
+
+// SetLastSuccessfulSyncTime sets the LastSuccessfulSyncTime field's value.
+func (s *ResourceDataSyncItem) SetLastSuccessfulSyncTime(v time.Time) *ResourceDataSyncItem {
+	s.LastSuccessfulSyncTime = &v
+	return s
+}
+
+// SetLastSyncTime sets the LastSyncTime field's value.
+func (s *ResourceDataSyncItem) SetLastSyncTime(v time.Time) *ResourceDataSyncItem {
+	s.LastSyncTime = &v
+	return s
+}
+
+// SetS3Destination sets the S3Destination field's value.
+func (s *ResourceDataSyncItem) SetS3Destination(v *ResourceDataSyncS3Destination) *ResourceDataSyncItem {
+	s.S3Destination = v
+	return s
+}
+
+// SetSyncCreatedTime sets the SyncCreatedTime field's value.
+func (s *ResourceDataSyncItem) SetSyncCreatedTime(v time.Time) *ResourceDataSyncItem {
+	s.SyncCreatedTime = &v
+	return s
+}
+
+// SetSyncName sets the SyncName field's value.
+func (s *ResourceDataSyncItem) SetSyncName(v string) *ResourceDataSyncItem {
+	s.SyncName = &v
+	return s
+}
+
+// Information about the target Amazon S3 bucket for the Resource Data Sync.
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResourceDataSyncS3Destination
+type ResourceDataSyncS3Destination struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the Amazon S3 bucket where the aggregated data is stored.
+	//
+	// BucketName is a required field
+	BucketName *string `min:"1" type:"string" required:"true"`
+
+	// An Amazon S3 prefix for the bucket.
+	Prefix *string `min:"1" type:"string"`
+
+	// The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.
+	//
+	// Region is a required field
+	Region *string `min:"1" type:"string" required:"true"`
+
+	// A supported sync format. The following format is currently supported: JsonSerDe
+	//
+	// SyncFormat is a required field
+	SyncFormat *string `type:"string" required:"true" enum:"ResourceDataSyncS3Format"`
+}
+
+// String returns the string representation
+func (s ResourceDataSyncS3Destination) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceDataSyncS3Destination) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ResourceDataSyncS3Destination) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ResourceDataSyncS3Destination"}
+	if s.BucketName == nil {
+		invalidParams.Add(request.NewErrParamRequired("BucketName"))
+	}
+	if s.BucketName != nil && len(*s.BucketName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("BucketName", 1))
+	}
+	if s.Prefix != nil && len(*s.Prefix) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Prefix", 1))
+	}
+	if s.Region == nil {
+		invalidParams.Add(request.NewErrParamRequired("Region"))
+	}
+	if s.Region != nil && len(*s.Region) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Region", 1))
+	}
+	if s.SyncFormat == nil {
+		invalidParams.Add(request.NewErrParamRequired("SyncFormat"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetBucketName sets the BucketName field's value.
+func (s *ResourceDataSyncS3Destination) SetBucketName(v string) *ResourceDataSyncS3Destination {
+	s.BucketName = &v
+	return s
+}
+
+// SetPrefix sets the Prefix field's value.
+func (s *ResourceDataSyncS3Destination) SetPrefix(v string) *ResourceDataSyncS3Destination {
+	s.Prefix = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ResourceDataSyncS3Destination) SetRegion(v string) *ResourceDataSyncS3Destination {
+	s.Region = &v
+	return s
+}
+
+// SetSyncFormat sets the SyncFormat field's value.
+func (s *ResourceDataSyncS3Destination) SetSyncFormat(v string) *ResourceDataSyncS3Destination {
+	s.SyncFormat = &v
+	return s
+}
+
 // The inventory item result attribute.
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResultAttribute
 type ResultAttribute struct {
@@ -20982,6 +21804,92 @@ func (s S3OutputUrl) GoString() string {
 func (s *S3OutputUrl) SetOutputUrl(v string) *S3OutputUrl {
 	s.OutputUrl = &v
 	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendAutomationSignalRequest
+type SendAutomationSignalInput struct {
+	_ struct{} `type:"structure"`
+
+	// The unique identifier for an existing Automation execution that you want
+	// to send the signal to.
+	//
+	// AutomationExecutionId is a required field
+	AutomationExecutionId *string `min:"36" type:"string" required:"true"`
+
+	// The data sent with the signal. The data schema depends on the type of signal
+	// used in the request.
+	Payload map[string][]*string `min:"1" type:"map"`
+
+	// The type of signal. Valid signal types include the following: Approve and
+	// Reject
+	//
+	// SignalType is a required field
+	SignalType *string `type:"string" required:"true" enum:"SignalType"`
+}
+
+// String returns the string representation
+func (s SendAutomationSignalInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SendAutomationSignalInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *SendAutomationSignalInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "SendAutomationSignalInput"}
+	if s.AutomationExecutionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AutomationExecutionId"))
+	}
+	if s.AutomationExecutionId != nil && len(*s.AutomationExecutionId) < 36 {
+		invalidParams.Add(request.NewErrParamMinLen("AutomationExecutionId", 36))
+	}
+	if s.Payload != nil && len(s.Payload) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Payload", 1))
+	}
+	if s.SignalType == nil {
+		invalidParams.Add(request.NewErrParamRequired("SignalType"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAutomationExecutionId sets the AutomationExecutionId field's value.
+func (s *SendAutomationSignalInput) SetAutomationExecutionId(v string) *SendAutomationSignalInput {
+	s.AutomationExecutionId = &v
+	return s
+}
+
+// SetPayload sets the Payload field's value.
+func (s *SendAutomationSignalInput) SetPayload(v map[string][]*string) *SendAutomationSignalInput {
+	s.Payload = v
+	return s
+}
+
+// SetSignalType sets the SignalType field's value.
+func (s *SendAutomationSignalInput) SetSignalType(v string) *SendAutomationSignalInput {
+	s.SignalType = &v
+	return s
+}
+
+// Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendAutomationSignalResult
+type SendAutomationSignalOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s SendAutomationSignalOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SendAutomationSignalOutput) GoString() string {
+	return s.String()
 }
 
 // Please also see https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendCommandRequest
@@ -22266,6 +23174,9 @@ type UpdatePatchBaselineInput struct {
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []*string `type:"list"`
 
+	// Assigns a new compliance severity level to an existing patch baseline.
+	ApprovedPatchesComplianceLevel *string `type:"string" enum:"PatchComplianceLevel"`
+
 	// The ID of the patch baseline to update.
 	//
 	// BaselineId is a required field
@@ -22338,6 +23249,12 @@ func (s *UpdatePatchBaselineInput) SetApprovedPatches(v []*string) *UpdatePatchB
 	return s
 }
 
+// SetApprovedPatchesComplianceLevel sets the ApprovedPatchesComplianceLevel field's value.
+func (s *UpdatePatchBaselineInput) SetApprovedPatchesComplianceLevel(v string) *UpdatePatchBaselineInput {
+	s.ApprovedPatchesComplianceLevel = &v
+	return s
+}
+
 // SetBaselineId sets the BaselineId field's value.
 func (s *UpdatePatchBaselineInput) SetBaselineId(v string) *UpdatePatchBaselineInput {
 	s.BaselineId = &v
@@ -22378,6 +23295,10 @@ type UpdatePatchBaselineOutput struct {
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []*string `type:"list"`
 
+	// The compliance severity level assigned to the patch baseline after the update
+	// completed.
+	ApprovedPatchesComplianceLevel *string `type:"string" enum:"PatchComplianceLevel"`
+
 	// The ID of the deleted patch baseline.
 	BaselineId *string `min:"20" type:"string"`
 
@@ -22395,6 +23316,9 @@ type UpdatePatchBaselineOutput struct {
 
 	// The name of the patch baseline.
 	Name *string `min:"3" type:"string"`
+
+	// The operating system rule used by the updated patch baseline.
+	OperatingSystem *string `type:"string" enum:"OperatingSystem"`
 
 	// A list of explicitly rejected patches for the baseline.
 	RejectedPatches []*string `type:"list"`
@@ -22419,6 +23343,12 @@ func (s *UpdatePatchBaselineOutput) SetApprovalRules(v *PatchRuleGroup) *UpdateP
 // SetApprovedPatches sets the ApprovedPatches field's value.
 func (s *UpdatePatchBaselineOutput) SetApprovedPatches(v []*string) *UpdatePatchBaselineOutput {
 	s.ApprovedPatches = v
+	return s
+}
+
+// SetApprovedPatchesComplianceLevel sets the ApprovedPatchesComplianceLevel field's value.
+func (s *UpdatePatchBaselineOutput) SetApprovedPatchesComplianceLevel(v string) *UpdatePatchBaselineOutput {
+	s.ApprovedPatchesComplianceLevel = &v
 	return s
 }
 
@@ -22455,6 +23385,12 @@ func (s *UpdatePatchBaselineOutput) SetModifiedDate(v time.Time) *UpdatePatchBas
 // SetName sets the Name field's value.
 func (s *UpdatePatchBaselineOutput) SetName(v string) *UpdatePatchBaselineOutput {
 	s.Name = &v
+	return s
+}
+
+// SetOperatingSystem sets the OperatingSystem field's value.
+func (s *UpdatePatchBaselineOutput) SetOperatingSystem(v string) *UpdatePatchBaselineOutput {
+	s.OperatingSystem = &v
 	return s
 }
 
@@ -22509,6 +23445,9 @@ const (
 
 	// AutomationExecutionStatusInProgress is a AutomationExecutionStatus enum value
 	AutomationExecutionStatusInProgress = "InProgress"
+
+	// AutomationExecutionStatusWaiting is a AutomationExecutionStatus enum value
+	AutomationExecutionStatusWaiting = "Waiting"
 
 	// AutomationExecutionStatusSuccess is a AutomationExecutionStatus enum value
 	AutomationExecutionStatusSuccess = "Success"
@@ -22751,6 +23690,17 @@ const (
 )
 
 const (
+	// LastResourceDataSyncStatusSuccessful is a LastResourceDataSyncStatus enum value
+	LastResourceDataSyncStatusSuccessful = "Successful"
+
+	// LastResourceDataSyncStatusFailed is a LastResourceDataSyncStatus enum value
+	LastResourceDataSyncStatusFailed = "Failed"
+
+	// LastResourceDataSyncStatusInProgress is a LastResourceDataSyncStatus enum value
+	LastResourceDataSyncStatusInProgress = "InProgress"
+)
+
+const (
 	// MaintenanceWindowExecutionStatusPending is a MaintenanceWindowExecutionStatus enum value
 	MaintenanceWindowExecutionStatusPending = "PENDING"
 
@@ -22815,6 +23765,20 @@ const (
 )
 
 const (
+	// OperatingSystemWindows is a OperatingSystem enum value
+	OperatingSystemWindows = "WINDOWS"
+
+	// OperatingSystemAmazonLinux is a OperatingSystem enum value
+	OperatingSystemAmazonLinux = "AMAZON_LINUX"
+
+	// OperatingSystemUbuntu is a OperatingSystem enum value
+	OperatingSystemUbuntu = "UBUNTU"
+
+	// OperatingSystemRedhatEnterpriseLinux is a OperatingSystem enum value
+	OperatingSystemRedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX"
+)
+
+const (
 	// ParameterTypeString is a ParameterType enum value
 	ParameterTypeString = "String"
 
@@ -22854,6 +23818,26 @@ const (
 )
 
 const (
+	// PatchComplianceLevelCritical is a PatchComplianceLevel enum value
+	PatchComplianceLevelCritical = "CRITICAL"
+
+	// PatchComplianceLevelHigh is a PatchComplianceLevel enum value
+	PatchComplianceLevelHigh = "HIGH"
+
+	// PatchComplianceLevelMedium is a PatchComplianceLevel enum value
+	PatchComplianceLevelMedium = "MEDIUM"
+
+	// PatchComplianceLevelLow is a PatchComplianceLevel enum value
+	PatchComplianceLevelLow = "LOW"
+
+	// PatchComplianceLevelInformational is a PatchComplianceLevel enum value
+	PatchComplianceLevelInformational = "INFORMATIONAL"
+
+	// PatchComplianceLevelUnspecified is a PatchComplianceLevel enum value
+	PatchComplianceLevelUnspecified = "UNSPECIFIED"
+)
+
+const (
 	// PatchDeploymentStatusApproved is a PatchDeploymentStatus enum value
 	PatchDeploymentStatusApproved = "APPROVED"
 
@@ -22879,6 +23863,15 @@ const (
 
 	// PatchFilterKeyPatchId is a PatchFilterKey enum value
 	PatchFilterKeyPatchId = "PATCH_ID"
+
+	// PatchFilterKeySection is a PatchFilterKey enum value
+	PatchFilterKeySection = "SECTION"
+
+	// PatchFilterKeyPriority is a PatchFilterKey enum value
+	PatchFilterKeyPriority = "PRIORITY"
+
+	// PatchFilterKeySeverity is a PatchFilterKey enum value
+	PatchFilterKeySeverity = "SEVERITY"
 )
 
 const (
@@ -22909,6 +23902,11 @@ const (
 )
 
 const (
+	// ResourceDataSyncS3FormatJsonSerDe is a ResourceDataSyncS3Format enum value
+	ResourceDataSyncS3FormatJsonSerDe = "JsonSerDe"
+)
+
+const (
 	// ResourceTypeManagedInstance is a ResourceType enum value
 	ResourceTypeManagedInstance = "ManagedInstance"
 
@@ -22928,4 +23926,12 @@ const (
 
 	// ResourceTypeForTaggingParameter is a ResourceTypeForTagging enum value
 	ResourceTypeForTaggingParameter = "Parameter"
+)
+
+const (
+	// SignalTypeApprove is a SignalType enum value
+	SignalTypeApprove = "Approve"
+
+	// SignalTypeReject is a SignalType enum value
+	SignalTypeReject = "Reject"
 )
