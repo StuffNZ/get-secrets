@@ -4,6 +4,7 @@ import (
 	"bitbucket.org/mexisme/get-secrets/config"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	log "github.com/sirupsen/logrus"
@@ -74,7 +75,10 @@ func (s *Details) S3() *s3.S3 {
 
 func (s *Details) newS3Session() (*s3.S3, error) {
 	// TODO: Enable AWS_SDK_LOAD_CONFIG env-var, somehow!
-	session, err := session.NewSession()
+	session, err := session.Must(session.NewSessionWithOptions(session.Options{
+		AssumeRoleTokenProvider: stscreds.StdinTokenProvider,
+		SharedConfigState:       session.SharedConfigEnable,
+	}))
 	if err != nil {
 		return nil, err
 	}
