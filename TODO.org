@@ -1,4 +1,7 @@
-* Tasks [5/5]
+* Tasks [5/7]
+** TODO Write README
+** TODO Add code-comments explainging how func init() gets auto-run, first
+** TODO Add a `--help` mode.
 ** DONE s3 library
    :LOGBOOK:
    - State "DONE"       from "TODO"       [2017-06-23 Fri 22:05]
