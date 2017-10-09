@@ -75,13 +75,10 @@ func (s *Details) S3() *s3.S3 {
 
 func (s *Details) newS3Session() (*s3.S3, error) {
 	// TODO: Enable AWS_SDK_LOAD_CONFIG env-var, somehow!
-	session, err := session.Must(session.NewSessionWithOptions(session.Options{
+	session := session.Must(session.NewSessionWithOptions(session.Options{
 		AssumeRoleTokenProvider: stscreds.StdinTokenProvider,
 		SharedConfigState:       session.SharedConfigEnable,
 	}))
-	if err != nil {
-		return nil, err
-	}
 
 	// TODO: `Region` should be in a config file (or ~/.aws/config) or in the s3/url package?
 	s3Session := s3.New(session, s.awsConfig)
