@@ -17,25 +17,35 @@ This is a middle-road option that avoids needing to add config management code,
 mount special file-systems, or include secrets-delivery client code (e.g. Hashicorp
 Vault).
 
-## How it works
+# How it works
 
 Rather than running your app / binary directly, you would instead run `get-secrets`
 and pass the path/file of your app plus any command-line arguments _your_ app needs (as
 additional arguments for `get-secrets`).
 
-It will then use certain configurations (see below) to find the secrets files, parse the contents
-of those into new env vars, and then start your app (with the additional args) with the new
-env vars (from the parsed secrets files) passed-on to your app.
+NB: If you want to run `get-secrets` directly, it will print out a series of `export VAR=VAL` lines
+that can probably be eval'd directly by most shells; escaping various provided env vals
+correctly can be challenging, however.
+
+It will then use certain configurations (see below) to find the secrets files, parse them, and
+pass those settings via env-vars to a new app / binary:
+
+- The (current) S3 version walks through all the files found in the S3 bucket + prefix, as specified
+by `s3.path` (below)
+- Each file is read and parsed according to it's filename extension.
+-- e.g. `*.env` is parsed as `VAR=VAL` key pairs, as per 12-factor "dot-env" format
+-- `*.json` are JSON-formatted files.
+-- Other supported formats are specified by [Viper](https://github.com/spf13/viper#what-is-viper)
+- The contents of the files are merged together into a hash-map, in alpha order, with earlier in
+  the order getting precedence over later.
+- The app / binary is then exec'd, and the above hash-map is passed into it as an env-var list.
+
+## Docker
 
 Whilst primarily designed for Docker containers, `get-secrets` is agnostic to the environment it
 runs in.
 
-The only potential gotcha is how you pass AWS authentication info for use:  EC2 and ECS expose
-this access via an http://169... address, but you can also use the `$AWS_...` env vars;  in a
-Docker container, you won't be able to use `~/.aws/credentials` (etc) without specifically
-creating or mounting that dir into the container.
-
-## Configuration
+# Configuration
 
 `get-secrets` uses the [Viper](https://github.com/spf13/viper) library to configure itself.
 
@@ -89,7 +99,30 @@ dsn = "https://ID:TOKEN@sentry.io/PROJECT"
 Note that these all map to optional env vars, this means you can override the above settings
 by passing in an env var to `get-secrets` as mentioned in the code comments, above.
 
-## Alternatives
+# Gotchas
+
+## Root CA Certificates
+
+Root CA Certificates get updated at various times.  If the ones in the Localhost or Docker container
+are out-of-date, `get-secrets` may get a `x509: failed to load system roots and no roots provided`
+error.
+
+This usually means you need to update the Root CA Certs.
+
+## AWS Authentication
+
+This is around how you pass AWS authentication:  https://docs.aws.amazon.com/sdk-for-go/api/aws/session/
+
+e.g.
+- EC2 and ECS expose this access via an http://169.x.x.x address.
+- You could use the `~/.aws/credentials` on a local machine
+- The `AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` env vars.
+
+In a Docker container, you won't be able to use `~/.aws/credentials` (etc) without specifically
+creating or mounting that dir into the container, and on a non-ECS container, you won't have
+access to the http://169.x.x.x service.
+
+# Alternatives
 
 - Kubernetes Secrets
 - Include code that can read directly from KMS, Hashicorp Vault (et al)
