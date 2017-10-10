@@ -20,8 +20,8 @@ Vault).
 # How it works
 
 Rather than running your app / binary directly, you would instead run `get-secrets`
-and pass the path/file of your app plus any command-line arguments _your_ app needs (as
-additional arguments for `get-secrets`).
+and pass the path/file of your app plus any command-line arguments _your_ app needs, as
+additional arguments for `get-secrets`.
 
 NB: If you want to run `get-secrets` directly, it will print out a series of `export VAR=VAL` lines
 that can probably be eval'd directly by most shells; escaping various provided env vals
