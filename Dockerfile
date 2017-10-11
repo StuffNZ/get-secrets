@@ -5,7 +5,7 @@ RUN apk upgrade --no-cache --update && \
 
 COPY . /app
 
-RUN cd /app && make
+RUN cd /app && make clean test all
 
 FROM alpine
 
