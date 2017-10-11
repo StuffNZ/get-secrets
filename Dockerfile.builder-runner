@@ -32,10 +32,7 @@ RUN if [ -f /etc/debian_version ]; then \
 
 COPY $DOCKER_BASE/ /app
 
-RUN cd /app && \
-    make clean && \
-    make test && \
-    make
+RUN cd /app && make clean test all
 
 ##########
 

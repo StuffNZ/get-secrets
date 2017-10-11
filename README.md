@@ -124,7 +124,33 @@ access to the http://169.x.x.x service.
 
 # Testing your config
 
-If you run the following (changing the appropriate entries, e.g. {ChangeMe}):
+There are two ways to test `get-secrets`. One involves building locally, the other involves
+building a Docker container.
+
+The first requires Go to be installed locally, and is a little faster, but the latter allows
+better control against unexpected differences in your machine c.f. the target machinewhere you
+would run the command.
+
+If you run one of the following (changing the appropriate entries, e.g. {ChangeMe}):
+
+## Local Testing
+
+```bash
+
+make clean test all
+
+(
+  export \
+    AWS_ACCESS_KEY_ID='{ChangeMe}' AWS_SECRET_ACCESS_KEY='{ChangeMe}' \
+    AWS_DEFAULT_REGION={ChangeMe} \
+    SECRETS_S3_DOTENV_PATH='s3://{BUCKET}/{PREFIX}' \
+    APPLICATION_NAME=test -e ENVIRONMENT=envtest \
+    SECRETS_DEBUG=1;
+  ./bin/bitbucket.org/mexisme/get-secrets
+)
+```
+
+## Docker Testing
 
 ```bash
 docker build --tag get-secrets .
