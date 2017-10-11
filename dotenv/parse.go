@@ -1,12 +1,12 @@
 package dotenv
 
 import (
+	"bitbucket.org/mexisme/get-secrets/dotenv/env"
+
 	"fmt"
 	"sort"
-	"strings"
 
 	log "github.com/sirupsen/logrus"
-	"github.com/subosito/gotenv"
 )
 
 /*
@@ -28,7 +28,7 @@ func (s *DotEnvs) AddFromString(path string, body string) error {
 	}
 
 	log.WithFields(log.Fields{"path": path, "body": body}).Debug("Parsing dotenv file...")
-	s.env[path] = BodyEnv{path: path, body: body, env: s.parseEnv(body)}
+	s.env[path] = env.New().WithPathBody(path, body)
 
 	return nil
 }
@@ -43,10 +43,10 @@ i.e. an .env with a "path" of "z..." will be added after those with a "path" of 
 */
 // TODO: Need to make sure file's named ".env" (only) are parsed last, somehow...
 func (s *DotEnvs) Combine() map[string]string {
-	joinedEnv := make(gotenv.Env)
+	joinedEnv := make(map[string]string)
 
 	for _, path := range s.sortedPaths() {
-		s.mergeEnv(s.env[path].env, joinedEnv)
+		s.mergeEnv(s.env[path].Env(), joinedEnv)
 	}
 
 	return joinedEnv
@@ -67,8 +67,4 @@ func (s *DotEnvs) sortedPaths() []string {
 	sort.Strings(names)
 
 	return names
-}
-
-func (s *DotEnvs) parseEnv(body string) gotenv.Env {
-	return gotenv.Parse(strings.NewReader(body))
 }
