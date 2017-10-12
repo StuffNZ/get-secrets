@@ -35,7 +35,7 @@ func (s *Details) envToMap(env []string) map[string]string {
 	newEnv := make(map[string]string)
 
 	for _, envLine := range env {
-		kv := strings.Split(envLine, "=")
+		kv := strings.SplitN(envLine, "=", 2)
 		newEnv[kv[0]] = kv[1]
 	}
 
