@@ -144,6 +144,10 @@ vendor: glide.lock | $(BASE) $(GLIDE) ; $(info $(M) retrieving dependencies...)
 	$Q cd $(BASE) && $(GLIDE) --quiet install
 	@ln -sf . vendor/src
 	@touch $@
+vendor-update: glide.lock | $(BASE) $(GLIDE) ; $(info $(M) retrieving dependencies...)
+	$Q cd $(BASE) && $(GLIDE) update
+	@ln -sf . vendor/src
+	@touch $@
 
 # Misc
 
