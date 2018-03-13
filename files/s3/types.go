@@ -2,10 +2,8 @@ package s3
 
 import (
 	"bitbucket.org/mexisme/get-secrets/config"
+	configAws "bitbucket.org/mexisme/get-secrets/config/aws"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
-	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	log "github.com/sirupsen/logrus"
 )
@@ -13,12 +11,6 @@ import (
 func init() {
 	config.AddConfigItems([]string{"s3.dotenv_path"})
 }
-
-// AwsRegion is the default AWS Region
-const AwsRegion = "ap-southeast-2"
-
-// AwsConfig is the default AWS Config
-var AwsConfig = &aws.Config{Region: aws.String(AwsRegion)}
 
 // bucketPrefix is the required interface for "Source" attr
 type bucketPrefix interface {
@@ -31,16 +23,22 @@ type bucketPrefix interface {
 // Details for getting Secret files
 type Details struct {
 	source    bucketPrefix
-	awsConfig *aws.Config
+	awsConfig *configAws.Details
 	s3Session *s3.S3
-	//session *session.Session
 }
 
 // New object
 func New() *Details {
-	return &Details{
-		awsConfig: AwsConfig,
-	}
+	return (&Details{}).WithAwsConfig(configAws.New())
+}
+
+// WithAwsConfig creates new struct with `source` updated
+func (s *Details) WithAwsConfig(awsConfig *configAws.Details) *Details {
+	clone := *s // This does a shallow clone
+
+	clone.awsConfig = awsConfig
+
+	return &clone
 }
 
 // WithSource creates new struct with `source` updated
@@ -74,14 +72,7 @@ func (s *Details) S3() *s3.S3 {
 }
 
 func (s *Details) newS3Session() (*s3.S3, error) {
-	// TODO: Enable AWS_SDK_LOAD_CONFIG env-var, somehow!
-	session := session.Must(session.NewSessionWithOptions(session.Options{
-		AssumeRoleTokenProvider: stscreds.StdinTokenProvider,
-		SharedConfigState:       session.SharedConfigEnable,
-	}))
-
-	// TODO: `Region` should be in a config file (or ~/.aws/config) or in the s3/url package?
-	s3Session := s3.New(session, s.awsConfig)
+	s3Session := s3.New(s.awsConfig.Session(), s.awsConfig.Config())
 	log.WithFields(log.Fields{"s3Session": s3Session}).Debug("Created new S3 Session")
 
 	return s3Session, nil
