@@ -80,6 +80,10 @@ type RDSAPI interface {
 	AuthorizeDBSecurityGroupIngressWithContext(aws.Context, *rds.AuthorizeDBSecurityGroupIngressInput, ...request.Option) (*rds.AuthorizeDBSecurityGroupIngressOutput, error)
 	AuthorizeDBSecurityGroupIngressRequest(*rds.AuthorizeDBSecurityGroupIngressInput) (*request.Request, *rds.AuthorizeDBSecurityGroupIngressOutput)
 
+	BacktrackDBCluster(*rds.BacktrackDBClusterInput) (*rds.BacktrackDBClusterOutput, error)
+	BacktrackDBClusterWithContext(aws.Context, *rds.BacktrackDBClusterInput, ...request.Option) (*rds.BacktrackDBClusterOutput, error)
+	BacktrackDBClusterRequest(*rds.BacktrackDBClusterInput) (*request.Request, *rds.BacktrackDBClusterOutput)
+
 	CopyDBClusterParameterGroup(*rds.CopyDBClusterParameterGroupInput) (*rds.CopyDBClusterParameterGroupOutput, error)
 	CopyDBClusterParameterGroupWithContext(aws.Context, *rds.CopyDBClusterParameterGroupInput, ...request.Option) (*rds.CopyDBClusterParameterGroupOutput, error)
 	CopyDBClusterParameterGroupRequest(*rds.CopyDBClusterParameterGroupInput) (*request.Request, *rds.CopyDBClusterParameterGroupOutput)
@@ -191,6 +195,10 @@ type RDSAPI interface {
 	DescribeCertificates(*rds.DescribeCertificatesInput) (*rds.DescribeCertificatesOutput, error)
 	DescribeCertificatesWithContext(aws.Context, *rds.DescribeCertificatesInput, ...request.Option) (*rds.DescribeCertificatesOutput, error)
 	DescribeCertificatesRequest(*rds.DescribeCertificatesInput) (*request.Request, *rds.DescribeCertificatesOutput)
+
+	DescribeDBClusterBacktracks(*rds.DescribeDBClusterBacktracksInput) (*rds.DescribeDBClusterBacktracksOutput, error)
+	DescribeDBClusterBacktracksWithContext(aws.Context, *rds.DescribeDBClusterBacktracksInput, ...request.Option) (*rds.DescribeDBClusterBacktracksOutput, error)
+	DescribeDBClusterBacktracksRequest(*rds.DescribeDBClusterBacktracksInput) (*request.Request, *rds.DescribeDBClusterBacktracksOutput)
 
 	DescribeDBClusterParameterGroups(*rds.DescribeDBClusterParameterGroupsInput) (*rds.DescribeDBClusterParameterGroupsOutput, error)
 	DescribeDBClusterParameterGroupsWithContext(aws.Context, *rds.DescribeDBClusterParameterGroupsInput, ...request.Option) (*rds.DescribeDBClusterParameterGroupsOutput, error)
@@ -454,6 +462,10 @@ type RDSAPI interface {
 	RestoreDBInstanceFromDBSnapshot(*rds.RestoreDBInstanceFromDBSnapshotInput) (*rds.RestoreDBInstanceFromDBSnapshotOutput, error)
 	RestoreDBInstanceFromDBSnapshotWithContext(aws.Context, *rds.RestoreDBInstanceFromDBSnapshotInput, ...request.Option) (*rds.RestoreDBInstanceFromDBSnapshotOutput, error)
 	RestoreDBInstanceFromDBSnapshotRequest(*rds.RestoreDBInstanceFromDBSnapshotInput) (*request.Request, *rds.RestoreDBInstanceFromDBSnapshotOutput)
+
+	RestoreDBInstanceFromS3(*rds.RestoreDBInstanceFromS3Input) (*rds.RestoreDBInstanceFromS3Output, error)
+	RestoreDBInstanceFromS3WithContext(aws.Context, *rds.RestoreDBInstanceFromS3Input, ...request.Option) (*rds.RestoreDBInstanceFromS3Output, error)
+	RestoreDBInstanceFromS3Request(*rds.RestoreDBInstanceFromS3Input) (*request.Request, *rds.RestoreDBInstanceFromS3Output)
 
 	RestoreDBInstanceToPointInTime(*rds.RestoreDBInstanceToPointInTimeInput) (*rds.RestoreDBInstanceToPointInTimeOutput, error)
 	RestoreDBInstanceToPointInTimeWithContext(aws.Context, *rds.RestoreDBInstanceToPointInTimeInput, ...request.Option) (*rds.RestoreDBInstanceToPointInTimeOutput, error)
