@@ -13,6 +13,7 @@ import (
 
 	"bitbucket.org/mexisme/get-secrets/config"
 	"bitbucket.org/mexisme/get-secrets/dotenv"
+	"bitbucket.org/mexisme/get-secrets/env"
 	execish "bitbucket.org/mexisme/get-secrets/exec"
 	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
 	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
@@ -66,14 +67,16 @@ func main() {
 		}
 	}
 
-	runner := execish.New().WithEnviron(os.Environ()).WithDotEnvs(dotenvs)
+	envs := env.New().WithOsEnviron(os.Environ()).WithDotEnvs(dotenvs)
+
 	if len(os.Args) > 1 {
+		runner := execish.New().WithEnvs(envs)
 		panicErrs(runner.WithCommand(os.Args[1:]).Exec())
 	}
 
 	fmt.Println("")
 	fmt.Println("# No command provided to execute")
-	for _, envLine := range runner.CombineEnvs() {
+	for _, envLine := range envs.Combine() {
 		fmt.Printf("export %s\n", envLine)
 	}
 }

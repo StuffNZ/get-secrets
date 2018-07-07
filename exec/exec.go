@@ -20,7 +20,7 @@ func (s *Details) Exec() error {
 	}
 
 	log.Infof("Running command %v (%v)...", s.command, binPath)
-	return syscall.Exec(binPath, s.command, s.CombineEnvs())
+	return syscall.Exec(binPath, s.command, s.envs.ToOsEnviron())
 }
 
 func (s *Details) bin() (string, error) {
