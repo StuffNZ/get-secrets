@@ -28,6 +28,15 @@ func init() {
 }
 
 func main() {
+	// When any other part of the app panics, we'd prefer to give them a "friendlier" face
+	defer func() {
+		if recoveryErr := recover(); recoveryErr != nil {
+			// TODO: Re-deliver the stack-trace when debugging
+			log.WithFields(log.Fields{"Err": recoveryErr}).Debug("Panic captured")
+			os.Exit(1)
+		}
+	}()
+
 	appName, appEnv := viper.GetString("application.name"), viper.GetString("application.environment")
 	log.Infof("Preparing to run app %#v in env %#v", appName, appEnv)
 
@@ -42,13 +51,19 @@ func main() {
 		log.Infof("S3 .env Base path = %#v (%#v)", s3Path, s3url)
 
 		s3 := s3ish.New().WithSource(s3url)
-		s3lists, err := s3.List()
-		if err != nil {
-			panicErrs(err)
-		}
 
-		if err := s3.ReadListToCallback(s3lists, dotenvs.AddFromString); err != nil {
-			panicErrs(err)
+		{
+			//
+			defer log.Warn("NB: Did you perhaps intend to enable 'dotenv.skip' ($SKIP_SECRETS)?")
+
+			s3lists, err := s3.List()
+			if err != nil {
+				panicErrs(err)
+			}
+
+			if err := s3.ReadListToCallback(s3lists, dotenvs.AddFromString); err != nil {
+				panicErrs(err)
+			}
 		}
 	}
 
@@ -59,6 +74,7 @@ func main() {
 		panicErrs(runner.WithCommand(os.Args[1:]).Exec())
 	}
 
+	fmt.Println("")
 	fmt.Println("# No command provided to execute")
 	for _, envLine := range envs.Combine() {
 		fmt.Printf("export %s\n", envLine)
@@ -68,11 +84,11 @@ func main() {
 func panicErrs(err error) {
 	if merr, ok := err.(*multierror.Error); ok {
 		for _, anErr := range merr.Errors {
-			log.Error(anErr)
+			log.Panic(anErr)
 		}
-		// TODO: Not sure I want to Panic on this...
-		log.Panic("Multiple errors from s3.ReadListToCallback()")
-	}
+		// log.Error("Multiple errors from s3.ReadListToCallback()")
 
-	log.Panic(err)
+	} else {
+		log.Panic(err)
+	}
 }

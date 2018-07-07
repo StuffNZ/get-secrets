@@ -8,11 +8,11 @@
 #      A Golang binary built with Debian won't usually work on Alpine out-of-the-box, for example
 
 # Debian-based builder:
-#ARG PARENT_BUILD=golang:1.9
+#ARG PARENT_BUILD=golang:1.10
 #ARG PARENT=debian
 
 # Alpine-based builder:
-ARG PARENT_BUILD=golang:1.9-alpine
+ARG PARENT_BUILD=golang:1.10-alpine
 ARG PARENT=alpine
 
 ##########
