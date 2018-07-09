@@ -32,6 +32,7 @@ func main() {
 	defer func() {
 		if recoveryErr := recover(); recoveryErr != nil {
 			// TODO: Re-deliver the stack-trace when debugging
+			// TODO: Change to using github.com/go-errors/errors to capture stack-traces (instead of panic()!)
 			log.WithFields(log.Fields{"Err": recoveryErr}).Debug("Panic captured")
 			os.Exit(1)
 		}
