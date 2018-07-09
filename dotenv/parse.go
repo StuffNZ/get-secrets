@@ -1,7 +1,7 @@
 package dotenv
 
 import (
-	"bitbucket.org/mexisme/get-secrets/dotenv/env"
+	"bitbucket.org/mexisme/get-secrets/dotenv/marshal"
 
 	"fmt"
 	"sort"
@@ -28,7 +28,7 @@ func (s *DotEnvs) AddFromString(path string, body string) error {
 	}
 
 	log.WithFields(log.Fields{"path": path, "body": body}).Debug("Parsing dotenv file...")
-	s.env[path] = env.New().WithPathBody(path, body)
+	s.env[path] = marshal.New().WithPathBody(path, body)
 
 	return nil
 }

@@ -1,11 +1,11 @@
 package dotenv
 
 import (
-	"bitbucket.org/mexisme/get-secrets/dotenv/env"
+	"bitbucket.org/mexisme/get-secrets/dotenv/marshal"
 )
 
 // BodyEnvMap contains map of "path" --> BodyEnv structs
-type BodyEnvMap map[string]*env.BodyEnv
+type BodyEnvMap map[string]*marshal.BodyEnv
 
 // DotEnvs is simply the struct method-wrapper for the "dotenv" package
 type DotEnvs struct {

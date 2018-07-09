@@ -1,4 +1,4 @@
-package env_test
+package marshal_test
 
 import (
 	. "github.com/onsi/ginkgo"
@@ -9,5 +9,5 @@ import (
 
 func TestEnv(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Env Suite")
+	RunSpecs(t, "Marshal Suite")
 }
