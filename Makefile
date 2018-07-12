@@ -120,12 +120,10 @@ Gopkg.lock: Gopkg.toml | $(BASE) $(GODEP) ; $(info $(M) updating dependencies...
 	@touch $@
 vendor: Gopkg.lock | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
 	$Q cd $(BASE) && $(GODEP) ensure
-	@ln -sf . vendor/src
 	@touch $@
 .PHONY: go-dep-init
-go-dep-init: Gopkg.lock | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
+go-dep-init: | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
 	$Q cd $(BASE) && $(GODEP) init
-	@touch $@
 
 # Misc
 

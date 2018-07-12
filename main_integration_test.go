@@ -7,12 +7,13 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"bitbucket.org/mexisme/get-secrets/dotenv"
-	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
-	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
 	"fmt"
 	"strings"
 
+	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
+	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
+
+	"github.com/mexisme/multiconfig"
 	"github.com/spf13/viper"
 	"github.com/subosito/gotenv"
 )
@@ -87,10 +88,10 @@ var _ = Describe("The main Integration Tests", func() {
 		})
 
 		Describe("(including parsing the object contents)", func() {
-			var envs *dotenv.DotEnvs
+			var envs *multiconfig.MultiConfig
 
 			BeforeEach(func() {
-				envs = dotenv.New()
+				envs = multiconfig.New()
 			})
 
 			It("reads the env files from S3", func() {
