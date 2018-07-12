@@ -12,13 +12,13 @@ import (
 	"os"
 
 	"bitbucket.org/mexisme/get-secrets/config"
-	"bitbucket.org/mexisme/get-secrets/dotenv"
-	"bitbucket.org/mexisme/get-secrets/env"
 	execish "bitbucket.org/mexisme/get-secrets/exec"
 	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
 	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
 
 	"github.com/hashicorp/go-multierror"
+	"github.com/mexisme/multiconfig"
+	"github.com/mexisme/multiconfig/env"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -32,6 +32,7 @@ func main() {
 	defer func() {
 		if recoveryErr := recover(); recoveryErr != nil {
 			// TODO: Re-deliver the stack-trace when debugging
+			// TODO: Change to using github.com/go-errors/errors to capture stack-traces (instead of panic()!)
 			log.WithFields(log.Fields{"Err": recoveryErr}).Debug("Panic captured")
 			os.Exit(1)
 		}
@@ -40,7 +41,7 @@ func main() {
 	appName, appEnv := viper.GetString("application.name"), viper.GetString("application.environment")
 	log.Infof("Preparing to run app %#v in env %#v", appName, appEnv)
 
-	dotenvs := dotenv.New()
+	dotenvs := multiconfig.New()
 
 	if viper.GetBool("dotenv.skip") {
 		log.Info("Not getting .env secrets due to configuration")
@@ -67,7 +68,7 @@ func main() {
 		}
 	}
 
-	envs := env.New().WithOsEnviron(os.Environ()).WithDotEnvs(dotenvs)
+	envs := env.New().AddOsEnviron(os.Environ()).AddMultiConfig(dotenvs)
 
 	if len(os.Args) > 1 {
 		runner := execish.New().WithEnvs(envs)
