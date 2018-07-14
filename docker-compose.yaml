@@ -1,0 +1,26 @@
+version: '3'
+services:
+    alpine:
+        image: get-secrets:alpine
+        build:
+            context: .
+            args:
+                SECRETS_CONFIG_FILE: ./get-secrets.toml
+                PARENT_BUILD: golang:1.10-alpine
+                PARENT: alpine
+    debian:
+        image: get-secrets:debian
+        build:
+            context: .
+            args:
+                SECRETS_CONFIG_FILE: ./get-secrets.toml
+                PARENT_BUILD: golang:1.10
+                PARENT: debian
+    centos:
+        image: get-secrets:centos
+        build:
+            context: .
+            args:
+                SECRETS_CONFIG_FILE: ./get-secrets.toml
+                PARENT_BUILD: golang:1.10
+                PARENT: centos
