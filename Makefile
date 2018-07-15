@@ -1,12 +1,20 @@
 PACKAGE  = bitbucket.org/mexisme/get-secrets
 DATE    ?= $(shell date +%FT%T%z)
-VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null || \
-			cat $(CURDIR)/.version 2> /dev/null || echo v0)
+VERSION ?= $(shell \
+            git describe --tags --always --dirty 2>/dev/null || \
+			cat $(CURDIR)/.version 2>/dev/null)
 GOPATH   = $(CURDIR)/.gopath~
 BIN      = $(GOPATH)/bin
 BASE     = $(GOPATH)/src/$(PACKAGE)
 PKGS     = $(or $(PKG),$(shell cd $(BASE) && env GOPATH=$(GOPATH) $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
 TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if .TestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
+
+ifneq ($(DATE),)
+LDFLAGS_DATE = -X $(PACKAGE)/version.buildDate=$(DATE)
+endif
+ifneq ($(VERSION),)
+LDFLAGS_VERSION = -X $(PACKAGE)/version.release=$(VERSION)
+endif
 
 GO      = go
 # GO_TEST = go test
@@ -22,7 +30,7 @@ M = $(shell printf "\033[34;1m>>\033[0m")
 all: fmt lint vendor | $(BASE) ; $(info $(M) building executable...) @ ## Build program binary
 	$Q cd $(BASE) && $(GO) build \
 		-tags release \
-		-ldflags '-X $(PACKAGE)/cmd.Version=$(VERSION) -X $(PACKAGE)/cmd.BuildDate=$(DATE)' \
+		-ldflags '$(LDFLAGS_VERSION) $(LDFLAGS_DATE)' \
 		-o bin/$(PACKAGE) main.go
 
 $(BASE): ; $(info $(M) setting GOPATH...)
