@@ -1,8 +1,10 @@
 package exec
 
+import "github.com/mexisme/multiconfig/env"
+
 // Envs interfaces to a type supporting the Combins() method
 type Envs interface {
-	ToOsEnviron() []string
+	ToOsEnviron() (env.Envs, error)
 }
 
 // Details is simply the struct method-wrapper for the "exec" package

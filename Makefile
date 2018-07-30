@@ -9,6 +9,10 @@ BASE     = $(GOPATH)/src/$(PACKAGE)
 PKGS     = $(or $(PKG),$(shell cd $(BASE) && env GOPATH=$(GOPATH) $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
 TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if .TestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
 
+COVERAGE_PROFILE = all.coverprofile
+# COVERAGE_XML = coverage.xml
+COVERAGE_HTML = coverage.index.html
+
 ifneq ($(DATE),)
 LDFLAGS_DATE = -X $(PACKAGE)/version.buildDate=$(DATE)
 endif
@@ -18,7 +22,7 @@ endif
 
 GO      = go
 # GO_TEST = go test
-GO_TEST = $(GINKGO) -r -p -v
+GO_TEST = $(GINKGO) -r -p
 GODOC   = godoc
 GOFMT   = gofmt
 TIMEOUT = 15
@@ -39,27 +43,11 @@ $(BASE): ; $(info $(M) setting GOPATH...)
 
 # Tools
 
-GOLINT = $(BIN)/golint
-$(BIN)/golint: | $(BASE) ; $(info $(M) building golint...)
-	$Q go get github.com/golang/lint/golint
+GOLINT = $(BIN)/gometalinter
+$(GOLINT): | $(BASE) ; $(info $(M) building gometalinter...)
+	$Q go get github.com/alecthomas/gometalinter
+	$Q $@ --install
 
-# GOCOVMERGE = $(BIN)/gocovmerge
-# $(BIN)/gocovmerge: | $(BASE) ; $(info $(M) building gocovmerge...)
-# 	$Q go get github.com/wadey/gocovmerge
-
-# GOCOV = $(BIN)/gocov
-# $(BIN)/gocov: | $(BASE) ; $(info $(M) building gocov...)
-# 	$Q go get github.com/axw/gocov/...
-
-# GOCOVXML = $(BIN)/gocov-xml
-# $(BIN)/gocov-xml: | $(BASE) ; $(info $(M) building gocov-xml...)
-# 	$Q go get github.com/AlekSi/gocov-xml
-
-# GO2XUNIT = $(BIN)/go2xunit
-# $(BIN)/go2xunit: | $(BASE) ; $(info $(M) building go2xunit...)
-# 	$Q go get github.com/tebeka/go2xunit
-
-.PHONY: go-dep
 GODEP = $(BIN)/dep
 go-dep: $(GODEP)
 $(GODEP): | $(BASE) ; $(info $(M) building go-dep...)
@@ -69,43 +57,44 @@ GINKGO = $(BIN)/ginkgo
 $(GINKGO): | $(BASE) ; $(info $(M) building ginkgo...)
 	$Q go get -u github.com/onsi/ginkgo/ginkgo
 
+GOCOVMERGE = $(BIN)/gocovmerge
+$(GOCOVMERGE): | $(BASE) ; $(info $(M) building gocovmerge...)
+	$Q go get github.com/wadey/gocovmerge
+
+GOCOV = $(BIN)/gocov
+$(GOCOV): | $(BASE) ; $(info $(M) building gocov...)
+	$Q go get github.com/axw/gocov/...
+
 # Tests
 
 TEST_TARGETS := test-default test-bench test-short test-verbose test-race
-INTEGRATION_TEST_TARGETS := test-integration
+INTEGRATION_TEST_TARGETS := test-integration test-integration-verbose
 
 .PHONY: $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS) \
-	test-xml check test tests
-test-bench:   ARGS=-run=__absolutelynothing__ -bench=. ## Run benchmarks
-test-short:   ARGS=-short        ## Run only short tests
-test-verbose: ARGS=-v            ## Run tests in verbose mode with coverage reporting
-test-race:    ARGS=-race         ## Run tests with race detector
+	check test tests run-test
+## Run benchmarks
+test-bench: ARGS=-run=__absolutelynothing__ -bench=.
+## Run only short tests
+test-short: ARGS=-short
+## Run tests in verbose mode with coverage reporting
+test-verbose test-integration-verbose: ARGS=-v -trace -cover
+## Run tests with race detector
+test-race: ARGS=-race
 $(TEST_TARGETS): SKIP_ARGS=-skip=Integration
 $(INTEGRATION_TEST_TARGETS): SKIP_ARGS=-focus=Integration
 $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
 $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): test
-check test tests: fmt lint quick-test
-quick-check quick-test: vendor | $(BASE) $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
+check test tests: fmt lint run-test
+run-test: vendor | $(BASE) $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
 	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
 
-# COVERAGE_MODE = atomic
-# COVERAGE_PROFILE = $(COVERAGE_DIR)/profile.out
-# COVERAGE_XML = $(COVERAGE_DIR)/coverage.xml
-# COVERAGE_HTML = $(COVERAGE_DIR)/index.html
-# .PHONY: test-coverage test-coverage-tools
-# test-coverage-tools: | $(GOCOVMERGE) $(GOCOV) $(GOCOVXML)
-# test-coverage: fmt lint quick-test-coverage
-# quick-test-coverage: COVERAGE_DIR := $(CURDIR)/test/coverage.$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
-# quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running coverage tests...) @ ## Run coverage tests
-# 	$Q mkdir -p $(COVERAGE_DIR)/coverage
-# 	$Q cd $(BASE) && for pkg in $(TESTPKGS); do \
-# 		$(GO_TEST) \
-# 			-covermode=$(COVERAGE_MODE) \
-# 			-coverprofile="$(COVERAGE_DIR)/coverage/`echo $$pkg | tr "/" "-"`.cover" $$pkg ;\
-# 	 done
-# 	$Q $(GOCOVMERGE) $(COVERAGE_DIR)/coverage/*.cover > $(COVERAGE_PROFILE)
-# 	$Q $(GO) tool cover -html=$(COVERAGE_PROFILE) -o $(COVERAGE_HTML)
-# 	$Q $(GOCOV) convert $(COVERAGE_PROFILE) | $(GOCOVXML) > $(COVERAGE_XML)
+.PHONY: cover coverage
+cover coverage clean: COVERAGE_DIR:=$(BASE)
+cover coverage clean: COVERAGE_FILES=$(shell find . -name '*.coverprofile')
+cover coverage: vendor | $(BASE) $(GOCOVMERGE) $(GOCOV)
+	$Q $(GOCOVMERGE) $(COVERAGE_FILES) > $(COVERAGE_DIR)/$(COVERAGE_PROFILE)
+	$Q $(GO) tool cover -func=$(COVERAGE_DIR)/$(COVERAGE_PROFILE)
+	$Q $(GO) tool cover -html=$(COVERAGE_DIR)/$(COVERAGE_PROFILE) -o $(COVERAGE_DIR)/$(COVERAGE_HTML)
 
 # Code format
 
@@ -139,7 +128,7 @@ go-dep-init: | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
 clean: ; $(info $(M) cleaning...)	@ ## Cleanup everything
 	@rm -rf $(GOPATH)
 	@rm -rf bin
-	@rm -rf test/tests.* test/coverage.*
+	@rm -rf $(COVERAGE_FILES) $(COVERAGE_DIR)/$(COVERAGE_PROFILE) $(COVERAGE_DIR)/$(COVERAGE_HTML)
 
 .PHONY: help
 help:

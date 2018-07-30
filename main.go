@@ -12,11 +12,10 @@ import (
 	"os"
 
 	"bitbucket.org/mexisme/get-secrets/config"
+	"bitbucket.org/mexisme/get-secrets/dotenv"
+	"bitbucket.org/mexisme/get-secrets/errors"
 	execish "bitbucket.org/mexisme/get-secrets/exec"
-	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
-	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
 
-	"github.com/hashicorp/go-multierror"
 	"github.com/mexisme/multiconfig"
 	"github.com/mexisme/multiconfig/env"
 	log "github.com/sirupsen/logrus"
@@ -29,67 +28,35 @@ func init() {
 
 func main() {
 	// When any other part of the app panics, we'd prefer to give them a "friendlier" face
-	defer func() {
-		if recoveryErr := recover(); recoveryErr != nil {
-			// TODO: Re-deliver the stack-trace when debugging
-			// TODO: Change to using github.com/go-errors/errors to capture stack-traces (instead of panic()!)
-			log.WithFields(log.Fields{"Err": recoveryErr}).Debug("Panic captured")
-			os.Exit(1)
-		}
-	}()
+	defer errors.Recovery()
 
 	appName, appEnv := viper.GetString("application.name"), viper.GetString("application.environment")
 	log.Infof("Preparing to run app %#v in env %#v", appName, appEnv)
 
-	dotenvs := multiconfig.New()
+	secrets := multiconfig.New()
 
 	if viper.GetBool("dotenv.skip") {
 		log.Info("Not getting .env secrets due to configuration")
 
 	} else {
-		s3Path := viper.GetString("s3.dotenv_path")
-		s3url := urlish.New().WithURL(s3Path)
-		log.Infof("S3 .env Base path = %#v (%#v)", s3Path, s3url)
-
-		s3 := s3ish.New().WithSource(s3url)
-
-		{
-			//
-			defer log.Warn("NB: Did you perhaps intend to enable 'dotenv.skip' ($SKIP_SECRETS)?")
-
-			s3lists, err := s3.List()
-			if err != nil {
-				panicErrs(err)
-			}
-
-			if err := s3.ReadListToCallback(s3lists, dotenvs.AddFromString); err != nil {
-				panicErrs(err)
-			}
-		}
+		dotenv.ReadFromS3(secrets)
 	}
 
-	envs := env.New().AddOsEnviron(os.Environ()).AddMultiConfig(dotenvs)
+	secrets.AddItem(env.New().FromOsEnviron())
+	envs := dotenv.EnvMerge(secrets)
 
 	if len(os.Args) > 1 {
 		runner := execish.New().WithEnvs(envs)
-		panicErrs(runner.WithCommand(os.Args[1:]).Exec())
+		errors.PanicOnErrors(runner.WithCommand(os.Args[1:]).Exec())
 	}
 
 	fmt.Println("")
 	fmt.Println("# No command provided to execute")
-	for _, envLine := range envs.ToOsEnviron() {
-		fmt.Printf("export %s\n", envLine)
+	osEnviron, err := envs.ToOsEnviron()
+	if err != nil {
+		errors.PanicOnErrors(err)
 	}
-}
-
-func panicErrs(err error) {
-	if merr, ok := err.(*multierror.Error); ok {
-		for _, anErr := range merr.Errors {
-			log.Panic(anErr)
-		}
-		// log.Error("Multiple errors from s3.ReadListToCallback()")
-
-	} else {
-		log.Panic(err)
+	for _, envLine := range osEnviron {
+		fmt.Printf("export %s\n", envLine)
 	}
 }

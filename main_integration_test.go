@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"strings"
 
+	"bitbucket.org/mexisme/get-secrets/dotenv"
 	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
 	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
 
@@ -88,14 +89,14 @@ var _ = Describe("The main Integration Tests", func() {
 		})
 
 		Describe("(including parsing the object contents)", func() {
-			var envs *multiconfig.MultiConfig
+			var envs *multiconfig.Map
 
 			BeforeEach(func() {
 				envs = multiconfig.New()
 			})
 
 			It("reads the env files from S3", func() {
-				errs := s3.ReadListToCallback(s3lists, envs.AddFromString)
+				errs := s3.ReadListToCallback(s3lists, dotenv.EnvAddConfig(envs))
 
 				Expect(errs).To(BeNil())
 			})
