@@ -89,8 +89,8 @@ run-test: vendor | $(BASE) $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...)
 	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
 
 .PHONY: cover coverage
-cover coverage: COVERAGE_DIR:=$(BASE)
-cover coverage: COVERAGE_FILES=$(shell find . -name '*.coverprofile')
+cover coverage clean: COVERAGE_DIR:=$(BASE)
+cover coverage clean: COVERAGE_FILES=$(shell find . -name '*.coverprofile')
 cover coverage: vendor | $(BASE) $(GOCOVMERGE) $(GOCOV)
 	$Q $(GOCOVMERGE) $(COVERAGE_FILES) > $(COVERAGE_DIR)/$(COVERAGE_PROFILE)
 	$Q $(GO) tool cover -func=$(COVERAGE_DIR)/$(COVERAGE_PROFILE)
@@ -128,7 +128,7 @@ go-dep-init: | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
 clean: ; $(info $(M) cleaning...)	@ ## Cleanup everything
 	@rm -rf $(GOPATH)
 	@rm -rf bin
-	@rm -rf test/tests.* test/coverage.*
+	@rm -rf $(COVERAGE_FILES) $(COVERAGE_DIR)/$(COVERAGE_PROFILE) $(COVERAGE_DIR)/$(COVERAGE_HTML)
 
 .PHONY: help
 help:
