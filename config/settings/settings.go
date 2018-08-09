@@ -31,13 +31,18 @@ var initConfigDone = false
 // TODO:  list config items
 func ReadConfig() {
 	viper.SetEnvPrefix("secrets")
-	viper.BindEnv("debug")
-	viper.BindEnv("base")
+	// nolint: gosec
+	{
+		// NOTE: We wrap these statements into a block to support the 'nolint' above
+		//       This is because BindEnv() can return an error if no args are provided:
+		viper.BindEnv("debug")
+		viper.BindEnv("base")
 
-	viper.BindEnv("dotenv.skip", "SKIP_SECRETS")
+		viper.BindEnv("dotenv.skip", "SKIP_SECRETS")
 
-	viper.BindEnv("application.name", "APPLICATION_NAME")
-	viper.BindEnv("application.environment", "ENVIRONMENT")
+		viper.BindEnv("application.name", "APPLICATION_NAME")
+		viper.BindEnv("application.environment", "ENVIRONMENT")
+	}
 
 	// This means any "." chars in a FQ config name will be replaced with "_"
 	// e.g. "sentry.dsn" --> "$SECRETS_SENTRY_DSN" instead of "$SECRETS_SENTRY.DSN"
@@ -61,6 +66,6 @@ func ReadConfig() {
 // AddConfigItems adds a new configuration item, and makes it overridable by env vars
 func AddConfigItems(configItems []string) {
 	for _, item := range configItems {
-		viper.BindEnv(item)
+		viper.BindEnv(item) // nolint: gosec
 	}
 }
