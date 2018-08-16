@@ -30,9 +30,9 @@ V = 0
 Q = $(if $(filter 1,$V),,@)
 M = $(shell printf "\033[34;1m>>\033[0m")
 
-.PHONY: all all-debug
-all: LDFLAGS_STRIP = -s -w
-all all-debug: fmt lint vendor | $(BASE) ; $(info $(M) building executable...) @ ## Build program binary
+.PHONY: all all-debug strip
+strip: LDFLAGS_STRIP = -s -w
+all all-debug strip: fmt lint vendor | $(BASE) ; $(info $(M) building executable...) @ ## Build program binary
 	$Q cd $(BASE) && $(GO) build \
 		-tags release \
 		-ldflags '$(LDFLAGS_STRIP) $(LDFLAGS_VERSION) $(LDFLAGS_DATE)' \
