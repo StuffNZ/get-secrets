@@ -2,7 +2,7 @@
 
 
 [[projects]]
-  digest = "1:40252ff45eb1dfb5c243efdcbdf1982d26bbfe24ee82e185818382793f358c63"
+  digest = "1:1064d7c792b8e6461fb5ed4d06c8a3197b484a5f8e2bf03713eddd853259b243"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -29,6 +29,8 @@
     "private/protocol",
     "private/protocol/eventstream",
     "private/protocol/eventstream/eventstreamapi",
+    "private/protocol/json/jsonutil",
+    "private/protocol/jsonrpc",
     "private/protocol/query",
     "private/protocol/query/queryutil",
     "private/protocol/rest",
@@ -37,6 +39,7 @@
     "service/s3",
     "service/s3/s3iface",
     "service/s3/s3manager",
+    "service/ssm",
     "service/sts",
   ]
   pruneopts = "UT"
@@ -157,7 +160,7 @@
   ]
   pruneopts = "UT"
   revision = "f1b8a46c4c1880a936b535ce58dd707c9c1cba2d"
-  version = "0.2.1"
+  version = "v0.2.1"
 
 [[projects]]
   branch = "master"
@@ -382,6 +385,7 @@
     "github.com/aws/aws-sdk-go/aws/session",
     "github.com/aws/aws-sdk-go/service/s3",
     "github.com/aws/aws-sdk-go/service/s3/s3manager",
+    "github.com/aws/aws-sdk-go/service/ssm",
     "github.com/evalphobia/logrus_sentry",
     "github.com/hashicorp/go-multierror",
     "github.com/mexisme/multiconfig",
