@@ -1,13 +1,15 @@
-PACKAGE  = bitbucket.org/mexisme/get-secrets
+#PACKAGE  = bitbucket.org/mexisme/get-secrets
+PACKAGE = $(shell test -f go.mod && head -1 go.mod |sed -e 's/^module *//')
 DATE    ?= $(shell date +%FT%T%z)
 VERSION ?= $(shell \
             git describe --tags --always --dirty 2>/dev/null || \
 			cat $(CURDIR)/.version 2>/dev/null)
-GOPATH   = $(CURDIR)/.gopath~
-BIN      = $(GOPATH)/bin
-BASE     = $(GOPATH)/src/$(PACKAGE)
-PKGS     = $(or $(PKG),$(shell cd $(BASE) && env GOPATH=$(GOPATH) $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
-TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if .TestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
+BINDIR   = $(PWD)/bin
+BIN      = $(BINDIR)/$(notdir $(PACKAGE))
+PKGS     = $(or $(PKG),$(shell $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
+TESTPKGS = $(shell $(GO) list -f '{{ if .TestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
+
+DOCKER_TAG = ...CHANGEME...
 
 COVERAGE_PROFILE = all.coverprofile
 # COVERAGE_XML = coverage.xml
@@ -21,7 +23,6 @@ LDFLAGS_VERSION = -X $(PACKAGE)/version.release=$(VERSION)
 endif
 
 GO      = go
-# GO_TEST = go test
 GO_TEST = $(GINKGO) -r -p
 GODOC   = godoc
 GOFMT   = gofmt
@@ -32,39 +33,41 @@ M = $(shell printf "\033[34;1m>>\033[0m")
 
 .PHONY: all all-debug strip
 strip: LDFLAGS_STRIP = -s -w
-all all-debug strip: fmt lint vendor | $(BASE) ; $(info $(M) building executable...) @ ## Build program binary
-	$Q cd $(BASE) && $(GO) build \
+all all-debug: dep-update fmt lint test-default build
+
+build strip: ; $(info $(M) building executable...) @ ## Build program binary
+	$Q env GOOS="$(GOOS)" GOARCH="$(GOARCH)" $(GO) build \
 		-tags release \
 		-ldflags '$(LDFLAGS_STRIP) $(LDFLAGS_VERSION) $(LDFLAGS_DATE)' \
-		-o bin/$(PACKAGE) main.go
+		-o $(BIN) .
 
-$(BASE): ; $(info $(M) setting GOPATH...)
-	@mkdir -p $(dir $@)
-	@ln -sf $(CURDIR) $@
+# Cross-compile for Linux:
+build-linux strip-linux: GOOS=linux
+build-linux strip-linux: GOARCH=amd64
+build-linux strip-linux: BIN:=$(BIN)-linux
+build-linux: build
+strip-linux: strip
 
 # Tools
 
-GOLINT = $(BIN)/gometalinter
-$(GOLINT): | $(BASE) ; $(info $(M) building gometalinter...)
-	$Q go get github.com/alecthomas/gometalinter
-	$Q $@ --install
+GOLINT = gometalinter
+$(GOLINT): ; $(info $(M) building gometalinter...)
+	$Q cd && go get -u github.com/alecthomas/gometalinter
+	$Q cd && $@ --install
 
-GODEP = $(BIN)/dep
-go-dep: $(GODEP)
-$(GODEP): | $(BASE) ; $(info $(M) building go-dep...)
-	$Q go get -u github.com/golang/dep/cmd/dep
+GINKGO = ginkgo
+$(GINKGO): ; $(info $(M) building ginkgo...)
+	$Q cd && go get -u github.com/onsi/ginkgo/ginkgo
 
-GINKGO = $(BIN)/ginkgo
-$(GINKGO): | $(BASE) ; $(info $(M) building ginkgo...)
-	$Q go get -u github.com/onsi/ginkgo/ginkgo
+GOCOVMERGE = gocovmerge
+$(GOCOVMERGE): ; $(info $(M) building gocovmerge...)
+	$Q cd && go get -u github.com/wadey/gocovmerge
 
-GOCOVMERGE = $(BIN)/gocovmerge
-$(GOCOVMERGE): | $(BASE) ; $(info $(M) building gocovmerge...)
-	$Q go get github.com/wadey/gocovmerge
+GOCOV = gocov
+$(GOCOV): ; $(info $(M) building gocov...)
+	$Q cd && go get -u github.com/axw/gocov/...
 
-GOCOV = $(BIN)/gocov
-$(GOCOV): | $(BASE) ; $(info $(M) building gocov...)
-	$Q go get github.com/axw/gocov/...
+.PHONY: $(GOLINT) $(GINKGO) $(GOCOVMERGE) $(GOCOV)
 
 # Tests
 
@@ -85,14 +88,17 @@ $(TEST_TARGETS): SKIP_ARGS=-skip=Integration
 $(INTEGRATION_TEST_TARGETS): SKIP_ARGS=-focus=Integration
 $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): NAME=$(MAKECMDGOALS:test-%=%)
 $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): test
-check test tests: fmt lint run-test
-run-test: vendor | $(BASE) $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
-	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
+check test tests: run-test
+run-test: | $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
+	$Q $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
+
+docker-build:
+	echo "docker build --tag $(DOCKER_TAG) ."
 
 .PHONY: cover coverage
-cover coverage clean: COVERAGE_DIR:=$(BASE)
+cover coverage clean: COVERAGE_DIR:=$(PWD)
 cover coverage clean: COVERAGE_FILES=$(shell find . -name '*.coverprofile')
-cover coverage: vendor | $(BASE) $(GOCOVMERGE) $(GOCOV)
+cover coverage: | $(GOCOVMERGE) $(GOCOV)
 	$Q $(GOCOVMERGE) $(COVERAGE_FILES) > $(COVERAGE_DIR)/$(COVERAGE_PROFILE)
 	$Q $(GO) tool cover -func=$(COVERAGE_DIR)/$(COVERAGE_PROFILE)
 	$Q $(GO) tool cover -html=$(COVERAGE_DIR)/$(COVERAGE_PROFILE) -o $(COVERAGE_DIR)/$(COVERAGE_HTML)
@@ -100,36 +106,29 @@ cover coverage: vendor | $(BASE) $(GOCOVMERGE) $(GOCOV)
 # Code format
 
 .PHONY: lint
-lint: vendor | $(BASE) $(GOLINT) ; $(info $(M) running golint...) @ ## Run golint
-	$Q cd $(BASE) && ret=0 && for pkg in $(PKGS); do \
-		test -z "$$($(GOLINT) $$pkg | tee /dev/stderr)" || ret=1 ; \
-	 done ; exit $$ret
+lint: $(GOLINT) ; $(info $(M) running $(GOLINT)...) @ ## Run golint
+	$Q $(GOLINT) run ./...
 
 .PHONY: fmt
 fmt: ; $(info $(M) running gofmt...) @ ## Run gofmt on all source files
-	@ret=0 && for d in $$($(GO) list -f '{{.Dir}}' ./... | grep -v /vendor/); do \
-		$(GOFMT) -l -w $$d/*.go || ret=$$? ; \
-	 done ; exit $$ret
+	$Q go fmt ./...
 
 # Dependency management
 
-Gopkg.lock: Gopkg.toml | $(BASE) $(GODEP) ; $(info $(M) updating dependencies...)
-	$Q cd $(BASE) && $(GODEP) ensure -update && $(GODEP) prune
+.PHONY: dep-update
+go.sum: go.mod
+vendor: go.sum ; $(info $(M) retrieving dependencies...)
+	$Q go mod vendor
 	@touch $@
-vendor: Gopkg.lock | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
-	$Q cd $(BASE) && $(GODEP) ensure
-	@touch $@
-.PHONY: go-dep-init
-go-dep-init: | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
-	$Q cd $(BASE) && $(GODEP) init
+dep-update: go.mod ; $(info $(M) updating dependencies...)
+	$Q go mod tidy
 
 # Misc
 
 .PHONY: clean
-clean: ; $(info $(M) cleaning...)	@ ## Cleanup everything
-	@rm -rf $(GOPATH)
-	@rm -rf bin
-	@rm -rf $(COVERAGE_FILES) $(COVERAGE_DIR)/$(COVERAGE_PROFILE) $(COVERAGE_DIR)/$(COVERAGE_HTML)
+clean: dep-update ; $(info $(M) cleaning...)	@ ## Cleanup everything
+	$Q go clean
+	@rm -rvf $(BINDIR) $(COVERAGE_FILES) $(COVERAGE_DIR)/$(COVERAGE_PROFILE) $(COVERAGE_DIR)/$(COVERAGE_HTML)
 
 .PHONY: help
 help:
