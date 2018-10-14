@@ -77,7 +77,7 @@ func main() {
 
 	fmt.Println("")
 	fmt.Println("# No command provided to execute")
-	for _, envLine := range envs.Combine() {
+	for _, envLine := range envs.ToOsEnviron() {
 		fmt.Printf("export %s\n", envLine)
 	}
 }
