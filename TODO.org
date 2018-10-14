@@ -1,0 +1,29 @@
+* Tasks [3/5]
+** DONE s3 library
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-06-23 Fri 22:05]
+   :END:
+** HOLD Intermediate library that reads a provided config file
+   - Needs to support Viper
+   - Can I write a plugin to support .env type of file
+     - Should I just use godotenv?
+** DONE .env writing library
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2017-06-23 Fri 22:05]
+   :END:
+   - Non-nested KV format
+   - Maybe support some other formats in future
+** NEXT Env Var managing library [1/4]
+   I need to
+   - [X]  be able to read-in properties from a given path (Viper, .env)
+   - [ ]  write-out in .env format
+   - [ ]  export to an Env-var structure from the above properties
+   - [ ]  merge the Env-var structure with the original env
+** TODO Exec other binary + args [0/4]
+   I need to:
+   - [ ] get a binary + args + env
+   - [ ] produce a .env, if required
+   - [ ] merge+export the env, if required
+   - [ ] run the binary
+* Notes:
+** Use `--` before the commands to run to stop the flags processor from processing anything more
