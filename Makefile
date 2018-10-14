@@ -5,7 +5,7 @@ VERSION ?= $(shell \
             git describe --tags --always --dirty 2>/dev/null || \
 			cat $(CURDIR)/.version 2>/dev/null)
 BINDIR   = $(PWD)/bin
-BIN      = $(BINDIR)/$(nodir $PACKAGE)
+BIN      = $(BINDIR)/$(notdir $(PACKAGE))
 PKGS     = $(or $(PKG),$(shell $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
 TESTPKGS = $(shell $(GO) list -f '{{ if .TestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
 
@@ -50,22 +50,21 @@ strip-linux: strip
 
 # Tools
 
-GOLINT = gometalinter
-$(GOLINT): ; $(info $(M) building gometalinter...)
-	$Q cd && go get -u github.com/alecthomas/gometalinter
-	$Q cd && $@ --install
+GOLINT = golangci-lint
+$(GOLINT): ; $(info $(M) building $(GOLINT)...)
+	$Q cd && GO111MODULE=off go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 
 GINKGO = ginkgo
-$(GINKGO): ; $(info $(M) building ginkgo...)
-	$Q cd && go get -u github.com/onsi/ginkgo/ginkgo
+$(GINKGO): ; $(info $(M) building $(GINKGO)...)
+	$Q cd && GO111MODULE=off go get -u github.com/onsi/ginkgo/ginkgo
 
 GOCOVMERGE = gocovmerge
-$(GOCOVMERGE): ; $(info $(M) building gocovmerge...)
-	$Q cd && go get -u github.com/wadey/gocovmerge
+$(GOCOVMERGE): ; $(info $(M) building $(GOCOVMERGE)...)
+	$Q cd && GO111MODULE=off go get -u github.com/wadey/gocovmerge
 
 GOCOV = gocov
-$(GOCOV): ; $(info $(M) building gocov...)
-	$Q cd && go get -u github.com/axw/gocov/...
+$(GOCOV): ; $(info $(M) building $(GOCOV)...)
+	$Q cd && GO111MODULE=off go get -u github.com/axw/gocov/...
 
 .PHONY: $(GOLINT) $(GINKGO) $(GOCOVMERGE) $(GOCOV)
 
@@ -106,11 +105,8 @@ cover coverage: | $(GOCOVMERGE) $(GOCOV)
 # Code format
 
 .PHONY: lint
-lint: $(GOLINT) ; $(info $(M) running golint...) @ ## Run golint
-	$Q $(GOLINT) --vendor --enable-gc --aggregate ./...
-	# $Q cd $(BASE) && ret=0 && for pkg in $(PKGS); do \
-	# 	test -z "$$($(GOLINT) $$pkg | tee /dev/stderr)" || ret=1 ; \
-	#  done ; exit $$ret
+lint: $(GOLINT) ; $(info $(M) running $(GOLINT)...) @ ## Run golint
+	$Q $(GOLINT) run ./...
 
 .PHONY: fmt
 fmt: ; $(info $(M) running gofmt...) @ ## Run gofmt on all source files

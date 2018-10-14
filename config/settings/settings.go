@@ -25,8 +25,6 @@ import (
 	"strings"
 )
 
-var initConfigDone = false
-
 // ReadConfig uses Viper to read the configuration from .secrets.* files or Env Vars
 // TODO:  list config items
 func ReadConfig() {
@@ -35,13 +33,23 @@ func ReadConfig() {
 	{
 		// NOTE: We wrap these statements into a block to support the 'nolint' above
 		//       This is because BindEnv() can return an error if no args are provided:
-		viper.BindEnv("debug")
-		viper.BindEnv("base")
+		if err := viper.BindEnv("debug"); err != nil {
+			log.WithField("Error", err).Panic(`When viper.BindEnv("debug")`)
+		}
+		if err := viper.BindEnv("base"); err != nil {
+			log.WithField("Error", err).Panic(`When viper.BindEnv("base")`)
+		}
 
-		viper.BindEnv("dotenv.skip", "SKIP_SECRETS")
+		if err := viper.BindEnv("dotenv.skip", "SKIP_SECRETS"); err != nil {
+			log.WithField("Error", err).Panic(`When viper.BindEnv("dotenv.skip")`)
+		}
 
-		viper.BindEnv("application.name", "APPLICATION_NAME")
-		viper.BindEnv("application.environment", "ENVIRONMENT")
+		if err := viper.BindEnv("application.name", "APPLICATION_NAME"); err != nil {
+			log.WithField("Error", err).Panic(`When viper.BindEnv("application.name")`)
+		}
+		if err := viper.BindEnv("application.environment", "ENVIRONMENT"); err != nil {
+			log.WithField("Error", err).Panic(`When viper.BindEnv("application.environment")`)
+		}
 	}
 
 	// This means any "." chars in a FQ config name will be replaced with "_"
@@ -66,6 +74,8 @@ func ReadConfig() {
 // AddConfigItems adds a new configuration item, and makes it overridable by env vars
 func AddConfigItems(configItems []string) {
 	for _, item := range configItems {
-		viper.BindEnv(item) // nolint: gosec
+		if err := viper.BindEnv(item); err != nil {
+			log.WithFields(log.Fields{"Error": err, "ConfigKey": item}).Panic("When viper.BindEnv($ConfigKey)")
+		} // nolint: gosec
 	}
 }

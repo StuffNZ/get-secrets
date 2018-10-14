@@ -27,7 +27,7 @@ RUN if [ -f /etc/debian_version ]; then \
     \
     elif [ -f /etc/alpine-release ]; then \
       apk upgrade --no-cache --update && \
-      apk add --no-cache --update ca-certificates git make; \
+      apk add --no-cache --update ca-certificates git make build-base; \
     fi
 
 COPY $DOCKER_BASE/ /app
