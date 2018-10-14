@@ -1,7 +1,7 @@
 package dotenv_test
 
 import (
-	. "bitbucket.org/mexisme/build-dotenv/dotenv"
+	. "bitbucket.org/mexisme/get-secrets/dotenv"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
