@@ -2,7 +2,7 @@ package version
 
 const (
 	application = "get-secrets"
-	release     = "0.3.9"
+	release     = "0.3.9.1"
 )
 
 // Application is the "friendly" name for this code
