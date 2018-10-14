@@ -2,7 +2,7 @@ package exec
 
 import "github.com/mexisme/multiconfig/env"
 
-// Envs interfaces to a type supporting the Combins() method
+// Envs interfaces to a type supporting the Combines() method
 type Envs interface {
 	ToOsEnviron() (env.Envs, error)
 }
