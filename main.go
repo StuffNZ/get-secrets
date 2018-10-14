@@ -42,6 +42,8 @@ func main() {
 		dotenv.ReadFromS3(secrets)
 	}
 
+	// Add the SSM / KMS stuff in here?
+
 	secrets.AddItem(env.New().FromOsEnviron())
 	envs := dotenv.EnvMerge(secrets)
 

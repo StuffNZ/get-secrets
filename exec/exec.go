@@ -25,7 +25,8 @@ func (s *Details) Exec() error {
 	}
 
 	log.Infof("Running command %v (%v)...", s.command, binPath)
-	return syscall.Exec(binPath, s.command, envs)
+	// Need to suppress "warning: Subprocess launched with variable,MEDIUM,HIGH (gosec)"
+	return syscall.Exec(binPath, s.command, envs) // nolint: gosec
 }
 
 func (s *Details) bin() (string, error) {
