@@ -9,14 +9,21 @@ import (
 	"github.com/subosito/gotenv"
 )
 
-// AddFromString TODO
+/*
+AddFromString allows to add new *.env string to the list of DotEnvs
+
+- Need to provide the body-content as a string.
+
+- Need to provide a "path" to where the .env was read from, to allow for combination based on lexical-order of this path.
+
+- This gets parsed immediately, not deferred until combined.
+*/
+// TODO: Is "path" the wrong name for this?
 func (s *DotEnvs) AddFromString(path string, body string) error {
 	if path == "" {
-		log.Error("Empty path!")
 		return fmt.Errorf("Empty path provided")
 	}
 	if body == "" {
-		log.Error("Empty body!")
 		return fmt.Errorf("Empty body from %#v", path)
 	}
 
@@ -26,7 +33,15 @@ func (s *DotEnvs) AddFromString(path string, body string) error {
 	return nil
 }
 
-// Combine TODO
+/*
+Combine Combine all the .env's provided into a single .env map
+
+Returns a new .env map (gotenv.Env) with the combined .env's.
+The .env's are combined by lexical-ordering of the "path" field;
+
+i.e. an .env with a "path" of "z..." will be added after those with a "path" of "a..."
+*/
+// TODO: Need to make sure file's named ".env" (only) are parsed last, somehow...
 func (s *DotEnvs) Combine() map[string]string {
 	joinedEnv := make(gotenv.Env)
 

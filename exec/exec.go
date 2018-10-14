@@ -7,7 +7,12 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// Exec TODO
+/*
+Exec runs the provided "command".
+
+It looks-up the FQ Path to the command, also combines the given os.Environ (copy) and .env KV maps into a
+new os.Environ []string and passes these into the syscall.Exec() function.
+*/
 func (s *Details) Exec() error {
 	binPath, err := exec.LookPath(s.command[0])
 	if err != nil {

@@ -16,13 +16,12 @@ import (
 	"github.com/subosito/gotenv"
 )
 
-// EnvRead TODO
-type EnvRead struct {
+type envRead struct {
 	bodies []string
 	envs   []gotenv.Env
 }
 
-func (s *EnvRead) readCallback(path, body string) error {
+func (s *envRead) readCallback(path, body string) error {
 	if path == "" {
 		return fmt.Errorf("Empty path")
 	}
@@ -39,18 +38,18 @@ func (s *EnvRead) readCallback(path, body string) error {
 
 var _ = Describe("The main Integration Tests", func() {
 	var (
-		env   *EnvRead
+		env   *envRead
 		s3url *urlish.Path
 		s3    *s3ish.Details
 	)
 
 	BeforeEach(func() {
-		env = &EnvRead{
+		env = &envRead{
 			bodies: make([]string, 0),
 			envs:   make([]gotenv.Env, 0),
 		}
 
-		// s3url = urlish.New().WithURL(viper.GetString("s3.path"))
+		// s3url = urlish.New().WithURL(viper.GetString("s3.dotenv_path"))
 		s3url = urlish.New().WithURL("s3://kiwiops-ecs-staging-env/stuff-brightcove-video-service")
 		s3 = s3ish.New().WithSource(s3url)
 	})
@@ -72,7 +71,7 @@ var _ = Describe("The main Integration Tests", func() {
 
 		Describe("(including object contents)", func() {
 			It("reads the env files from S3", func() {
-				errs := s3.ReadList(s3lists, env.readCallback)
+				errs := s3.ReadListToCallback(s3lists, env.readCallback)
 
 				Expect(env.envs).To(Not(BeEmpty()))
 				Expect(errs).To(BeNil())
@@ -81,7 +80,7 @@ var _ = Describe("The main Integration Tests", func() {
 			It("fails to read the env files from S3", func() {
 				s3lists = append(s3lists, "")
 				s3lists = append(s3lists, "lol")
-				errs := s3.ReadList(s3lists, env.readCallback)
+				errs := s3.ReadListToCallback(s3lists, env.readCallback)
 
 				Expect(errs).To(Not(BeNil()))
 			})
@@ -95,7 +94,7 @@ var _ = Describe("The main Integration Tests", func() {
 			})
 
 			It("reads the env files from S3", func() {
-				errs := s3.ReadList(s3lists, envs.AddFromString)
+				errs := s3.ReadListToCallback(s3lists, envs.AddFromString)
 
 				Expect(errs).To(BeNil())
 			})
