@@ -29,7 +29,7 @@ func Configure() {
 	}
 
 	// TODO: Should this be a Debug message?
-	log.Infof("## %#v release %v ##", version.Application(), version.Release())
+	log.Infof("## %#v release %v %v ##", version.Application(), version.Release(), version.BuildDate())
 
 	if viper.GetBool("debug") {
 		log.SetLevel(log.DebugLevel)
