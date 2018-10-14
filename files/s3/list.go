@@ -21,7 +21,7 @@ func (s Details) List() ([]string, error) {
 }
 
 func (s Details) s3ListObjectsOutput() (*s3.ListObjectsOutput, error) {
-	bucket, prefix := s.source.Bucket(), s.source.Prefix()
+	bucket, prefix := s.source.Bucket(), s.source.PrefixDir()
 	params := &s3.ListObjectsInput{
 		Bucket: &bucket,
 		Prefix: &prefix,
