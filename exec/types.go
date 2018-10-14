@@ -1,14 +1,13 @@
 package exec
 
-// DotEnv interfaces to a type supporting the Combins() method
-type DotEnv interface {
-	Combine() map[string]string
+// Envs interfaces to a type supporting the Combins() method
+type Envs interface {
+	ToOsEnviron() []string
 }
 
 // Details is simply the struct method-wrapper for the "exec" package
 type Details struct {
-	env     []string
-	dotEnvs DotEnv
+	envs    Envs
 	command []string
 }
 
@@ -17,20 +16,11 @@ func New() *Details {
 	return &Details{}
 }
 
-// WithDotEnvs creates a new exec.Details struct with the .env KV map object copied-in
-func (s *Details) WithDotEnvs(dotEnvs DotEnv) *Details {
+// WithEnvs creates a new exec.Details struct with the .env KV map object copied-in
+func (s *Details) WithEnvs(envs Envs) *Details {
 	clone := *s // This does a shallow clone
 
-	clone.dotEnvs = dotEnvs
-
-	return &clone
-}
-
-// WithEnviron creates a new exec.Details struct with the os.Environ object copied-in
-func (s *Details) WithEnviron(env []string) *Details {
-	clone := *s // This does a shallow clone
-
-	clone.env = env
+	clone.envs = envs
 
 	return &clone
 }

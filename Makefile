@@ -13,7 +13,6 @@ GO      = go
 GO_TEST = $(GINKGO) -r -p -v
 GODOC   = godoc
 GOFMT   = gofmt
-GLIDE   = glide
 TIMEOUT = 15
 V = 0
 Q = $(if $(filter 1,$V),,@)
@@ -36,35 +35,31 @@ GOLINT = $(BIN)/golint
 $(BIN)/golint: | $(BASE) ; $(info $(M) building golint...)
 	$Q go get github.com/golang/lint/golint
 
-GOCOVMERGE = $(BIN)/gocovmerge
-$(BIN)/gocovmerge: | $(BASE) ; $(info $(M) building gocovmerge...)
-	$Q go get github.com/wadey/gocovmerge
+# GOCOVMERGE = $(BIN)/gocovmerge
+# $(BIN)/gocovmerge: | $(BASE) ; $(info $(M) building gocovmerge...)
+# 	$Q go get github.com/wadey/gocovmerge
 
-GOCOV = $(BIN)/gocov
-$(BIN)/gocov: | $(BASE) ; $(info $(M) building gocov...)
-	$Q go get github.com/axw/gocov/...
+# GOCOV = $(BIN)/gocov
+# $(BIN)/gocov: | $(BASE) ; $(info $(M) building gocov...)
+# 	$Q go get github.com/axw/gocov/...
 
-GOCOVXML = $(BIN)/gocov-xml
-$(BIN)/gocov-xml: | $(BASE) ; $(info $(M) building gocov-xml...)
-	$Q go get github.com/AlekSi/gocov-xml
+# GOCOVXML = $(BIN)/gocov-xml
+# $(BIN)/gocov-xml: | $(BASE) ; $(info $(M) building gocov-xml...)
+# 	$Q go get github.com/AlekSi/gocov-xml
 
-GO2XUNIT = $(BIN)/go2xunit
-$(BIN)/go2xunit: | $(BASE) ; $(info $(M) building go2xunit...)
-	$Q go get github.com/tebeka/go2xunit
+# GO2XUNIT = $(BIN)/go2xunit
+# $(BIN)/go2xunit: | $(BASE) ; $(info $(M) building go2xunit...)
+# 	$Q go get github.com/tebeka/go2xunit
 
-.PHONY: glide
-GLIDE = $(BIN)/glide
-glide: $(GLIDE)
-$(BIN)/glide: | $(BASE) ; $(info $(M) building glide...)
-	$Q go get github.com/Masterminds/glide
+.PHONY: go-dep
+GODEP = $(BIN)/dep
+go-dep: $(GODEP)
+$(GODEP): | $(BASE) ; $(info $(M) building go-dep...)
+	$Q go get -u github.com/golang/dep/cmd/dep
 
 GINKGO = $(BIN)/ginkgo
-$(BIN)/ginkgo: | $(BASE) ; $(info $(M) building ginkgo...)
-	$Q go get github.com/onsi/ginkgo/ginkgo
-
-# GOMEGA = $(BIN)/gomega
-# $(BIN)/gomega: | $(BASE) ; $(info $(M) building gomega...)
-# 	$Q go get github.com/onsi/gomega
+$(GINKGO): | $(BASE) ; $(info $(M) building ginkgo...)
+	$Q go get -u github.com/onsi/ginkgo/ginkgo
 
 # Tests
 
@@ -84,44 +79,27 @@ $(TEST_TARGETS) $(INTEGRATION_TEST_TARGETS): test
 check test tests: fmt lint quick-test
 quick-check quick-test: vendor | $(BASE) $(GINKGO) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests
 	$Q cd $(BASE) && $(GO_TEST) $(ARGS) $(SKIP_ARGS) $(TESTPKGS)
-#	$Q cd $(BASE) && $(GO) test -timeout $(TIMEOUT)s $(ARGS) $(TESTPKGS)
 
-test-xml: fmt lint quick-text-xml
-quick-test-xml: fmt lint vendor | $(BASE) $(GO2XUNIT) ; $(info $(M) running $(NAME:%=% )tests...) @ ## Run tests with xUnit output
-	$Q cd $(BASE) && 2>&1 $(GO) test -timeout 20s -v $(TESTPKGS) | tee test/tests.output
-	$(GO2XUNIT) -fail -input test/tests.output -output test/tests.xml
-
-COVERAGE_MODE = atomic
-COVERAGE_PROFILE = $(COVERAGE_DIR)/profile.out
-COVERAGE_XML = $(COVERAGE_DIR)/coverage.xml
-COVERAGE_HTML = $(COVERAGE_DIR)/index.html
-.PHONY: test-coverage test-coverage-tools
-test-coverage-tools: | $(GOCOVMERGE) $(GOCOV) $(GOCOVXML)
-test-coverage: fmt lint quick-test-coverage
-quick-test-coverage: COVERAGE_DIR := $(CURDIR)/test/coverage.$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
-quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running coverage tests...) @ ## Run coverage tests
-	$Q mkdir -p $(COVERAGE_DIR)/coverage
-	$Q cd $(BASE) && for pkg in $(TESTPKGS); do \
-		$(GO_TEST) \
-			-covermode=$(COVERAGE_MODE) \
-			-coverprofile="$(COVERAGE_DIR)/coverage/`echo $$pkg | tr "/" "-"`.cover" $$pkg ;\
-	 done
-	$Q $(GOCOVMERGE) $(COVERAGE_DIR)/coverage/*.cover > $(COVERAGE_PROFILE)
-	$Q $(GO) tool cover -html=$(COVERAGE_PROFILE) -o $(COVERAGE_HTML)
-	$Q $(GOCOV) convert $(COVERAGE_PROFILE) | $(GOCOVXML) > $(COVERAGE_XML)
+# COVERAGE_MODE = atomic
+# COVERAGE_PROFILE = $(COVERAGE_DIR)/profile.out
+# COVERAGE_XML = $(COVERAGE_DIR)/coverage.xml
+# COVERAGE_HTML = $(COVERAGE_DIR)/index.html
+# .PHONY: test-coverage test-coverage-tools
+# test-coverage-tools: | $(GOCOVMERGE) $(GOCOV) $(GOCOVXML)
+# test-coverage: fmt lint quick-test-coverage
+# quick-test-coverage: COVERAGE_DIR := $(CURDIR)/test/coverage.$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 # quick-test-coverage: vendor test-coverage-tools | $(BASE) ; $(info $(M) running coverage tests...) @ ## Run coverage tests
 # 	$Q mkdir -p $(COVERAGE_DIR)/coverage
 # 	$Q cd $(BASE) && for pkg in $(TESTPKGS); do \
-# 		$(GO) test \
-# 			-coverpkg=$$($(GO) list -f '{{ join .Deps "\n" }}' $$pkg | \
-# 					grep '^$(PACKAGE)/' | grep -v '^$(PACKAGE)/vendor/' | \
-# 					tr '\n' ',')$$pkg \
+# 		$(GO_TEST) \
 # 			-covermode=$(COVERAGE_MODE) \
 # 			-coverprofile="$(COVERAGE_DIR)/coverage/`echo $$pkg | tr "/" "-"`.cover" $$pkg ;\
 # 	 done
 # 	$Q $(GOCOVMERGE) $(COVERAGE_DIR)/coverage/*.cover > $(COVERAGE_PROFILE)
 # 	$Q $(GO) tool cover -html=$(COVERAGE_PROFILE) -o $(COVERAGE_HTML)
 # 	$Q $(GOCOV) convert $(COVERAGE_PROFILE) | $(GOCOVXML) > $(COVERAGE_XML)
+
+# Code format
 
 .PHONY: lint
 lint: vendor | $(BASE) $(GOLINT) ; $(info $(M) running golint...) @ ## Run golint
@@ -137,15 +115,17 @@ fmt: ; $(info $(M) running gofmt...) @ ## Run gofmt on all source files
 
 # Dependency management
 
-glide.lock: glide.yaml | $(BASE) $(GLIDE) ; $(info $(M) updating dependencies...)
-	$Q cd $(BASE) && $(GLIDE) update
+Gopkg.lock: Gopkg.toml | $(BASE) $(GODEP) ; $(info $(M) updating dependencies...)
+	$Q cd $(BASE) && $(GODEP) ensure -update && $(GODEP) prune
 	@touch $@
-vendor: glide.lock | $(BASE) $(GLIDE) ; $(info $(M) retrieving dependencies...)
-	$Q cd $(BASE) && $(GLIDE) --quiet install
+vendor: Gopkg.lock | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
+	$Q cd $(BASE) && $(GODEP) ensure
 	@ln -sf . vendor/src
 	@touch $@
-vendor-update: glide.lock | $(BASE) $(GLIDE) ; $(info $(M) retrieving dependencies...)
-	$Q cd $(BASE) && $(GLIDE) update
+.PHONY: go-dep-init
+go-dep-init: Gopkg.lock | $(BASE) $(GODEP) ; $(info $(M) retrieving dependencies...)
+	$Q cd $(BASE) && $(GODEP) init
+	@touch $@
 
 # Misc
 
