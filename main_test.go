@@ -7,98 +7,28 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"bitbucket.org/mexisme/get-secrets/dotenv"
-	s3ish "bitbucket.org/mexisme/get-secrets/files/s3"
-	urlish "bitbucket.org/mexisme/get-secrets/files/s3/s3url"
-	"fmt"
-	"strings"
-
-	"github.com/subosito/gotenv"
+	"github.com/spf13/viper"
+	"os"
 )
 
-// EnvRead TODO
-type EnvRead struct {
-	bodies []string
-	envs   []gotenv.Env
-}
+var _ = Describe("The main package", func() {
+	var s3PathEnvVarName = "SECRETS_S3_PATH"
 
-func (s *EnvRead) readCallback(path, body string) error {
-	if path == "" {
-		return fmt.Errorf("Empty path")
-	}
-	if body == "" {
-		return fmt.Errorf("Empty body")
-	}
-
-	env := gotenv.Parse(strings.NewReader(body))
-	s.bodies = append(s.bodies, body)
-	s.envs = append(s.envs, env)
-
-	return nil
-}
-
-var _ = Describe("The main Integration Tests", func() {
-	var (
-		env   *EnvRead
-		s3url *urlish.Path
-		s3    *s3ish.Details
-	)
-
-	BeforeEach(func() {
-		env = &EnvRead{
-			bodies: make([]string, 0),
-			envs:   make([]gotenv.Env, 0),
-		}
-
-		// s3url = urlish.New().WithURL(viper.GetString("s3.path"))
-		s3url = urlish.New().WithURL("s3://kiwiops-ecs-staging-env/stuff-brightcove-video-service")
-		s3 = s3ish.New().WithSource(s3url)
+	It("setting env-var gets read by Viper", func() {
+		viper.BindEnv("testmain")
+		os.Setenv("SECRETS_TESTMAIN", "test-secrets")
+		Expect(viper.GetString("testmain")).To(Equal("test-secrets"))
 	})
 
-	Describe("when reading from S3", func() {
-		var (
-			s3lists []string
-			err     error
-		)
+	It("setting s3.path passes-into Viper", func() {
+		envVal, envExists := os.LookupEnv(s3PathEnvVarName)
+		os.Setenv(s3PathEnvVarName, "test-secrets")
 
-		BeforeEach(func() {
-			s3lists, err = s3.List()
-		})
-
-		It("reads the file-list from S3", func() {
-			Expect(s3lists).To(Not(BeEmpty()))
-			Expect(err).To(BeNil())
-		})
-
-		Describe("(including object contents)", func() {
-			It("reads the env files from S3", func() {
-				errs := s3.ReadList(s3lists, env.readCallback)
-
-				Expect(env.envs).To(Not(BeEmpty()))
-				Expect(errs).To(BeNil())
-			})
-
-			It("fails to read the env files from S3", func() {
-				s3lists = append(s3lists, "")
-				s3lists = append(s3lists, "lol")
-				errs := s3.ReadList(s3lists, env.readCallback)
-
-				Expect(errs).To(Not(BeNil()))
-			})
-		})
-
-		Describe("(including parsing the object contents)", func() {
-			var envs *dotenv.DotEnvs
-
-			BeforeEach(func() {
-				envs = dotenv.New()
-			})
-
-			It("reads the env files from S3", func() {
-				errs := s3.ReadList(s3lists, envs.AddFromString)
-
-				Expect(errs).To(BeNil())
-			})
-		})
+		Expect(viper.GetString("s3.path")).To(Equal("test-secrets"), "Env Var name = %#v", s3PathEnvVarName)
+		if envExists {
+			os.Setenv(s3PathEnvVarName, envVal)
+		} else {
+			os.Unsetenv(s3PathEnvVarName)
+		}
 	})
 })
