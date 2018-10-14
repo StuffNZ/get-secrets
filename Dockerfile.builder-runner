@@ -7,14 +7,17 @@
 # Note: Your $PARENT base OS/Distribution (Debian or Alpine) must be compatible with the Golang builder base.
 #      A Golang binary built with Debian won't usually work on Alpine out-of-the-box, for example
 
-ARG PARENT
+# Debian-based builder:
+#ARG PARENT_BUILD=golang:1.9
+#ARG PARENT=debian
+
+# Alpine-based builder:
+ARG PARENT_BUILD=golang:1.10-alpine
+ARG PARENT=alpine
 
 ##########
 
-# Debian-based builder:
-# FROM golang:1.8 as builder
-# Alpine-based builder:
-FROM golang:1.8-alpine as builder
+FROM $PARENT_BUILD as builder
 
 ARG DOCKER_BASE=.
 
@@ -29,7 +32,7 @@ RUN if [ -f /etc/debian_version ]; then \
 
 COPY $DOCKER_BASE/ /app
 
-RUN cd /app && make
+RUN cd /app && make clean test-default all
 
 ##########
 

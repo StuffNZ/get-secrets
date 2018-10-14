@@ -1,18 +1,11 @@
 package dotenv
 
 import (
-	"github.com/subosito/gotenv"
+	"bitbucket.org/mexisme/get-secrets/dotenv/env"
 )
 
-// BodyEnv contains the given "path" and "body" of a .env, as well as the parsed .env KV map
-type BodyEnv struct {
-	path string
-	body string
-	env  gotenv.Env
-}
-
 // BodyEnvMap contains map of "path" --> BodyEnv structs
-type BodyEnvMap map[string]BodyEnv
+type BodyEnvMap map[string]*env.BodyEnv
 
 // DotEnvs is simply the struct method-wrapper for the "dotenv" package
 type DotEnvs struct {

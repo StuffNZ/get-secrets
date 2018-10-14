@@ -122,6 +122,60 @@ In a Docker container, you won't be able to use `~/.aws/credentials` (etc) witho
 creating or mounting that dir into the container, and on a non-ECS container, you won't have
 access to the http://169.x.x.x service.
 
+# Testing your config
+
+There are two ways to test `get-secrets`. One involves building locally, the other involves
+building a Docker container.
+
+The first requires Go to be installed locally, and is a little faster, but the latter allows
+better control against unexpected differences in your machine c.f. the target machinewhere you
+would run the command.
+
+If you run one of the following (changing the appropriate entries, e.g. {ChangeMe}):
+
+## Local Testing
+
+```bash
+
+make clean test all
+
+(
+  export \
+    AWS_ACCESS_KEY_ID='{ChangeMe}' AWS_SECRET_ACCESS_KEY='{ChangeMe}' \
+    AWS_DEFAULT_REGION={ChangeMe} \
+    SECRETS_S3_DOTENV_PATH='s3://{BUCKET}/{PREFIX}' \
+    APPLICATION_NAME=test -e ENVIRONMENT=envtest \
+    SECRETS_DEBUG=1;
+  ./bin/bitbucket.org/mexisme/get-secrets
+)
+```
+
+## Docker Testing
+
+```bash
+docker build --tag get-secrets .
+
+docker run \
+  -e 'AWS_ACCESS_KEY_ID={ChangeMe}' -e 'AWS_SECRET_ACCESS_KEY={ChangeMe}' \
+  -e AWS_DEFAULT_REGION={ChangeMe} \
+  -e SECRETS_S3_DOTENV_PATH='s3://{BUCKET}/{PREFIX}' \
+  -e APPLICATION_NAME=test -e ENVIRONMENT=envtest \
+  -e SECRETS_DEBUG=1 \
+  -it --rm --entrypoint sh get-secrets:latest
+
+./get-secrets
+```
+
+... the `get-secrets` app should print out a list of environment variables, in the format they'll
+be sent via the `execve(2)` stdlib function.
+
+Note that `execve(2)` uses a much simpler format for parsing env-vars provided to it:
+- it splits each line at the first `=` character
+- the portion to the left of the split is the env-var name
+- the portion to the right is the contents
+-- shell-style quoting and escaping rules *do not* apply when passing from `get-secrets` to
+   the app / binary, but they *do* apply when parsing `.env` formatted files.
+
 # Alternatives
 
 - Kubernetes Secrets
