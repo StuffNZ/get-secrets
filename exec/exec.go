@@ -19,8 +19,13 @@ func (s *Details) Exec() error {
 		return err
 	}
 
+	envs, err := s.envs.ToOsEnviron()
+	if err != nil {
+		return err
+	}
+
 	log.Infof("Running command %v (%v)...", s.command, binPath)
-	return syscall.Exec(binPath, s.command, s.envs.ToOsEnviron())
+	return syscall.Exec(binPath, s.command, envs)
 }
 
 func (s *Details) bin() (string, error) {
