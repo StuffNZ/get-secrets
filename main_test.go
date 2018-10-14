@@ -4,18 +4,21 @@ import (
 	// TODO: Add this back when some tests are written:
 	// . "bitbucket.org/mexisme/get-secrets"
 
+	"os"
+
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"os"
 )
 
 var _ = Describe("The main package", func() {
 	var s3PathEnvVarName = "SECRETS_S3_DOTENV_PATH"
 
 	It("setting env-var gets read by Viper", func() {
-		viper.BindEnv("testmain")
+		if err := viper.BindEnv("testmain"); err != nil {
+			log.WithField("Error", err).Panic(`When viper.BindEnv("testmain")`)
+		}
 		os.Setenv("SECRETS_TESTMAIN", "test-secrets")
 		Expect(viper.GetString("testmain")).To(Equal("test-secrets"))
 	})
