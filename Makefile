@@ -52,19 +52,19 @@ strip-linux: strip
 
 GOLINT = golangci-lint
 $(GOLINT): ; $(info $(M) building $(GOLINT)...)
-	$Q cd && go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+	$Q cd && GO111MODULE=off go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 
 GINKGO = ginkgo
 $(GINKGO): ; $(info $(M) building $(GINKGO)...)
-	$Q cd && go get -u github.com/onsi/ginkgo/ginkgo
+	$Q cd && GO111MODULE=off go get -u github.com/onsi/ginkgo/ginkgo
 
 GOCOVMERGE = gocovmerge
 $(GOCOVMERGE): ; $(info $(M) building $(GOCOVMERGE)...)
-	$Q cd && go get -u github.com/wadey/gocovmerge
+	$Q cd && GO111MODULE=off go get -u github.com/wadey/gocovmerge
 
 GOCOV = gocov
 $(GOCOV): ; $(info $(M) building $(GOCOV)...)
-	$Q cd && go get -u github.com/axw/gocov/...
+	$Q cd && GO111MODULE=off go get -u github.com/axw/gocov/...
 
 .PHONY: $(GOLINT) $(GINKGO) $(GOCOVMERGE) $(GOCOV)
 
