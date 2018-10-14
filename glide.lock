@@ -1,5 +1,5 @@
 hash: 34ba7fe1e55b1879a8ae0e4ff7076366d23d0a33be6d13371d57c5d177d3b340
-updated: 2017-06-25T21:28:14.700266322+12:00
+updated: 2017-06-26T16:26:48.03391763+12:00
 imports:
 - name: github.com/aws/aws-sdk-go
   version: 72e42b13da62269f68308fb6068b7ea691a416a4
@@ -103,24 +103,7 @@ testImports:
 - name: github.com/onsi/ginkgo
   version: 77a8c1e5c40d6bb6c5eb4dd4bdce9763564f6298
   subpackages:
-  - config
   - ginkgo
-  - internal/codelocation
-  - internal/containernode
-  - internal/failer
-  - internal/leafnodes
-  - internal/remote
-  - internal/spec
-  - internal/spec_iterator
-  - internal/specrunner
-  - internal/suite
-  - internal/testingtproxy
-  - internal/writer
-  - reporters
-  - reporters/stenographer
-  - reporters/stenographer/support/go-colorable
-  - reporters/stenographer/support/go-isatty
-  - types
 - name: github.com/onsi/gomega
   version: 334b8f472b3af5d541c5642701c1e29e2126f486
   subpackages:
