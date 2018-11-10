@@ -6,7 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	"github.com/hashicorp/go-multierror"
+	multierror "github.com/hashicorp/go-multierror"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -63,6 +63,7 @@ func (s *Details) ReadToString(subPath string) (string, error) {
 		return "", err
 	}
 
+	//nolint:gocritic
 	bufString := string(buf[:])
 	return bufString, nil
 }

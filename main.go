@@ -15,13 +15,13 @@ import (
 	"bitbucket.org/mexisme/get-secrets/dotenv"
 	"bitbucket.org/mexisme/get-secrets/errors"
 	execish "bitbucket.org/mexisme/get-secrets/exec"
-
 	"github.com/mexisme/multiconfig"
 	"github.com/mexisme/multiconfig/env"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
+//nolint:gochecknoinits
 func init() {
 	config.ImportMe()
 }

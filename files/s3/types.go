@@ -3,11 +3,11 @@ package s3
 import (
 	"bitbucket.org/mexisme/get-secrets/config"
 	configAws "bitbucket.org/mexisme/get-secrets/config/aws"
-
 	"github.com/aws/aws-sdk-go/service/s3"
 	log "github.com/sirupsen/logrus"
 )
 
+//nolint:gochecknoinits
 func init() {
 	config.AddConfigItems([]string{"s3.dotenv_path"})
 }
@@ -71,6 +71,8 @@ func (s *Details) S3() *s3.S3 {
 	return s.s3Session
 }
 
+// TODO: 'error' is unused:
+//nolint:unparam
 func (s *Details) newS3Session() (*s3.S3, error) {
 	s3Session := s3.New(s.awsConfig.Session(), s.awsConfig.Config())
 	log.WithFields(log.Fields{"s3Session": s3Session}).Debug("Created new S3 Session")
