@@ -1,5 +1,6 @@
 package version
 
+//nolint:gochecknoglobals
 var (
 	application = "get-secrets"
 	release     = "---"

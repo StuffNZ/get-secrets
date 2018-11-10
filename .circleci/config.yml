@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: 'golang:1.11-alpine'
+    steps:
+      - run: |
+          apk upgrade --no-cache --update
+          apk add --no-cache --update ca-certificates git build-base
+      - checkout
+      - run: make clean
+      - run: make test-default

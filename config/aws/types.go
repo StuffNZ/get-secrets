@@ -2,13 +2,13 @@ package aws
 
 import (
 	"bitbucket.org/mexisme/get-secrets/config"
-
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
 	log "github.com/sirupsen/logrus"
 )
 
+//nolint:gochecknoinits
 func init() {
 	config.AddConfigItems([]string{"aws.region"})
 }

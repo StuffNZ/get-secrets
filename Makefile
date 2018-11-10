@@ -124,10 +124,12 @@ dep-update: go.mod ; $(info $(M) updating dependencies...)
 
 # Misc
 
-.PHONY: clean
-clean: dep-update ; $(info $(M) cleaning...)	@ ## Cleanup everything
-	$Q go clean
-	@rm -rvf $(BINDIR) $(COVERAGE_FILES) $(COVERAGE_DIR)/$(COVERAGE_PROFILE) $(COVERAGE_DIR)/$(COVERAGE_HTML)
+.PHONY: clean clean-go clean-rm-files
+clean: clean-go clean-rm-files dep-update ; $(info $(M) cleaning...)	@ ## Cleanup everything
+clean-go:
+	$Q go clean -v -modcache
+clean-rm-files:
+	$Q rm -rf $(BINDIR) $(COVERAGE_FILES) $(COVERAGE_DIR)/$(COVERAGE_PROFILE) $(COVERAGE_DIR)/$(COVERAGE_HTML)
 
 .PHONY: help
 help:
