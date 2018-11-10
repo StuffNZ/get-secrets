@@ -71,7 +71,7 @@ RUN mkdir $SECRETS_BASE && \
 
 # We have `NO_SUCH_FILE` to make sure the var is set:
 COPY ${CONFIG_FILE:-MISSING_CONFIG_FILE} /app/.secrets.toml
-COPY --from=builder /app/bin/bitbucket.org/mexisme/get-secrets /app/
+COPY --from=builder /app/bin/get-secrets /app/
 RUN chmod ugo=r /app/.secrets.toml && chmod ugo=rx /app/get-secrets
 
 # Not sure we want to do this; think we'd just share the dir:
