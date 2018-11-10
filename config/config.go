@@ -5,6 +5,7 @@ import (
 	"bitbucket.org/mexisme/get-secrets/config/settings"
 )
 
+//nolint:gochecknoglobals
 var (
 	// We don't want to try to reinitialise the config more than once
 	initConfigDone = false
@@ -12,6 +13,7 @@ var (
 	logConfigDone = false
 )
 
+//nolint:gochecknoinits
 func init() {
 	readConfig()
 	configLogging()
