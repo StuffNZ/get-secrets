@@ -1,4 +1,4 @@
 [linters]
 enable-all = true
 # Megacheck and Typecheck seem to have a lot of difficulty with go modules, atm:
-disable = [ "megacheck", "typecheck" ]
+disable = [ "megacheck", "typecheck", "stylecheck", "gocritic" ]
