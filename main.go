@@ -37,7 +37,6 @@ func main() {
 
 	if viper.GetBool("dotenv.skip") {
 		log.Info("Not getting .env secrets due to configuration")
-
 	} else {
 		dotenv.ReadFromS3(secrets)
 	}
