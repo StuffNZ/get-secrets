@@ -36,7 +36,6 @@ func (s *Details) ReadListToCallback(subPaths []string, f ReadCallback) error {
 	for _, subPath := range subPaths {
 		if body, err := s.ReadToString(subPath); err != nil {
 			errs = multierror.Append(errs, err)
-
 		} else {
 			if errCallback := f(subPath, body); errCallback != nil {
 				errs = multierror.Append(errs, errCallback)

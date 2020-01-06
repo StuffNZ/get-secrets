@@ -14,7 +14,6 @@ func PanicOnErrors(err error) {
 			log.Panic(anErr)
 		}
 		// log.Error("Multiple errors from s3.ReadListToCallback()")
-
 	} else {
 		log.Panic(err)
 	}
