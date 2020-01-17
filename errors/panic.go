@@ -7,13 +7,12 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// PanicOnErrors TODO
+//TODO PanicOnErrors
 func PanicOnErrors(err error) {
 	if merr, ok := err.(*multierror.Error); ok {
 		for _, anErr := range merr.Errors {
 			log.Panic(anErr)
 		}
-		// log.Error("Multiple errors from s3.ReadListToCallback()")
 	} else {
 		log.Panic(err)
 	}
@@ -25,6 +24,9 @@ func Recovery() {
 		// TODO: Re-deliver the stack-trace when debugging
 		// TODO: Change to using "github.com/pkg/errors" to capture stack-traces (instead of panic()!)
 		log.WithFields(log.Fields{"Err": recoveryErr}).Debug("Panic captured")
-		os.Exit(1)
+
+		const unexpectedError = 1
+
+		os.Exit(unexpectedError)
 	}
 }

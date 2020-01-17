@@ -41,8 +41,6 @@ func Configure() {
 			log.Error(err)
 		}
 	}
-
-	// viper.Debug()
 }
 
 func setupSentry(sentryDsn string) error {
@@ -75,7 +73,8 @@ func setupSentry(sentryDsn string) error {
 	//hook.StacktraceConfiguration.Enable = true
 
 	// It seems as if the default 100ms is too short:
-	hook.Timeout = 1 * time.Second
+	const timeout = 1
+	hook.Timeout = timeout * time.Second
 
 	// Now, add it into the Logrus hook-chain
 	log.AddHook(hook)

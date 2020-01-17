@@ -1,7 +1,7 @@
 /*
 Package main is the main loop.
 
-Note the one addiional config field:
+Note the one additional config field:
 
 - s3.dotenv_path ($SECRETS_S3_DOTENV_PATH) -- defines the dir where to read all .env files from
 */
@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"os"
 
-	"bitbucket.org/mexisme/get-secrets/config"
 	"bitbucket.org/mexisme/get-secrets/dotenv"
 	"bitbucket.org/mexisme/get-secrets/errors"
 	execish "bitbucket.org/mexisme/get-secrets/exec"
@@ -20,11 +19,6 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
-
-//nolint:gochecknoinits
-func init() {
-	config.ImportMe()
-}
 
 func main() {
 	// When any other part of the app panics, we'd prefer to give them a "friendlier" face
@@ -42,21 +36,22 @@ func main() {
 	}
 
 	// Add the SSM / KMS stuff in here?
-
 	secrets.AddItem(env.New().FromOsEnviron())
 	envs := dotenv.EnvMerge(secrets)
 
-	if len(os.Args) > 1 {
+	const argsCount = 1
+	if len(os.Args) > argsCount {
 		runner := execish.New().WithEnvs(envs)
-		errors.PanicOnErrors(runner.WithCommand(os.Args[1:]).Exec())
+		errors.PanicOnErrors(runner.WithCommand(os.Args[argsCount:]).Exec())
 	}
 
-	fmt.Println("")
-	fmt.Println("# No command provided to execute")
+	log.Info("# No command provided to execute")
+
 	osEnviron, err := envs.ToOsEnviron()
 	if err != nil {
 		errors.PanicOnErrors(err)
 	}
+
 	for _, envLine := range osEnviron {
 		fmt.Printf("export %s\n", envLine)
 	}

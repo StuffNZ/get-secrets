@@ -36,10 +36,8 @@ func (s *Details) ReadListToCallback(subPaths []string, f ReadCallback) error {
 	for _, subPath := range subPaths {
 		if body, err := s.ReadToString(subPath); err != nil {
 			errs = multierror.Append(errs, err)
-		} else {
-			if errCallback := f(subPath, body); errCallback != nil {
-				errs = multierror.Append(errs, errCallback)
-			}
+		} else if errCallback := f(subPath, body); errCallback != nil {
+			errs = multierror.Append(errs, errCallback)
 		}
 	}
 
@@ -53,8 +51,9 @@ If there are any errors when reading, they are returned.
 */
 func (s *Details) ReadToString(subPath string) (string, error) {
 	if subPath == "" {
-		return "", fmt.Errorf("Path %#v is not valid", subPath)
+		return "", fmt.Errorf("path %#v is not valid", subPath)
 	}
+
 	fqPath := s.source.JoinPath(subPath)
 
 	buf, err := s.readWithFqPath(fqPath)
@@ -62,29 +61,30 @@ func (s *Details) ReadToString(subPath string) (string, error) {
 		return "", err
 	}
 
-	//nolint:gocritic
-	bufString := string(buf[:])
+	bufString := string(buf)
+
 	return bufString, nil
 }
 
 func (s *Details) readWithFqPath(path string) ([]byte, error) {
 	bucket := s.source.Bucket()
+	log.Infof("Reading object s3://%v/%v ...", bucket, path)
+
 	buf := make([]byte, BufferSize)
 	writeBuf := aws.NewWriteAtBuffer(buf)
-
 	downloader := s3manager.NewDownloaderWithClient(s.S3())
-
-	log.Infof("Reading object s3://%v/%v ...", bucket, path)
 	params := &s3.GetObjectInput{
 		Bucket: &bucket,
 		Key:    &path,
 	}
+
 	numBytes, err := downloader.Download(writeBuf, params)
 	if err != nil {
 		log.WithFields(log.Fields{"s3.params": params}).Debug(err)
-		return nil, fmt.Errorf("Could not read %v/%v: %v", bucket, path, err)
+		return nil, fmt.Errorf("could not read %v/%v: %v", bucket, path, err)
 	}
 
 	bufBytes := writeBuf.Bytes()
+
 	return bufBytes[:numBytes], nil
 }

@@ -104,22 +104,26 @@ func (s *Path) urlFromURLString(urlString string) (*url.URL, error) {
 	}
 
 	if url.Scheme == "" {
-		hostPath := strings.SplitN(url.Path, "/", 2)
-		if len(hostPath) < 2 {
-			return nil, fmt.Errorf("Could not split URL <%#v> into host / path; got <%#v>", url, hostPath)
+		const validSymbol = 2
+
+		hostPath := strings.SplitN(url.Path, "/", validSymbol)
+		if len(hostPath) < validSymbol {
+			return nil, fmt.Errorf("could not split URL <%#v> into host / path; got <%#v>", url, hostPath)
 		}
 
 		url.Scheme, url.Host, url.Path, url.RawPath = "s3", hostPath[0], hostPath[1], ""
+
 		log.Debug("Empty URL Scheme provided. Splitting the implied Path into Host / Path...")
 	}
 
 	log.Debugf("Base URL = %#v", url)
+
 	return url, nil
 }
 
 func (s *Path) bucketPrefixFromURL(url *url.URL) (string, string, error) {
 	if url.Scheme != "s3" {
-		return "", "", fmt.Errorf("Base URL Scheme in %v is not supported", url)
+		return "", "", fmt.Errorf("base URL Scheme in %v is not supported", url)
 	}
 
 	return url.Host, url.Path, nil
@@ -127,7 +131,7 @@ func (s *Path) bucketPrefixFromURL(url *url.URL) (string, string, error) {
 
 func (s *Path) tidyBucketPrefix(bucket, prefix string) (string, string, error) {
 	if bucket == "" {
-		return "", "", fmt.Errorf("Empty Bucket provided")
+		return "", "", fmt.Errorf("empty Bucket provided")
 	}
 
 	// Remove leading and trailing `/` (an initial `/` won't work with S3):

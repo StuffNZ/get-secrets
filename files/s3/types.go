@@ -75,6 +75,7 @@ func (s *Details) S3() *s3.S3 {
 //nolint:unparam
 func (s *Details) newS3Session() (*s3.S3, error) {
 	s3Session := s3.New(s.awsConfig.Session(), s.awsConfig.Config())
+
 	log.WithFields(log.Fields{"s3Session": s3Session}).Debug("Created new S3 Session")
 
 	return s3Session, nil

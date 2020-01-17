@@ -58,9 +58,11 @@ func ReadConfig() {
 
 	viper.SetConfigName(".secrets")
 	viper.AddConfigPath("$HOME")
+
 	if os.Getenv("SECRETS_BASE") != "" {
 		viper.AddConfigPath("$SECRETS_BASE/")
 	}
+
 	viper.AddConfigPath(".")
 
 	if err := viper.ReadInConfig(); err == nil {
