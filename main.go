@@ -11,6 +11,8 @@ import (
 	"fmt"
 	"os"
 
+	"bitbucket.org/mexisme/get-secrets/config"
+
 	"bitbucket.org/mexisme/get-secrets/dotenv"
 	"bitbucket.org/mexisme/get-secrets/errors"
 	execish "bitbucket.org/mexisme/get-secrets/exec"
@@ -21,6 +23,7 @@ import (
 )
 
 func main() {
+	config.LoggingConfig()
 	// When any other part of the app panics, we'd prefer to give them a "friendlier" face
 	defer errors.Recovery()
 
