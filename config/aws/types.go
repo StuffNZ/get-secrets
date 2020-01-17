@@ -13,9 +13,9 @@ func init() {
 	config.AddConfigItems([]string{"aws.region"})
 }
 
-// AwsRegion is the default AWS Region
+// Region is the default AWS Region
 // TODO: `Region` should be in a config file (or ~/.aws/config) or in the s3/url package?
-const AwsRegion = "ap-southeast-2"
+const Region = "ap-southeast-2"
 
 // Details for getting Secret files
 type Details struct {
@@ -25,7 +25,7 @@ type Details struct {
 
 // New object
 func New() *Details {
-	return (&Details{}).WithRegion(AwsRegion)
+	return (&Details{}).WithRegion(Region)
 }
 
 // WithRegion creates new struct with `config` updated with the AWS Region
@@ -66,6 +66,7 @@ func (s *Details) newSession() *session.Session {
 		AssumeRoleTokenProvider: stscreds.StdinTokenProvider,
 		SharedConfigState:       session.SharedConfigEnable,
 	}))
+
 	log.WithFields(log.Fields{"session": awsSession}).Debug("Created new AWS Session")
 
 	return awsSession

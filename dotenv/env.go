@@ -8,7 +8,7 @@ import (
 	dotenv "github.com/mexisme/multiconfig/pathed"
 )
 
-// EnvAddConfig TODO
+//TODO EnvAddConfig
 func EnvAddConfig(envs *multiconfig.Map) func(string, string) error {
 	return func(path, body string) error {
 		envs.AddItem(dotenv.New().SetPath(path).SetBody(body))
@@ -16,11 +16,12 @@ func EnvAddConfig(envs *multiconfig.Map) func(string, string) error {
 	}
 }
 
-// EnvMerge TODO
+//nolint:godox TODO EnvMerge
 func EnvMerge(envs *multiconfig.Map) *env.Config {
 	merged, err := envs.Merge()
 	if err != nil {
 		errors.PanicOnErrors(err)
 	}
+
 	return env.New().SetBodyMap(merged)
 }

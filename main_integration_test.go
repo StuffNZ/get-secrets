@@ -26,10 +26,11 @@ type envRead struct {
 
 func (s *envRead) readCallback(path, body string) error {
 	if path == "" {
-		return fmt.Errorf("Empty path")
+		return fmt.Errorf("empty path")
 	}
+
 	if body == "" {
-		return fmt.Errorf("Empty body")
+		return fmt.Errorf("empty body")
 	}
 
 	env := gotenv.Parse(strings.NewReader(body))
