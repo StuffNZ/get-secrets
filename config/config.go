@@ -15,8 +15,7 @@ var (
 
 //nolint:gochecknoinits
 func init() {
-	readConfig()
-	configLogging()
+	LoggingConfig()
 }
 
 // AddConfigItems passes the configItems through to config.AddConfigItems()
@@ -34,7 +33,7 @@ func readConfig() {
 	}
 }
 
-func configLogging() {
+func LoggingConfig() {
 	readConfig()
 
 	// This should make it safe to rerun a few times
