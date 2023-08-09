@@ -13,7 +13,7 @@
 
 # Alpine-based builder:
 ARG PARENT_BUILD=golang:1.11-alpine
-ARG PARENT=alpine
+ARG PARENT=alpine:3.18.3
 
 ##########
 
